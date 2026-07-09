@@ -1,0 +1,345 @@
+:root {
+  --type-font: Cormorant Garamond; 
+  --apple-system: BlinkMacSystemFont, sans-serif;
+  --type-heading: #111827;
+  --type-body: #4b5563;
+  --type-secondary: #6b7280;
+  --type-muted: #9ca3af;
+  --type-brand: #ed0018;
+  --type-h1: clamp(2.25rem, 5vw, 4rem);
+  --type-h2: clamp(1.9rem, 3.6vw, 3rem);
+  --type-h3: clamp(1.35rem, 2.35vw, 2rem);
+  --type-card: clamp(1.125rem, 1.45vw, 1.5rem);
+  --type-body-size: clamp(1rem, 1vw, 1.125rem);
+  --type-small: 0.875rem;
+  --type-button: clamp(0.9375rem, 0.95vw, 1rem);
+  
+}
+
+
+body {
+  color: var(--type-body);
+  font-family: var(--type-font);
+  font-size: var(--type-body-size);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.App {
+  color: var(--type-body);
+  font-family: var(--type-font);
+}
+
+.App :where(h1, h2, h3, h4, h5, h6)
+ {
+  font-family: var(--type-font) !important;
+}
+
+.App :where(h1, h2, h3, h4, h5, h6) {
+  color: var(--type-heading);
+  text-wrap: balance;
+}
+
+.App h1 {
+  font-size: var(--type-h1) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.App h2 {
+ font-family:Cormorant Garamond;
+font-size:54.4px;
+letter-spacing:-1.088px;
+line-height:59.84px;
+}
+
+.App h3 {
+font-family:Cormorant Garamond;
+font-size:24px;
+font-weight:600;
+letter-spacing:-0.24px;
+line-height:28.8px
+}
+
+.App h4 {
+  font-size: clamp(1.125rem, 1.9vw, 1.5rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.28 !important;
+  letter-spacing: 0 !important;
+}
+
+  
+.App h6 {
+  color: var(--type-secondary) !important;
+  font-size: clamp(1rem, 1.35vw, 1.125rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+}
+
+.App :where(p, li) {
+  color: var(--type-body);
+  font-family: Manrope, sans-serif;   /* Changed from var(--type-font) */
+  font-size: 15px;                    /* Changed from var(--type-body-size) */
+  font-weight: 400;
+    line-height: 26.25px;               /* Changed from 1.7 */
+  letter-spacing: 0;
+}
+
+.nav-link :where(Link){
+  font-family:Manrope;
+font-size:13px;
+font-weight:700;
+letter-spacing:0.39px
+
+;
+}
+
+
+.App :where(small, figcaption, .caption, .meta, .blog-date, .allservices-banner-text h4) {
+  color: var(--type-secondary) !important;
+  font-size: var(--type-small) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+}
+
+
+
+.App :where(button, .poster-secondary, .fsq-contact-button, .contact-form__submit, .blog-card a) {
+  font-family: var(--type-font) !important;
+  font-size: var(--type-button) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.App :where(input, textarea, select, label) {
+  color: var(--type-body);
+  font-family: var(--type-font);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.App :where(input, textarea, select)::placeholder {
+  color: var(--type-muted);
+}
+
+.poster h1,
+.contact-left-text h1,
+.webApplication-right-text h1,
+.allservices-banner-text h1 {
+  font-size: var(--type-h1) !important;
+  font-weight: 800 !important;
+  color: var(--type-heading) !important;
+}
+
+.poster p,
+.contact-left-text p,
+.webApplication-right-text p,
+.allservices-banner-text p {
+  color: var(--type-body) !important;
+  font-size: clamp(1rem, 1.35vw, 1.125rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.75 !important;
+}
+
+.blog-header h2,
+.reviews-heading h2,
+.service-showcase-header h2,
+.meta-industries-header h2,
+.youtube-market-content h2,
+.youtube-results-heading h2,
+.seo-overview-copy h2,
+.seo-projects-heading h2,
+.middle-copy-main h2,
+.middle-highlights h3,
+.graphic-process-header h2,
+.graphic-story-content h2,
+.digital-growth-content h2,
+.meta-growth-content h2,
+.webApplication-process-copy h2,
+.fsq-copy h2,
+.allservice-text-heading h2,
+.contact-social h2,
+.about-bottom-content h1 {
+  font-size: var(--type-h2) !important;
+  font-weight: 700 !important;
+  color: var(--type-heading) !important;
+}
+
+.root > h3,
+.root > h4 {
+  color: var(--type-heading) !important;
+  font-weight: 700 !important;
+}
+
+.root > h5,
+.blog-header p,
+.reviews-heading p,
+.service-showcase-header p,
+.meta-industries-header p,
+.youtube-market-content p,
+.youtube-results-heading p,
+.seo-overview-copy p,
+.seo-projects-heading p,
+.middle-copy p,
+.allservice-text-heading p,
+.about-bottom-content > p,
+.graphic-story-content p,
+.digital-growth-content p,
+.meta-growth-content p,
+.webApplication-process-copy p,
+.fsq-copy p {
+  color: var(--type-body) !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+.container h3,
+.blog-card h3,
+.review-author h3,
+.otherservice-track h3,
+.allservice-card h2,
+.service-showcase-card h3,
+.meta-industry-card h3,
+.youtube-result-card h3,
+.youtube-market-card h3,
+.seo-services-card h3,
+.seo-service-item h4,
+.middle-highlight-card h4,
+.middle-support-card h4,
+.middle-testimonial h4,
+.about-bottom-card h3,
+.graphic-process-copy h3,
+.digital-growth-feature h3,
+.webApplication-process-trigger strong,
+.webApplication-panel-title,
+.fsq-card h3,
+.contact-info-card__content h2 {
+  color: var(--type-heading) !important;
+  font-size: var(--type-card) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.container p,
+.blog-card p,
+.review-card p,
+.otherservices p,
+.allservice-card p,
+.service-showcase-card p,
+.meta-industry-card p,
+.youtube-result-card p,
+.youtube-market-card p,
+.seo-service-item p,
+.middle-highlight-card p,
+.middle-support-card p,
+.middle-testimonial p,
+.about-bottom-card p,
+.graphic-process-copy p,
+.digital-growth-feature p,
+.webApplication-panel-text,
+.fsq-card p,
+.contact-info-card__content p {
+  color: var(--type-body) !important;
+  font-size: clamp(0.95rem, 1vw, 1rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+}
+
+.App :where(.eyebrow, .blog-eyebrow, .reviews-eyebrow, .service-showcase-eyebrow, .meta-eyebrow, .fsq-eyebrow) {
+  color: var(--type-brand) !important;
+  font-size: var(--type-small) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+}
+
+.App :where(.seo-projects-heading > span, .youtube-kicker, .poster-kicker) {
+  color: var(--type-brand) !important;
+  font-size: var(--type-small) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+}
+
+.App :where(h1, h2, h3, h4) span {
+  color: var(--type-brand);
+}
+
+.about-container h1,
+.about-container p,
+.allservices-banner-text,
+.allservices-banner-text h1,
+.allservices-banner-text h4,
+.allservices-banner-text p {
+  color: var(--type-heading) !important;
+}
+
+.about-container p,
+.allservices-banner-text p {
+  color: var(--type-body) !important;
+}
+
+.web-services-card strong,
+.about-bottom-progress-top,
+.middle-engagement strong,
+.middle-sales-top {
+  color: var(--type-heading) !important;
+  font-weight: 600 !important;
+}
+
+.middle-engagement span,
+.about-bottom-progress-top span {
+  color: var(--type-secondary) !important;
+  font-weight: 500 !important;
+}
+
+.App :where(.webApplication-process, .webApplication-process-copy, .webApplication-process-copy h2, .webApplication-process-copy p) {
+  color: #ffffff !important;
+}
+
+.webApplication-process-copy h2,
+.webApplication-process-copy p {
+  color: #ffffff !important;
+}
+
+
+
+.footer p,
+.footer li,
+.footer a {
+  font-size: var(--type-small) !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+.footer-column :where(h4 p) {
+font-family:Manrope,sans-serif;
+font-size:13.5px;
+line-height:23.625px
+}
+
+@media (max-width: 768px) {
+  :root {
+    --type-h1: clamp(2.25rem, 10vw, 2.625rem);
+    --type-h2: clamp(1.75rem, 7.5vw, 2rem);
+    --type-h3: clamp(1.25rem, 5vw, 1.5rem);
+    --type-card: clamp(1.125rem, 4.8vw, 1.25rem);
+    --type-body-size: 1rem;
+  }
+
+  .App :where(h1, h2, h3) {
+    letter-spacing: -0.015em !important;
+  }
+
+  .App :where(p, li) {
+    line-height: 1.65;
+  }
+}

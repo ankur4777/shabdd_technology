@@ -1,0 +1,96 @@
+.book-demo button {
+  background-color: #e50914;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  padding: 13px 30px;
+  border-radius: 999px;
+  cursor: pointer;
+  background: linear-gradient(120deg, #b80018 0%, #ff1744 34%, #ff6b35 68%, #d4002f 100%);
+  background-size: 260% 260%;
+  font-family: Manrope, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+      letter-spacing: .04em;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  animation: demoButtonRedFlow 3.2s ease-in-out infinite;
+}
+
+.book-demo button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.42) 46%, transparent 62%);
+  transform: translateX(-120%);
+  animation: demoButtonShine 2.7s ease-in-out infinite;
+}
+
+.book-demo button::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  pointer-events: none;
+}
+
+.book-demo button:hover{
+   transform: translateY(-2px);
+   filter: saturate(1.14) brightness(1.04);
+}
+
+.book-demo {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+@keyframes demoButtonRedFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes demoButtonShine {
+  0%, 35% {
+    transform: translateX(-120%);
+  }
+
+  58%, 100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (max-width: 900px) {
+  .book-demo {
+    grid-column: 1 / -1;
+    order: 4;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    justify-content: stretch;
+    margin: 0;
+  }
+
+  .nav-open .book-demo {
+    display: flex;
+    margin-top: 4px;
+  }
+
+  .book-demo a {
+    width: 100%;
+  }
+
+  .book-demo button {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
