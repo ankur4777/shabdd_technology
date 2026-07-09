@@ -23,7 +23,7 @@
     flex: 1;
     min-width: 20rem;
     padding: 2rem;
-    text-align: justify;
+    text-align:left;
     line-height: 1.7;
 }
 

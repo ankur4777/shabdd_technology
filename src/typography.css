@@ -49,7 +49,7 @@ body {
 
 .App h2 {
  font-family:Cormorant Garamond;
-font-size:54.4px;
+font-size:40px;
 letter-spacing:-1.088px;
 line-height:59.84px;
 }
@@ -76,6 +76,24 @@ line-height:28.8px
   font-weight: 500 !important;
   line-height: 1.6 !important;
   letter-spacing: 0 !important;
+}
+
+.App h7{
+  font-size: 13px;
+    font-weight: 700px;
+    font-family:sans-serif;
+    text-transform: uppercase;
+   
+    color: #9aa0ab;
+    margin-bottom: 3px;
+}
+.App p{
+  color: var(--type-body);
+    font-family: Manrope, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 26.25px;
+    letter-spacing: 0;
 }
 
 .App :where(p, li) {
@@ -139,7 +157,8 @@ letter-spacing:0.39px
 .poster p,
 .contact-left-text p,
 .webApplication-right-text p,
-.allservices-banner-text p {
+.allservices-banner-text p,
+.App p {
   color: var(--type-body) !important;
   font-size: clamp(1rem, 1.35vw, 1.125rem) !important;
   font-weight: 400 !important;
@@ -148,6 +167,7 @@ letter-spacing:0.39px
 
 .blog-header h2,
 .reviews-heading h2,
+.otherservices-heading h2,
 .service-showcase-header h2,
 .meta-industries-header h2,
 .youtube-market-content h2,
@@ -244,11 +264,14 @@ letter-spacing:0.39px
 .digital-growth-feature p,
 .webApplication-panel-text,
 .fsq-card p,
-.contact-info-card__content p {
+.contact-info-card__content p,
+.fsq-answer p ,
+.App h6{
   color: var(--type-body) !important;
   font-size: clamp(0.95rem, 1vw, 1rem) !important;
   font-weight: 400 !important;
   line-height: 1.65 !important;
+  
 }
 
 .App :where(.eyebrow, .blog-eyebrow, .reviews-eyebrow, .service-showcase-eyebrow, .meta-eyebrow, .fsq-eyebrow) {

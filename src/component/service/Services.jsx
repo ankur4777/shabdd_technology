@@ -15,7 +15,7 @@ function Services() {
 
   return (
     <div className="root">
-      <h2>Our Service</h2>
+      <h2>Our <sapn style={{color:"#ff3b30"}}>Service</sapn></h2>
       <h4>Driving Digital Excellence with Tailored Solutions </h4>
       <p style={{ color: 'gray' }}>At Shabdd Technologies, we don't just offer services; we deliver expert-driven solutions designed to empower your business. Explore the unique advantages we bring to the table:</p>
       <div className='services'>

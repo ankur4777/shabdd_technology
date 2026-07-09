@@ -1,12 +1,13 @@
 .web-container{
     display: flex;
-    text-align: justify;
+    text-align:left;
     padding: 1rem;
     justify-content: space-between;
 }
 
 .web-container img{
-width: 24rem;
+
+height:20rem;
 }
 .web-container span{
     color:red
@@ -74,8 +75,8 @@ width: 24rem;
 
 .web-service-label{
     color: #111;
-    font-size: 0.92rem;
-    font-weight: 500;
+    font-size: 1rem;
+
     line-height: 1.2;
     margin-top: 8px;
 }
@@ -133,9 +134,13 @@ width: 24rem;
     }
 
     100%{
-        transform: translateX(-50%);
+        transform: translateX(-35%);
     }
 }
+
+
+    
+    
 
 @media(max-width:862px){
     .web-container img{

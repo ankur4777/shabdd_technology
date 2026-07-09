@@ -447,6 +447,10 @@
     grid-template-columns: 1fr;
   }
 
+  .fsq-visual{
+    display:none
+  }
+
   .fsq-copy {
     max-width: 720px;
     margin: 0 auto;

@@ -84,10 +84,10 @@ function WebApplication() {
       <div className='webApplication-container'>
         <img src="/webApplication/96b0e681-2c80-4656-8ade-81013c9665ea.png" alt="Web application illustration" />
         <div className="webApplication-right-text">
-          <h1>Building Interactive, Scalable, and Secure <span>Online Solutions</span> </h1>
-          <h5>Web application development is all about building dynamic, browser-based software designed to meet your unique business goals.
+          <h2>Building Interactive, Scalable, and Secure <span>Online Solutions</span> </h2>
+          <p>Web application development is all about building dynamic, browser-based software designed to meet your unique business goals.
 
-Unlike static websites, our web apps deliver interactive functionality, real-time data processing, and seamless user experiences that drive efficiency and engagement.</h5>
+Unlike static websites, our web apps deliver interactive functionality, real-time data processing, and seamless user experiences that drive efficiency and engagement.</p>
         </div>
       </div>
     </div>

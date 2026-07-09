@@ -137,6 +137,7 @@
   margin-top: 1.35rem;
   opacity: 0;
   animation: digitalSlideIn 0.65s ease both;
+  text-align:left
 }
 
 .digital-growth-feature:nth-of-type(2){

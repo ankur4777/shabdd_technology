@@ -65,10 +65,10 @@ function FSQ() {
         <div className="fsq-main">
           <div className="fsq-copy">
             <span className="fsq-eyebrow">FAQ</span>
-            <h2>
+            {/* <h2>
               Frequently Asked
               <span>Questions</span>
-            </h2>
+            </h2> */}
             <p>Find quick answers to the most common questions about our services and solutions.</p>
 
             <div className="fsq-list" aria-label="Frequently asked questions">
@@ -86,7 +86,7 @@ function FSQ() {
                       <span className="fsq-question-icon" aria-hidden="true">
                         {item.icon}
                       </span>
-                      <span>{item.question}</span>
+                      <h7>{item.question}</h7>
                       <FaPlus className="fsq-plus" aria-hidden="true" />
                     </button>
 
