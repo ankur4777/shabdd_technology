@@ -133,15 +133,15 @@ function Seo() {
         <div className="seo-overview-panel">
           <div className="seo-overview-copy">
             <h2>Service <span>Overview</span></h2>
-            <div className="seo-overview-line" />
-            <p>
+            <div className="seo-overview-line"/>
+            <p className='seo-overview-p'>
               At Shabdd Technologies, we recognize that search engine visibility is
               fundamental to achieving online success. In today's competitive digital
               world, simply having a website is not enough; your business needs to be
               found by the right audience. That's where our expert SEO Management
               services come in.
             </p>
-            <p>
+            <p className="seo-overview-p">
               We focus on improving your website's ranking on major search engines
               like Google, driving high-quality organic traffic that converts. Our
               comprehensive approach combines on-page SEO, technical optimization,

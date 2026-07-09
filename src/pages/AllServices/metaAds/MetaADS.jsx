@@ -87,7 +87,7 @@ function MetaADS() {
             {optimizationSteps.map((step) => (
               <article className="meta-optimization-step" key={step.title}>
                 <span className="meta-optimization-icon">{step.icon}</span>
-                <div>
+                <div className='meta-text-left'>
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>
                 </div>

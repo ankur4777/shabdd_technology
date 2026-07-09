@@ -117,6 +117,7 @@
   background: #ffffff;
   animation: seoServiceSlide 0.65s ease both;
   transition: transform 0.22s ease;
+  text-align: left;
 }
 
 .seo-service-item:nth-child(2){ animation-delay: 0.1s; }
@@ -268,9 +269,14 @@
 .seo-projects-heading{
   max-width: 900px;
   margin: 0 auto clamp(2.5rem, 5vw, 4rem);
-  text-align: center;
+  text-align:left !important;
   animation: seoOverviewEnter 0.7s ease both;
 
+
+}
+
+.seo-projects-heading p{
+    text-align:left !important;
 }
 
 .seo-projects-heading > span{
@@ -316,7 +322,15 @@
   color: #3f3f46;
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.65;
+
+
 }
+.seo-overview-p{
+  text-align: left;
+}
+
+
+
 
 .seo-projects-carousel{
   position: relative;
@@ -347,9 +361,6 @@
   text-decoration: none;
   transition: transform 0.42s ease, opacity 0.42s ease, z-index 0.42s ease;
   animation: seoProjectFloat 5s ease-in-out infinite;
-}
-
-.seo-project-card:hover{
 }
 
 .seo-project-card img{

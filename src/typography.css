@@ -49,7 +49,7 @@ body {
 
 .App h2 {
  font-family:Cormorant Garamond;
-font-size:40px;
+font-size:48px;
 letter-spacing:-1.088px;
 line-height:59.84px;
 }
@@ -204,7 +204,7 @@ letter-spacing:0.39px
 .youtube-market-content p,
 .youtube-results-heading p,
 .seo-overview-copy p,
-.seo-projects-heading p,
+
 .middle-copy p,
 .allservice-text-heading p,
 .about-bottom-content > p,
@@ -366,3 +366,8 @@ line-height:23.625px
     line-height: 1.65;
   }
 }
+
+
+/**/
+
+
