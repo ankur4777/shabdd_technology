@@ -10,7 +10,7 @@ function Partner() {
     { path: '/company_logo/Untitled-design-8.png' },
     { path: '/company_logo/Untitled-design-9.png' },
   ];
-  const logoItems = [...companyLogo, ...companyLogo];
+  const marqueeLogos = [...companyLogo, ...companyLogo];
 
   useEffect(() => {
     const currentPartner = partnerRef.current;
@@ -41,8 +41,12 @@ function Partner() {
 
         <div className="partner-logo-wrapper">
           <div className="partner-logo-track">
-            {logoItems.map((e, index) => (
-              <img key={`logo-${index}`} src={e.path} alt={`Partner logo ${index + 1}`} />
+            {[0, 1].map((group) => (
+              <div className="partner-logo-group" key={`logo-group-${group}`} aria-hidden={group === 1}>
+                {marqueeLogos.map((e, index) => (
+                  <img key={`logo-${group}-${index}`} src={e.path} alt={`Partner logo ${index + 1}`} />
+                ))}
+              </div>
             ))}
           </div>
         </div>
