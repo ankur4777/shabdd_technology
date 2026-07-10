@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaAt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaPhoneAlt } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 import './Contact.css'
 import ContactForm from './ContactForm'
 
@@ -45,21 +45,12 @@ function Contact() {
           </p>
         </div>
 
-        <div className="contact-hero__visual" aria-hidden="true">
-          <div className="contact-hero__circle" />
-          <div className="contact-hero__plane">
-            <FaPaperPlane />
-          </div>
-          <div className="contact-hero__trail" />
-          <div className="contact-hero__mail">
-            <div className="contact-hero__letter">
-              <FaAt />
-            </div>
-            <div className="contact-hero__flap contact-hero__flap--left" />
-            <div className="contact-hero__flap contact-hero__flap--right" />
-            <div className="contact-hero__flap contact-hero__flap--bottom" />
-          </div>
-          <div className="contact-hero__dots" />
+        <div className="contact-hero__visual">
+          <img
+            className="contact-hero__illustration"
+            src="/Contact/contact-hero-illustration.png"
+            alt="Envelope with email symbol and paper plane"
+          />
         </div>
       </div>
     </section>

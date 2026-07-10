@@ -170,7 +170,7 @@ function Middle() {
               </div>
               <div>
                 <h3>About Shabdd Technologies</h3>
-                <span />
+               
               </div>
             </header>
 
