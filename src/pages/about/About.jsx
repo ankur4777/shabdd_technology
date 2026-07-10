@@ -7,9 +7,13 @@ import Bottom from './component/bottom/Bottom'
 function About() {
   return (
    <>
-    <Top/>
+   <div style={{marginTop: "100px" }}>
+
+      <Top/>
     <Middle/>
     <Bottom/>
+   </div>
+  
 
     
    </>

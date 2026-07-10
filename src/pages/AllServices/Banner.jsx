@@ -4,7 +4,7 @@ import './Banner.css'
 function Banner({ title, subtitle, description }) {
   return (
     <div>
-      <div className="allservices-banner">
+      <div className="allservices-banner" style={{marginTop:"100px"}}>
         <img src="/allservices/Banner-all.png" alt="Banner background" />
         <div className="allservices-banner-text">
           <h4>{subtitle}</h4>
