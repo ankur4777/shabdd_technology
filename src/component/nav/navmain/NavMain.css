@@ -1,29 +1,32 @@
 .full-width{
- --nav-ink: #12133f;
+    --nav-ink: #101345;
     --nav-teal: #00a6a6;
     --nav-violet: #5b4bdb;
     --nav-amber: #ffb84d;
     --nav-coral: #ff5c7a;
     --nav-cloud: #f4fbff;
- 
-       min-height: 50px;
+    min-height: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    background: white;
-    
-    
     box-sizing: border-box;
     overflow: visible;
-    position: sticky;
+    position: fixed;
     top: 0;
-    box-shadow:0px 1px 20px 0px black;
+    left: 0;
+    padding: 14px max(18px, calc((100vw - 1440px) / 2 + 18px)) 0;
+    background: transparent;
+    box-shadow: none;
     animation: navFloatIn 0.55s ease both;
-    margin-bottom: 20px; 
-    z-index: 5;
-    
+    margin-bottom: 0;
+    z-index: 50;
+    transition: padding 0.25s ease;
+}
+
+.full-width.nav-scrolled {
+    padding-top: 8px;
 }
 
 .nav-main {
@@ -34,53 +37,63 @@
     --nav-coral: #ff5c7a;
     --nav-cloud: #f4fbff;
     
-    min-height: 50px;
+    min-height: 88px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
+    gap: clamp(18px, 3vw, 42px);
     width: 100%;
     margin: 0 auto;
-    background: white;
-    max-width:1440px;
+    background: transparent;
+    max-width: 1440px;
     box-sizing: border-box;
     font-family: manrope,sans-serif !important;
-   
+    padding: 0 24px;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, min-height 0.25s ease;
+}
 
+.nav-main-scrolled {
+    min-height: 76px;
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.14);
+    backdrop-filter: blur(18px);
 }
 
 .nav-main::before {
-    content: "";
-    position: absolute;
-    inset: auto 20px 0;
-    height: 3px;
-    border-radius: 999px;
-    background: white;
-    background-size: 220% 100%;
-    animation: navColorFlow 6s ease-in-out infinite;
+    display: none;
 }
 
 .nav-menu-toggle {
-    width: 44px;
-    height: 44px;
     display: none;
+    width: 62px;
+    height: 62px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     border: 0;
-    border-radius: 10%;
-    background: black;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: transform 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    order: -1;
 }
 
 .nav-menu-toggle span {
-    width: 20px;
-    height: 2px;
+    width: 25px;
+    height: 2.5px;
     border-radius: 99px;
-    background: #ffffff;
+    background: #11143f;
     transition: transform 0.28s ease, opacity 0.2s ease;
+}
+
+.nav-menu-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.24);
 }
 
 @keyframes navFloatIn {
@@ -121,24 +134,55 @@
 
 @media (max-width: 900px) {
     .full-width {
-        min-height: 72px;
+        min-height: 0;
+        padding: 14px 14px 0;
+        align-items: flex-start;
+        z-index: 1000;
     }
 
     .nav-main {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
+        position: relative;
         width: 100%;
-        min-height: 72px;
+        min-height: 64px;
         margin: 0;
-        padding: 8px 14px;
-        border-radius: 0;
-        border-right: 0;
-        border-left: 0;
+        padding: 6px 10px;
+        border-radius: 18px;
+        background: rgba(8, 10, 24, 0.68);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
+        backdrop-filter: blur(16px);
+        gap: 0 12px;
+        transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .nav-main-scrolled {
+        background: rgba(255, 255, 255, 0.96);
+        border-color: rgba(15, 23, 42, 0.08);
+        box-shadow: 0 18px 44px rgba(15, 23, 42, 0.16);
+        backdrop-filter: blur(18px);
+    }
+
+    .nav-main.nav-open {
+        background: rgba(8, 10, 24, 0.72);
+        border-color: rgba(255, 255, 255, 0.32);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-main.nav-open.nav-main-scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        border-color: rgba(15, 23, 42, 0.1);
+        box-shadow: 0 18px 44px rgba(15, 23, 42, 0.18);
     }
 
     .nav-menu-toggle {
         display: inline-flex;
+        width: 50px;
+        height: 50px;
+        order: initial;
+        flex: 0 0 50px;
     }
 
     .nav-logo {
@@ -153,25 +197,27 @@
 }
 
 @media (max-width: 560px) {
+    .full-width {
+        padding: 12px 12px 0;
+    }
+
     .nav-main {
         width: 100%;
         grid-template-columns: minmax(0, 1fr) auto;
-        min-height: 72px;
-        padding: 8px 14px;
-        border-radius: 0;
+        min-height: 58px;
+        padding: 6px 8px;
+        border-radius: 16px;
         
     }
 
     .nav-menu-toggle {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
     }
 }
 
 @media (min-width:896px) and (max-width:1440px){
     .nav-main{
-        padding:1rem 1rem;
-                
-    
+        padding: 0 28px;
     }
 }

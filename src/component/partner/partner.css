@@ -76,6 +76,11 @@
   will-change: transform;
 }
 
+.partner-logo-wrapper:hover .partner-logo-track,
+.partner-logo-wrapper:focus-within .partner-logo-track {
+  animation-play-state: paused;
+}
+
 .partner-logo-group {
   display: flex;
   align-items: center;

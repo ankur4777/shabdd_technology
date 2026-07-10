@@ -8,7 +8,7 @@ const services = [
   { label: 'WEB DEVELOPMENT', path: '/services/web-development' },
   { label: 'WEB APPLICATION', path: '/services/web-application' },
   { label: 'DIGITAL MARKETING', path: '/services/digital-marketing' },
-  { label: 'SEARCH ENGINE OPTIMIZATION', path: '/services/seo' },
+  { label: 'SEO', path: '/services/seo' },
   { label: 'META ADS', path: '/services/meta-ads' },
   { label: 'GRAPHIC DESIGNING', path: '/services/graphic-designing' },
   { label: 'YOUTUBE ADS', path: '/services/youtube-ads' },
