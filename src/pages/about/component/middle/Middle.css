@@ -861,3 +861,587 @@ line-height:27px !important
             height: 86px;
           }
         }
+
+/* About top redesign */
+.middle-trusted-section {
+  width: 100%;
+  max-width: none;
+  padding: clamp(50px, 6vw, 92px) clamp(18px, 5vw, 96px) clamp(38px, 5vw, 68px);
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 249, 252, 0.96) 52%, #ffffff 100%),
+    radial-gradient(circle at 8% 6%, rgba(224, 229, 238, 0.58), transparent 30%),
+    radial-gradient(circle at 96% 15%, rgba(235, 239, 245, 0.9), transparent 31%),
+    radial-gradient(circle at 34% 100%, rgba(226, 231, 240, 0.9), transparent 28%);
+}
+
+.middle-hero-grid {
+  width: min(100%, 1360px);
+  margin: 0 auto;
+}
+
+.middle-copy {
+  grid-template-columns: minmax(360px, 0.92fr) minmax(420px, 1.08fr);
+  gap: clamp(34px, 6vw, 82px);
+  align-items: center;
+}
+
+.middle-copy-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.middle-about-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 33px;
+  margin-bottom: 26px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #ffe5e9;
+  color: #ec2027;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.middle-about-pill span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ec2027;
+}
+
+.middle-copy-main h2 {
+  width: min(100%, 670px);
+  color: #071633;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.22;
+  text-align: center;
+}
+
+.middle-title-line {
+  width: min(100%, 640px);
+  height: 4px;
+  margin: 28px 0 clamp(42px, 5vw, 58px);
+  background: #df2028;
+}
+
+.middle-testimonial {
+  width: min(100%, 610px);
+  min-height: 194px;
+  height: auto;
+  grid-template-columns: auto 1fr;
+  gap: clamp(24px, 4vw, 46px);
+  padding: 29px clamp(25px, 4vw, 50px);
+  border-radius: 18px;
+  box-shadow: 0 24px 44px rgba(15, 25, 46, 0.11);
+}
+
+.middle-testimonial img {
+  width: clamp(118px, 11vw, 150px);
+  height: clamp(118px, 11vw, 150px);
+  padding: 10px;
+  border: 8px solid #ffe3e8;
+  border-left-color: #ec2027;
+  border-bottom-color: #ec2027;
+  background: #ffffff;
+  filter: grayscale(1);
+}
+
+.middle-testimonial h4 {
+  width: fit-content;
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ec2027;
+  color: #ec2027;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 2.3vw, 34px);
+}
+
+.middle-testimonial p {
+  margin: 0 0 12px;
+  padding-bottom: 0;
+  border-bottom: 0;
+  color: #071633;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(21px, 2vw, 31px);
+  font-weight: 900;
+  line-height: 1.18;
+  text-transform: uppercase;
+}
+
+.middle-testimonial small {
+  display: block;
+  color:  #ff3b30;
+  font-size: clamp(16px, 1.45vw, 22px);
+  line-height: 1.45;
+}
+
+.middle-about-card {
+
+  max-height: calc(100% - 20px);
+  
+  padding: clamp(28px, 4vw, 10px);
+  border: 1px solid rgba(220, 225, 234, 0.95);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 24px 46px rgba(15, 25, 46, 0.12);
+  text-align: left;
+  height: auto;
+}
+
+.middle-about-card header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.middle-about-card-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 31px;
+  background: #ec2027;
+  box-shadow: 0 9px 20px rgba(236, 32, 39, 0.3);
+}
+
+.middle-about-card h3 {
+  margin: 0;
+  color: #071633;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 900;
+  line-height: 1.18;
+}
+
+.middle-about-card header span {
+  display: block;
+  width: 95px;
+  height: 2px;
+  margin-top: 17px;
+  background: #ec2027;
+}
+
+.middle-about-card .middle-copy-detail {
+  max-width: none;
+  color: #4f5261;
+  font-family: inherit;
+  font-size: clamp(17px, 1.45vw, 21px) !important;
+  line-height: 1.72 !important;
+  text-align: left !important;
+}
+
+.middle-about-card-divider {
+  height: 1px;
+  margin: 18px 0 15px;
+  background: #c9ced8;
+}
+
+@media (max-width: 1100px) {
+  .middle-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .middle-copy-main {
+    align-items: flex-start;
+  }
+
+  .middle-about-pill {
+    align-self: center;
+  }
+
+  .middle-copy-main h2 {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .middle-title-line,
+  .middle-testimonial,
+  .middle-about-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .middle-trusted-section {
+    padding-inline: 16px;
+  }
+
+  .middle-copy-main h2 {
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+  .middle-testimonial {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    text-align: left;
+  }
+
+  .middle-about-card {
+    padding: 24px 18px 28px;
+  }
+
+  .middle-about-card header {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .middle-about-card-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 460px) {
+  .middle-about-pill {
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+
+  .middle-copy-main h2 {
+    font-size: 31px;
+  }
+
+  .middle-title-line {
+    margin: 22px 0 32px;
+  }
+
+  .middle-testimonial {
+    padding: 22px 18px;
+  }
+
+  .middle-testimonial img {
+    width: 112px;
+    height: 112px;
+  }
+
+  .middle-about-card h3 {
+    font-size: 22px;
+  }
+
+  .middle-about-card .middle-copy-detail {
+    font-size: 15px !important;
+    line-height: 1.62 !important;
+  }
+}
+
+/* Profile poster layout */
+.middle-profile-poster {
+  display: none;
+}
+
+.middle-copy {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.92fr) minmax(420px, 1.08fr);
+  justify-content: stretch;
+}
+
+.middle-profile-poster {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 940px);
+  border: 1px solid rgba(199, 207, 219, 0.8);
+  border-radius: clamp(28px, 5vw, 78px);
+  background:
+    radial-gradient(circle at 84% 12%, rgba(226, 231, 239, 0.58), transparent 30%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 247, 251, 0.96) 48%, #18222c 49%, #111921 100%);
+  box-shadow: 0 28px 70px rgba(16, 26, 40, 0.18);
+  isolation: isolate;
+}
+
+.middle-profile-poster::before,
+.middle-profile-poster::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.middle-profile-poster::before {
+  left: -10%;
+  right: -12%;
+  top: 29%;
+  height: 34%;
+  background:
+    linear-gradient(164deg, rgba(226, 231, 239, 0.82), rgba(248, 250, 253, 0.4) 52%, rgba(193, 203, 216, 0.38));
+  transform: rotate(-9deg);
+}
+
+.middle-profile-poster::after {
+  right: 3%;
+  bottom: 4%;
+  width: 42%;
+  height: 42%;
+  opacity: 0.18;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.45) 1.5px, transparent 2px) 0 0 / 18px 18px,
+    linear-gradient(145deg, transparent 0 42%, rgba(255, 255, 255, 0.45) 43% 43.6%, transparent 44%);
+}
+
+.middle-profile-heading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(14px, 2vw, 25px);
+  align-items: center;
+  width: min(100%, 710px);
+  margin: 0 auto;
+  padding: clamp(54px, 7vw, 92px) clamp(22px, 6vw, 72px) 0;
+  box-sizing: border-box;
+}
+
+.middle-profile-gear {
+  display: grid;
+  place-items: center;
+  width: clamp(54px, 6vw, 82px);
+  height: clamp(54px, 6vw, 82px);
+  color: #ec2027;
+  font-size: clamp(38px, 4.6vw, 66px);
+  filter: drop-shadow(0 6px 3px rgba(3, 12, 22, 0.24));
+}
+
+.middle-profile-heading h2 {
+  margin: 0;
+  color: #071633;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 5.5vw, 68px);
+  font-weight: 900;
+  line-height: 1.16;
+  letter-spacing: 0;
+}
+
+.middle-profile-heading h2 span {
+  position: relative;
+  color: #ec2027;
+}
+
+.middle-profile-heading h2 span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 3px;
+  background: #ec2027;
+}
+
+.middle-profile-poster > .middle-title-line {
+  width: min(calc(100% - 96px), 720px);
+  height: 4px;
+  margin: clamp(28px, 4vw, 42px) auto clamp(24px, 4vw, 38px);
+  background: #ec2027;
+}
+
+.middle-profile-photo {
+  position: relative;
+  z-index: 2;
+  width: clamp(230px, 36vw, 510px);
+  aspect-ratio: 1;
+  margin: 0 auto -28px;
+  padding: clamp(12px, 1.8vw, 22px);
+  border-radius: 50%;
+  background: #ffffff;
+  border: clamp(8px, 1.3vw, 15px) solid #ec2027;
+  box-shadow:
+    inset 0 0 0 10px #f3f5f8,
+    0 18px 0 #8a1118,
+    0 28px 34px rgba(0, 0, 0, 0.38);
+}
+
+.middle-profile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.middle-profile-details {
+  padding: clamp(42px, 6vw, 78px) clamp(28px, 7vw, 86px) clamp(48px, 7vw, 86px);
+  color: #ffffff;
+  background:
+    linear-gradient(168deg, rgba(44, 56, 68, 0.9) 0%, rgba(19, 28, 37, 0.98) 42%, #111820 100%),
+    radial-gradient(circle at 80% 88%, rgba(255, 255, 255, 0.12), transparent 30%);
+}
+
+.middle-role-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  width: min(100%, 690px);
+  margin: 0 auto 22px;
+}
+
+.middle-role-row span {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.middle-role-row strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 34px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-size: clamp(25px, 3.2vw, 42px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.middle-profile-details h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.middle-profile-subtitle {
+  margin: 22px 0 0;
+  color: #ffffff;
+  font-size: clamp(19px, 2.5vw, 32px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.middle-profile-divider {
+  width: 100%;
+  height: 1px;
+  margin: clamp(26px, 4vw, 40px) 0 clamp(26px, 4vw, 42px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.middle-profile-body {
+  width: min(100%, 720px);
+  margin: 0 auto;
+}
+
+.middle-profile-body p {
+  margin: 0;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  font-size: clamp(21px, 2.8vw, 34px);
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.middle-profile-body p + p {
+  margin-top: 26px;
+}
+
+.middle-profile-body em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+@media (max-width: 820px) {
+  .middle-profile-poster {
+    display: block;
+  }
+
+  .middle-copy-main,
+  .middle-about-card {
+    display: none;
+  }
+
+  .middle-copy {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: none;
+    width: 100%;
+  }
+
+  .middle-profile-heading {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .middle-profile-poster {
+    border-radius: 34px;
+  }
+
+  .middle-profile-poster > .middle-title-line {
+    width: calc(100% - 48px);
+  }
+}
+
+@media (max-width: 560px) {
+  .middle-profile-heading {
+    padding: 38px 18px 0;
+  }
+
+  .middle-profile-heading h2 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .middle-profile-photo {
+    width: min(78vw, 330px);
+    margin-bottom: -22px;
+  }
+
+  .middle-profile-details {
+    padding: 42px 20px 44px;
+  }
+
+  .middle-role-row {
+    gap: 12px;
+  }
+
+  .middle-role-row strong {
+    min-height: 36px;
+    padding: 0 22px;
+    font-size: 26px;
+  }
+
+  .middle-profile-details h3 {
+    font-size: clamp(28px, 9vw, 38px);
+  }
+
+  .middle-profile-subtitle {
+    font-size: 18px;
+  }
+
+  .middle-profile-body p {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 390px) {
+  .middle-profile-poster {
+    border-radius: 26px;
+  }
+
+  .middle-profile-gear {
+    width: 48px;
+    height: 48px;
+    font-size: 38px;
+  }
+
+  .middle-profile-heading h2 {
+    font-size: 28px;
+  }
+
+  .middle-profile-body p {
+    font-size: 16px;
+  }
+}

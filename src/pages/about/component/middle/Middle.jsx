@@ -5,7 +5,6 @@ import {
   FaHeadset,
   FaLightbulb,
   FaPlay,
-  FaStar,
   FaThumbsUp,
   FaBullseye,
   FaCog,
@@ -103,6 +102,49 @@ function Middle() {
     <section className="middle-trusted-section">
       <div className="middle-hero-grid">
         <div className="middle-copy">
+          <article className="middle-profile-poster">
+            <div className="middle-profile-heading">
+              
+
+              <h2>
+                Your <span>Trusted</span> Partner
+                <br />
+                in Digital Solutions
+              </h2>
+            </div>
+
+            <div className="middle-title-line" />
+
+            <div className="middle-profile-photo">
+              <img src="/Manager/OIP.jfif" alt="Pardeep Bhatia" />
+            </div>
+          
+            <div className="middle-profile-details">
+              <div className="middle-role-row">
+                <span />
+                <strong>CEO</strong>
+                <span />
+              </div>
+
+              <h3>PARDEEP BHATIA</h3>
+             
+
+              <div className="middle-profile-divider" />
+
+              <div className="middle-profile-body">
+                <p>
+                  At Shabdd Technologies, we are dedicated to delivering cutting-edge IT solutions that empower
+                  businesses to succeed in the digital age.
+                </p>
+
+                <p>
+                  From app development and lead generation to social media marketing and SEO management, we provide
+                  comprehensive services tailored to your needs. <em>Let us help elevate your business to new heights.</em>
+                </p>
+              </div>
+            </div>
+          </article>
+
           <div className="middle-copy-main">
             <h2>
               Your <span>Trusted</span> Partner
@@ -110,24 +152,39 @@ function Middle() {
               in Digital Solutions
             </h2>
             <div className="middle-title-line" />
-          
 
-             <div className="middle-testimonial">
-        <img src="/Manager/OIP.jfif" alt="" />
-        <div className="middle-testimonial-content">
-          <h4>CEO</h4>
-          <p>Pardeep Bhatia</p>
-         
-        </div>
-      </div>
+            <div className="middle-testimonial">
+              <img src="/Manager/OIP.jfif" alt="Pardeep Bhatia" />
+              <div className="middle-testimonial-content">
+                <h4>CEO</h4>
+                <p>Pardeep Bhatia</p>
+                <small>Visionary Leader &amp; Digital Transformation Expert</small>
+              </div>
+            </div>
           </div>
-    
-          <p className="middle-copy-detail">
-            At Shabdd Technologies, we are dedicated to delivering IT solutions that help businesses thrive in an ever-evolving digital landscape. With a focus on app development, lead generation, social media marketing, and SEO management, we provide comprehensive services that cater to your unique business needs.
-            With expertise and a client-centric approach, Shabdd Technologies transforms ideas into powerful digital
-            solutions. Whether you need a custom app, effective lead generation strategies, or a robust online presence,
-            we are here to make it happen.
-          </p>
+
+          <article className="middle-about-card">
+            <header>
+              <div className="middle-about-card-icon">
+                <FaCog />
+              </div>
+              <div>
+                <h3>About Shabdd Technologies</h3>
+                <span />
+              </div>
+            </header>
+
+            <p className="middle-copy-detail">
+              At Shabdd Technologies, we are dedicated to delivering IT solutions that help businesses thrive in an ever-evolving digital landscape. With a focus on app development, lead generation, social media marketing, and SEO management, we provide comprehensive services that cater to your unique business needs.
+            </p>
+
+           
+            <p className="middle-copy-detail">
+              With expertise and a client-centric approach, Shabdd Technologies transforms ideas into powerful digital
+              solutions. Whether you need a custom app, effective lead generation strategies, or a robust online presence,
+              we are here to make it happen.
+            </p>
+          </article>
         </div>
       <div className="middle-left-visual" ref={growthVisualRef}>
           <img

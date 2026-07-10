@@ -213,7 +213,7 @@ letter-spacing:0.39px
 .meta-growth-content p,
 .webApplication-process-copy p,
 .fsq-copy p {
-  color: var(--type-body) !important;
+  color: var(--type-body);
   font-weight: 400 !important;
   line-height: 1.7 !important;
 }
