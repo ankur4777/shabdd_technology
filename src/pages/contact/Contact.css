@@ -48,7 +48,10 @@
   width: min(100%, 1240px);
   min-height: clamp(360px, 37vw, 510px);
   margin: 0 auto;
-  padding: clamp(42px, 6vw, 78px) clamp(18px, 6vw, 74px);
+ padding-top: clamp(8rem, 8vw, 10rem);
+padding-right: clamp(18px, 6vw, 74px);
+padding-bottom: 42px;
+padding-left: clamp(18px, 6vw, 74px);
   box-sizing: border-box;
 }
 
@@ -556,7 +559,7 @@ text-align: left;
     grid-template-columns: 1fr;
     gap: 24px;
     min-height: 0;
-    padding-top: 38px;
+    padding:clamp(7rem, auto, 7rem);
     padding-bottom: 18px;
   }
 
@@ -573,11 +576,7 @@ text-align: left;
   }
 
   .contact-hero__visual {
-    min-height: 270px;
-  }
-
-  .contact-hero__illustration {
-    width: min(100%, 560px);
+    display: none;
   }
 
   .contact-container {
@@ -627,14 +626,6 @@ text-align: left;
 
   .contact-hero__copy p {
     font-size: 14px;
-  }
-
-  .contact-hero__visual {
-    min-height: 225px;
-  }
-
-  .contact-hero__illustration {
-    width: min(112%, 430px);
   }
 
   .contact-info-card {

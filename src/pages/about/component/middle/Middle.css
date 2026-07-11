@@ -322,6 +322,12 @@ font-size:16px !important;
             linear-gradient(112deg, transparent 44%, rgba(255,255,255,.52) 45% 48%, transparent 49%);
         }
 
+        @media (min-width:550px) and (max-width:980px){
+          .middle-social-card{
+            display: none
+          }
+        }
+
         .middle-laptop,
         .middle-hand {
           position: absolute;

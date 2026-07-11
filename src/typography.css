@@ -7,7 +7,7 @@
   --type-muted: #9ca3af;
   --type-brand: #ed0018;
   --type-h1: clamp(2.25rem, 5vw, 4rem);
-  --type-h2: clamp(1.9rem, 3.6vw, 3rem);
+  --type-h2: clamp(1rem, 3.6vw, 3rem);
   --type-h3: clamp(1.35rem, 2.35vw, 2rem);
   --type-card: clamp(1.125rem, 1.45vw, 1.5rem);
   --type-body-size: clamp(1rem, 1vw, 1.125rem);
@@ -51,7 +51,7 @@ body {
  font-family:Cormorant Garamond;
 font-size:48px;
 letter-spacing:-1.088px;
-line-height:59.84px;
+line-height:45.84px;
 }
 
 .App h3 {
