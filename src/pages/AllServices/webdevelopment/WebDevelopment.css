@@ -5,6 +5,12 @@
     justify-content: space-between;
 }
 
+@media (max-width:623px){
+    .web-container{
+        padding: 1rem 1rem;
+    }
+}
+
 .web-container img{
 
 height:20rem;

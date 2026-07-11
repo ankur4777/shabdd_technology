@@ -52,6 +52,7 @@ body {
 font-size:48px;
 letter-spacing:-1.088px;
 line-height:45.84px;
+text-align: center;
 }
 
 .App h3 {
@@ -186,7 +187,8 @@ letter-spacing:0.39px
 .contact-social h2,
 .about-bottom-content h1,
 .meta-optimization-content h2,
-.web-left-text h2 {
+.web-left-text h2,
+.webApplication-right-text h2{
   font-size: var(--type-h2) !important;
   font-weight: 700 !important;
   color: var(--type-heading) !important;
