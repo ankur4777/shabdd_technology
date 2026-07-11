@@ -116,7 +116,7 @@ function Middle() {
             <div className="middle-title-line" />
 
             <div className="middle-profile-photo">
-              <img src="/Manager/OIP.jfif" alt="Pardeep Bhatia" />
+              <img src="/Manager/Sir.jpeg" alt="Pardeep Bhatia" />
             </div>
           
             <div className="middle-profile-details">
@@ -154,7 +154,7 @@ function Middle() {
             <div className="middle-title-line" />
 
             <div className="middle-testimonial">
-              <img src="/Manager/OIP.jfif" alt="Pardeep Bhatia" />
+              <img src="/Manager/Sir.jpeg" alt="Pardeep Bhatia" />
               <div className="middle-testimonial-content">
                 <h4>CEO</h4>
                 <p>Pardeep Bhatia</p>
