@@ -33,7 +33,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align:left;
     border-radius: 32px;
     background: rgba(255, 255, 255, .94);
     animation: aboutCardIn .75s ease both;
@@ -47,7 +47,7 @@
 }
 
 .about-bottom-card p{
-    text-align: justify;
+    text-align: left;
 
 }
 

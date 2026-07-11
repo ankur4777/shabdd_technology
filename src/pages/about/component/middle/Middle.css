@@ -14,7 +14,7 @@
         }
 
         .middle-heighlight-text p{
-          text-align:justify !important
+          text-align: left !important;
         }
 
         .middle-trusted-section::before,
@@ -94,7 +94,7 @@
         .middle-copy-detail {
           font-family:Manrope;
 font-size:16px !important;
-line-height:27px !important
+
         }
 
         .middle-left-visual {
@@ -1036,7 +1036,7 @@ line-height:27px !important
   color: #4f5261;
   font-family: inherit;
   font-size: clamp(17px, 1.45vw, 21px) !important;
-  line-height: 1.72 !important;
+  line-height: 29px !important;
   text-align: left !important;
 }
 
@@ -1131,7 +1131,7 @@ line-height:27px !important
 
   .middle-about-card .middle-copy-detail {
     font-size: 15px !important;
-    line-height: 27px !important;
+   
   }
 }
 
