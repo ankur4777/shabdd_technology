@@ -42,7 +42,7 @@ function MetaADS() {
         <div className="meta-growth-visual">
           <span className="meta-growth-dots meta-growth-dots-top" />
           <span className="meta-growth-dots meta-growth-dots-bottom" />
-          <img src="/background/Meta Ads.png" className="meta-visual-image" alt="Meta ads campaign visual" />
+          <img src="/meta/metaIcon.png" className="meta-visual-image" alt="Meta ads campaign visual" />
         </div>
 
         <div className="meta-growth-content">

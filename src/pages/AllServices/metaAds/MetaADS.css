@@ -42,10 +42,6 @@
   height: auto;
   margin: 1.4rem 0 0 1rem;
   border-radius: 8px 24px 8px 24px;
-  background:
-    linear-gradient(110deg, rgba(0, 0, 0, 0.72), rgba(14, 20, 34, 0.32)),
-    radial-gradient(circle at 22% 48%, rgba(255, 255, 255, 0.24), transparent 12rem),
-    linear-gradient(135deg, #171923, #d7dde6);
   opacity: 0.9;
   filter: drop-shadow(0 24px 44px rgba(237, 0, 24, 0.14));
   animation: metaFloat 4.8s ease-in-out infinite;
