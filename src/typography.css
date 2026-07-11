@@ -185,7 +185,8 @@ letter-spacing:0.39px
 .allservice-text-heading h2,
 .contact-social h2,
 .about-bottom-content h1,
-.meta-optimization-content h2 {
+.meta-optimization-content h2,
+.web-left-text h2 {
   font-size: var(--type-h2) !important;
   font-weight: 700 !important;
   color: var(--type-heading) !important;
