@@ -184,7 +184,8 @@ letter-spacing:0.39px
 .fsq-copy h2,
 .allservice-text-heading h2,
 .contact-social h2,
-.about-bottom-content h1 {
+.about-bottom-content h1,
+.meta-optimization-content h2 {
   font-size: var(--type-h2) !important;
   font-weight: 700 !important;
   color: var(--type-heading) !important;

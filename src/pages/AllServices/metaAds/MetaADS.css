@@ -428,6 +428,7 @@
   .meta-growth-section{
     grid-template-columns: 1fr;
     padding: 3rem 5%;
+    gap: clamp(1.6rem, 5vw, 2.8rem);
   }
 
   .meta-growth-content{
@@ -447,6 +448,45 @@
   .meta-growth-copy{
     margin-right: auto;
     margin-left: auto;
+  }
+
+  .meta-growth-visual{
+    display: grid;
+    place-items: center;
+    width: min(100%, 560px);
+    min-height: 0;
+    aspect-ratio: 1 / 0.88;
+    margin: 0 auto;
+    border: 1px solid rgba(237, 0, 24, 0.08);
+    border-radius: clamp(18px, 5vw, 34px);
+    background:
+      radial-gradient(circle at 50% 78%, rgba(237, 0, 24, 0.1), transparent 42%),
+      linear-gradient(180deg, #ffffff 0%, #fffafb 100%);
+    box-shadow: 0 24px 54px rgba(17, 24, 39, 0.1);
+    overflow: hidden;
+  }
+
+  .meta-growth-dots{
+    width: 64px;
+    height: 54px;
+    background-size: 11px 11px;
+  }
+
+  .meta-growth-dots-top{
+    top: 9%;
+    left: 8%;
+  }
+
+  .meta-growth-dots-bottom{
+    right: 8%;
+    bottom: 9%;
+  }
+
+  .meta-visual-image{
+    width: min(82%, 410px);
+    margin: 0;
+    border-radius: 24px;
+    filter: drop-shadow(0 18px 34px rgba(79, 70, 229, 0.16));
   }
 
   .meta-optimization-section{
@@ -483,16 +523,35 @@
 
 @media (max-width: 560px){
   .meta-growth-section{
-    padding: 2.4rem 1rem;
+    padding: 2.4rem 1rem 2.8rem;
   }
 
   .meta-growth-visual{
-    min-height: 310px;
+    width: min(100%, 390px);
+    aspect-ratio: 1 / 0.98;
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(17, 24, 39, 0.09);
   }
 
-.meta-visual-image{
-    width: min(88%, 360px);
-    margin-left: 0;
+  .meta-growth-dots{
+    width: 52px;
+    height: 44px;
+    opacity: 0.55;
+  }
+
+  .meta-growth-dots-top{
+    top: 7%;
+    left: 7%;
+  }
+
+  .meta-growth-dots-bottom{
+    right: 7%;
+    bottom: 7%;
+  }
+
+  .meta-visual-image{
+    width: min(86%, 320px);
+    animation: none;
   }
 
   .meta-growth-copy{
