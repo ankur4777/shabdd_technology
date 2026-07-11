@@ -69,7 +69,12 @@ function Graphic() {
           <span className="graphic-story-dots graphic-story-dots-top" />
           <span className="graphic-story-dots graphic-story-dots-bottom" />
           <div className="graphic-story-image-card">
-            <img src="/background/Graphic designer.png" alt="Graphic design creative visual" />
+            <img
+              src="/background/Graphic designer.png"
+              alt="Graphic design creative visual"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
 

@@ -10,31 +10,31 @@
 
 .graphic-story-visual{
   position: relative;
-  min-height: clamp(250px, 31vw, 400px);
+  width: 100%;
 }
 
 .graphic-story-image-card{
   position: relative;
   display: grid;
   place-items: center;
-  height: 100%;
-  min-height: clamp(250px, 31vw, 400px);
+  width: min(100%, 610px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
   overflow: hidden;
-  border-radius: 20px;
-  background:
-    radial-gradient(circle at 55% 52%, rgba(237, 0, 24, 0.84) 0 21%, transparent 21.5%),
-    radial-gradient(circle at 60% 45%, rgba(237, 0, 24, 0.34), transparent 35%),
-    linear-gradient(135deg, #03091a 0%, #061b3a 58%, #071126 100%);
+  border-radius: clamp(16px, 2.4vw, 28px);
+  background: #fbf8f8;
+  box-shadow: 0 26px 56px rgba(7, 13, 26, 0.12);
   animation: graphicFadeUp 0.75s ease both;
 }
 
 .graphic-story-image-card img{
   position: relative;
   z-index: 1;
-  width: 108%;
+  display: block;
+  width: 100%;
+  height: 100%;
   max-width: none;
-  height: auto;
-  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.18));
+  object-fit: contain;
 }
 
 .graphic-story-dots{
@@ -289,7 +289,6 @@
   .graphic-story-visual,
   .graphic-story-image-card{
     max-width: 620px;
-    min-height: clamp(260px, 54vw, 390px);
     margin: 0 auto;
   }
 
@@ -325,11 +324,12 @@
 
   .graphic-story-visual,
   .graphic-story-image-card{
-    min-height: clamp(210px, 62vw, 300px);
+    max-width: min(100%, 420px);
   }
 
   .graphic-story-image-card{
     border-radius: 14px;
+    box-shadow: 0 18px 38px rgba(7, 13, 26, 0.11);
   }
 
   .graphic-story-kicker{
