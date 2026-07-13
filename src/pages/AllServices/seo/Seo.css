@@ -269,7 +269,7 @@
 .seo-projects-heading{
   max-width: 900px;
   margin: 0 auto clamp(2.5rem, 5vw, 4rem);
-  text-align:left !important;
+  text-align:center;
   animation: seoOverviewEnter 0.7s ease both;
 
 
