@@ -6,22 +6,22 @@ import ContactForm from './ContactForm'
 const contactDetails = [
   {
     icon: <FaEnvelope />,
-    title: 'Email Address :',
+    title: 'Email Address',
     lines: ['shabddtechnology@gmail.com'],
   },
   {
     icon: <FaPhoneAlt />,
-    title: 'Phone Number :',
+    title: 'Phone Number',
     lines: ['+91-9543305791', '+91-7347673924'],
   },
   {
     icon: <FaMapMarkerAlt />,
-    title: 'Head Office Address :',
+    title: 'Head Office Address',
     lines: ['#232, 4th Floor, Street 14, Gulab Vatika, Loni Ghaziabad, 201102'],
   },
   {
     icon: <FaMapMarkerAlt />,
-    title: 'Canada Branch Address :',
+    title: 'Canada Branch Address',
     lines: ['6565 Kildare Rd Cote Saint Luc, Montreal, QC H4W 1B6'],
   },
 ]

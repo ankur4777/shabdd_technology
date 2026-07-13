@@ -707,3 +707,7 @@ text-align: left;
 .contact-form-dropdown{
   padding:20px;
 }
+
+.contact-social h2{
+  text-align: left !important;
+}

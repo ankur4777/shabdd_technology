@@ -248,6 +248,7 @@ letter-spacing:0.39px
   font-weight: 600 !important;
   line-height: 1.3 !important;
   letter-spacing: -0.01em !important;
+  text-align: left;
 }
 
 .container p,
