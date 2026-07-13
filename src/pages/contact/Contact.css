@@ -126,10 +126,10 @@ padding-left: clamp(18px, 6vw, 74px);
 }
 
 .contact-left-text{
-flex: 1 1 520px;
+flex: 0 1 620px;
 min-width: 0;
 font-size: clamp(1rem, 2vw, 4rem);
-max-width: 760px;
+max-width: 620px;
 }
 
 .contact-left-text h1 {
@@ -177,7 +177,7 @@ max-width: 760px;
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
-  width: min(100%, 630px);
+  width: 100%;
   margin-top: 2rem;
   padding-bottom: 1.5rem;
 }
@@ -188,7 +188,7 @@ max-width: 760px;
   align-items: center;
   gap: 1.45rem;
   min-height: 96px;
-  padding: 1.1rem 1.45rem 1.1rem 2.35rem;
+  padding: 1.1rem 1.3rem 1.1rem 2.1rem;
   overflow: hidden;
   background: #ffffff;
   border-radius: 8px;
@@ -242,6 +242,10 @@ text-align: left;
   overflow-wrap: anywhere;
 }
 
+.contact-info-card:nth-child(3) .contact-info-card__content p {
+  max-width: 520px;
+}
+
 .contact-info-card__phones {
   display: flex;
   align-items: center;
@@ -279,11 +283,11 @@ text-align: left;
 
 .contact-container{
   display: flex;
-  gap: clamp(2rem, 4vw, 4rem);
+  gap: clamp(2rem, 3vw, 3.25rem);
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 2rem clamp(1rem, 5vw, 4rem);
 }
@@ -476,36 +480,42 @@ text-align: left;
 }
 
 .contact-social {
-  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
   text-align: left;
 }
 
 .contact-social h2 {
   margin: 0;
   color: #111111;
-  font-size: clamp(1.1rem, 1.55vw, 1.4rem);
+  font-size: clamp(1rem, 1.45vw, 1.35rem) !important;
   font-weight: 800;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .contact-social__line {
-  width: 44px;
+  flex: 0 0 40px;
+  width: 40px;
   height: 3px;
-  margin: 0.8rem 0 1rem;
+  margin: 0;
   background: #ff0000;
   border-radius: 999px;
 }
 
 .contact-social__links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
 }
 
 .contact-social__link {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   place-items: center;
   color: #ffffff;
   font-size: 1rem;
@@ -597,6 +607,21 @@ text-align: left;
 
   .contact-info-card:hover {
     transform: translateY(-4px);
+  }
+
+  .contact-social {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .contact-social h2 {
+    flex: 1 1 100%;
+    white-space: normal;
+  }
+
+  .contact-social__line {
+    flex-basis: 34px;
+    width: 34px;
   }
 }
 

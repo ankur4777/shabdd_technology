@@ -164,7 +164,7 @@ function ContactForm() {
       </form>
 
       <div className="contact-social">
-        <h2>Follow us on social media :</h2>
+        <h3>Follow us on social media :</h3>
         <div className="contact-social__line"></div>
         <div className="contact-social__links">
           {socialLinks.map((link) => (

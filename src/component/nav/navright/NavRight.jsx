@@ -5,7 +5,7 @@ function NavRight({ onNavigate }) {
   return (
     <div className='book-demo'>
       <Link to="/contact" onClick={onNavigate}>
-        <button onClick={()=>{window.open("https://wa.me/918810673553")}}>
+        <button onClick={()=>{window.open("https://wa.me/917347673924")}}>
           <span>BOOK A DEMO</span>
         </button>
       </Link>

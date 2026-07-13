@@ -36,7 +36,7 @@ function Footer() {
                     <p>+91-9543305791 +91-7347673924</p>
                     <p>info@shabddinnovations.in</p>
                     <p><strong>Registered Office:</strong> #232, 4th Floor, Street 14, Gulab Vatika, Loni Ghaziabad, 201102</p>
-                    <p><strong>Branch Office:</strong> 6565 Kildare Rd Cote Saint Luc, Montreal, QC H4W 1B6</p>
+                 
                 </div>
             </div>
 
