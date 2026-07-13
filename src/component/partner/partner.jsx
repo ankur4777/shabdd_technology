@@ -6,9 +6,10 @@ function Partner() {
   const [isVisible, setIsVisible] = useState(false);
 
   const companyLogo = [
-    { path: '/company_logo/PrtnerBackground.png' },
-    { path: '/company_logo/Untitled-design-8.png' },
-    { path: '/company_logo/Untitled-design-9.png' },
+    { path: 'company_logo/1.png' },
+    { path: 'company_logo/2.png' },
+    { path: 'company_logo/3.png' },
+    { path: "company_logo/4.png' }
   ];
   const marqueeLogos = [...companyLogo, ...companyLogo];
 
