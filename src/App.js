@@ -5,6 +5,7 @@ import Home from './component/home/Home';
 import Footer from './component/footer/Footer';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import About from './pages/about/About';
 import ServicePage from './pages/AllServices/ServicePage';
 import Contact from './pages/contact/Contact';
@@ -37,6 +38,18 @@ function App() {
             <Route path="contact" element={<Contact/>}/>
           </Routes>
         </div>
+        <a className="mobile-call-button" href="tel:+917347673924" aria-label="Call Shabdd Technology">
+          <FaPhoneAlt aria-hidden="true" />
+        </a>
+        <a
+          className="sticky-whatsapp-button"
+          href="https://wa.me/917347673924"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+        >
+          <FaWhatsapp aria-hidden="true" />
+        </a>
         <Footer />
       </>
     </NotificationProvider>

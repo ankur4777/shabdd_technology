@@ -1,3 +1,4 @@
+
 :root {
   --type-font: Cormorant Garamond; 
   --apple-system: BlinkMacSystemFont, sans-serif;
@@ -248,7 +249,7 @@ letter-spacing:0.39px
   font-weight: 600 !important;
   line-height: 1.3 !important;
   letter-spacing: -0.01em !important;
-  text-align:center;
+  text-align:left;
 }
 
 .service-card-content h3{
