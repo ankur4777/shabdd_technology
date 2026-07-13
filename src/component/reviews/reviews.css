@@ -104,6 +104,8 @@
 
 .review-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   min-height: 286px;
   padding: clamp(16px, 1.6vw, 20px);
@@ -190,6 +192,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-top: auto;
   padding-top: 14px;
   border-top: 1px solid rgba(237, 15, 37, 0.18);
 }

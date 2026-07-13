@@ -241,14 +241,32 @@ letter-spacing:0.39px
 .digital-growth-feature h3,
 .webApplication-process-trigger strong,
 .webApplication-panel-title,
-.fsq-card h3,
-.contact-info-card__content h2 {
+.fsq-card h3
+ {
   color: var(--type-heading) !important;
   font-size: var(--type-card) !important;
   font-weight: 600 !important;
   line-height: 1.3 !important;
   letter-spacing: -0.01em !important;
-  text-align: left;
+  text-align:center;
+}
+
+.service-card-content h3{
+    color: var(--type-heading) !important;
+  font-size: var(--type-card) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  text-align:left;
+}
+
+.contact-info-card__content h2{
+  color: var(--type-heading) !important;
+  font-size: var(--type-card) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  text-align:left;
 }
 
 .container p,
