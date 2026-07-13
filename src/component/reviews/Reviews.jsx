@@ -17,6 +17,23 @@ function Reviews() {
       initials: 'DR',
       tone: 'blue',
     },
+
+    {
+  text: 'Even after delivery, the support team stayed responsive and helpful. It’s rare to find such dedication and attention to detail in tech services.',
+  name: 'Arjun',
+  role: 'Client',
+  initials: 'DR',
+  tone: 'red',
+},
+{
+  text: 'From concept to launch, everything was handled with precision and care. The project was completed on time and exceeded our expectations in quality.',
+  name: 'Ankur',
+  role: 'Client',
+  initials: 'DR',
+  tone: 'blue',
+}
+
+
   ];
 
   return (
@@ -59,7 +76,7 @@ function Reviews() {
                 <div className="review-avatar">{review.initials}</div>
                 <div>
                   <h3>{review.name}</h3>
-                  <p>{review.role}</p>
+                  <div id="review-client">{review.role}</div>
                 </div>
               </div>
             </article>
