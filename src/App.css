@@ -19,20 +19,22 @@
   text-align: initial;
 }
 
+
 .sticky-whatsapp-button{
-      align-items: center;
-    background: #25d366;
-    border-radius: 50%;
-    bottom: 24px;
-    box-shadow: 0 14px 30px #25d36657;
-    color: #fff;
-    display: flex;
-    height: 58px;
-    justify-content: center;
-    position: fixed;
-    right: 24px;
-    text-decoration: none;
-    width: 58px;
+        align-items: center;
+        background: #25d366;
+        border-radius: 50%;
+        bottom: 24px;
+        box-shadow: 0 14px 30px #25d36657;
+        color: #fff;
+        display: flex;
+        height: 58px;
+        justify-content: center;
+        position: fixed;
+        right: 24px;
+        text-decoration: none;
+        width: 58px;
+        z-index: 1100;
 }
 
 .sticky-whatsapp-button svg{
@@ -40,9 +42,15 @@
     width: 28px;
 }
 
+.mobile-call-button{
+  display:none
+}
+
 @media (max-width: 768px) {
 
-  .sticky-whatsapp-button
+  .sticky-whatsapp-button{
+
+  }
   
     .mobile-call-button {
         align-items: center;
