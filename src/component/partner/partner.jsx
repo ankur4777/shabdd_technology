@@ -9,7 +9,8 @@ function Partner() {
     { path: 'company_logo/1.png' },
     { path: 'company_logo/2.png' },
     { path: 'company_logo/3.png' },
-    { path: "company_logo/4.png' }
+    { path: 'company_logo/4.png' },
+    { path: 'company_logo/5.png' }
   ];
   const marqueeLogos = [...companyLogo, ...companyLogo];
 
