@@ -49,16 +49,16 @@
 
 .meta-optimization-section{
   display: grid;
-  grid-template-columns: minmax(18rem, 0.82fr) minmax(22rem, 1.18fr);
+  grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr);
   gap: clamp(1.25rem, 3vw, 3.25rem);
-  align-items: center;
+text-align: left;
   padding: clamp(2.25rem, 4vw, 3.8rem) 4% clamp(2.4rem, 4.5vw, 4rem);
   background: #ffffff;
   overflow: hidden;
 }
 
 .meta-optimization-content{
-  max-width: 470px;
+  max-width: 60rem;
   animation: metaFadeUp 0.75s ease both;
 }
 
@@ -82,9 +82,12 @@
   font-size: clamp(0.9rem, 1vw, 1rem);
   font-weight: 500;
   line-height: 1.55;
-  
+ 
 }
 
+.meta-optimization-content h2{
+  text-align:left !important; 
+}
 .meta-optimization-list{
   display: grid;
 }
@@ -151,8 +154,8 @@
   position: absolute;
   top: 50%;
   right: 0;
-  width: 176%;
-  max-width: none;
+  width: 100%;
+  
   height: auto;
   transform: translateY(-50%);
 }

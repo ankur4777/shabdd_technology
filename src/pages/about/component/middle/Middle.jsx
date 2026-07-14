@@ -189,7 +189,7 @@ function Middle() {
       <div className="middle-left-visual" ref={growthVisualRef}>
           <img
             className="middle-growth-image"
-            src="/about/image-4.png"
+            src="/about_images/image-4.png"
             alt="Growth and engagement illustration"
           />
 

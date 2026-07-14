@@ -31,22 +31,36 @@ const seoOverviewServices = [
 const seoProjects = [
   {
     title: 'Kamboj Logistics',
-    image: '/company_logo/Untitled-design-9.png',
+    image: '/company_logo/1.png',
     link: '#',
     className: 'seo-project-kamboj',
   },
   {
     title: 'Liberty Interiors',
-    image: '/company_logo/PrtnerBackground.png',
+    image: '/company_logo/2.png',
     link: '#',
     className: 'seo-project-spider',
     featured: true,
   },
   {
     title: 'THE BTS',
-    image: '/company_logo/Untitled-design-8.png',
+    image: '/company_logo/3.png',
     link: '#',
     className: 'seo-project-bts',
+  },
+    {
+    title: 'Liberty Interiors',
+    image: '/company_logo/4.png',
+    link: '#',
+    className: 'seo-project-spider',
+    featured: true,
+  },
+     {
+    title: 'Liberty Interiors',
+    image: '/company_logo/5.png',
+    link: '#',
+    className: 'seo-project-spider',
+    featured: true,
   },
 ]
 

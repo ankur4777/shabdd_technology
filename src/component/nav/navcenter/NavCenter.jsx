@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './NavCenter.css';
 import { BiSolidDownArrow } from "react-icons/bi";
 
@@ -15,6 +15,7 @@ const services = [
 ];
 
 function NavCenter({ isOpen = false, onNavigate }) {
+  const { pathname } = useLocation();
   const [serviceOpen, setServiceOpen] = useState(false);
 
   useEffect(() => {
@@ -23,8 +24,14 @@ function NavCenter({ isOpen = false, onNavigate }) {
     }
   }, [isOpen]);
 
-  const handleNavigate = () => {
+  useEffect(() => {
     setServiceOpen(false);
+  }, [pathname]);
+
+  const handleNavigate = (event) => {
+    setServiceOpen(false);
+    event?.currentTarget?.blur();
+    document.activeElement?.blur();
     onNavigate?.();
   };
 

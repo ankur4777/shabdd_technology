@@ -106,8 +106,6 @@
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.nav-dropdown:hover .nav-dropdown-icon,
-.nav-dropdown:focus-within .nav-dropdown-icon,
 .nav-dropdown-open .nav-dropdown-icon {
   transform: rotate(180deg);
   color: var(--nav-violet, #5b4bdb);
@@ -129,8 +127,6 @@
   animation: dropdownReveal 0.22s ease both;
 }
 
-.nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu,
 .nav-dropdown-open .dropdown-menu {
   display: flex;
 }

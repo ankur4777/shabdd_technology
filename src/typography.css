@@ -226,7 +226,7 @@ letter-spacing:0.39px
 .container h3,
 .blog-card h3,
 .review-author h3,
-.otherservice-track h3,
+
 .allservice-card h2,
 .service-showcase-card h3,
 .meta-industry-card h3,
@@ -250,6 +250,15 @@ letter-spacing:0.39px
   line-height: 1.3 !important;
   letter-spacing: -0.01em !important;
   text-align:left;
+}
+
+.otherservice-track h3{
+    color: var(--type-heading) !important;
+  font-size: var(--type-card) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  text-align:center;
 }
 
 .service-card-content h3{
