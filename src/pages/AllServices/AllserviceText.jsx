@@ -41,7 +41,7 @@ function AllserviceText({ serviceText }) {
             </div>
             <h2>{card.title}</h2>
             <p>{card.text}</p>
-            <strong>Proudly delivered by ShabdD Technology.</strong>
+            <strong className='h2-italic'>Proudly delivered by ShabdD Technology.</strong>
           </article>
         ))}
       </div>
