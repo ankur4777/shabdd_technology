@@ -14,7 +14,7 @@ function Poster() {
 
         <h1>
           Boost Your
-          <span>Online Business</span>
+          <span className="main-text-span">Online Business</span>
         </h1>
 
         <p className="poster-description">

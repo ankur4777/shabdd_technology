@@ -49,7 +49,7 @@ function Blog() {
       <div className="blog-header">
         <p className="blog-kicker">Our Blog</p>
         <h2>
-          Latest <span>Blog</span> & News
+          Latest <span className='h2-italic'>Blog</span> & News
         </h2>
         <div className="blog-title-rule" aria-hidden="true" />
         <p>

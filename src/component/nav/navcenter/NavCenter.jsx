@@ -41,12 +41,22 @@ function NavCenter({ isOpen = false, onNavigate }) {
     }
   };
 
+  const openServicesOnDesktop = () => {
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      setServiceOpen(true);
+    }
+  };
+
   return (
     <div className={`nav-center ${isOpen ? 'nav-center-open' : ''}`}>
       <Link className="nav-link" to="/" onClick={handleNavigate}><b>HOME</b></Link>
       <Link className="nav-link" to="/about" onClick={handleNavigate}><b>ABOUT US</b></Link>
 
-      <div className={`nav-dropdown ${serviceOpen ? 'nav-dropdown-open' : ''}`} onMouseLeave={closeServicesOnDesktop}>
+      <div
+        className={`nav-dropdown ${serviceOpen ? 'nav-dropdown-open' : ''}`}
+        onMouseEnter={openServicesOnDesktop}
+        onMouseLeave={closeServicesOnDesktop}
+      >
         <button
           className="nav-link nav-dropdown-button"
           type="button"
