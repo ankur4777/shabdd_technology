@@ -23,7 +23,7 @@ function AllserviceText({ serviceText }) {
           <span>{serviceText.title.split(' ').slice(1).join(' ')}</span>
         </h2>
         <div className="allservice-title-line" />
-        <p>{serviceText.intro}</p>
+        <p className="for-p-tag">{serviceText.intro}</p>
       </div>
 
       <div className="allservice-card-grid">
@@ -40,7 +40,7 @@ function AllserviceText({ serviceText }) {
               <img src={card.icon} alt="" />
             </div>
             <h2>{card.title}</h2>
-            <p>{card.text}</p>
+            <p className="for-p-tag">{card.text}</p>
             <strong className='h2-italic'>Proudly delivered by ShabdD Technology.</strong>
           </article>
         ))}

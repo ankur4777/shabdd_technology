@@ -35,7 +35,7 @@ function Contact() {
             Contact <span>Us</span>
           </h1>
           <div className="contact-hero__line" />
-          <p>
+          <p className="for-p-tag">
             We’re here to help! Whether you have a question, need support, or want to discuss a project, our team is
             ready to assist you.
           </p>
@@ -54,7 +54,7 @@ function Contact() {
 
       <div className='contact-left-text'>
         <h2>Feel Free To <span>Contact </span>  & Get In Touch !</h2>
-        <p style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', textAlign: 'justify' }}>
+        <p className="for-p-tag" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', textAlign: 'justify' }}>
           Ready to take your digital marketing to the next level? Whether you're looking to enhance your online presence, boost traffic, or drive more conversions, Shabdd Technology is here to help. Our dedicated team of digital marketing professionals is ready to tailor strategies that meet your unique business goals.
 
           Have questions or need a consultation? We'd love to hear from you! Reach out today and discover how we can transform your business with innovative digital marketing solutions.
@@ -76,7 +76,7 @@ function Contact() {
                 <h2>{item.title}</h2>
                 <div className={item.title.includes('Phone') ? 'contact-info-card__phones' : ''}>
                   {item.lines.map((line) => (
-                    <p key={line}>{line}</p>
+                    <p className="for-p-tag" key={line}>{line}</p>
                   ))}
                 </div>
               </div>

@@ -47,12 +47,12 @@ function Blog() {
       <div className="blog-rings" aria-hidden="true" />
 
       <div className="blog-header">
-        <p className="blog-kicker">Our Blog</p>
+        <p className="blog-kicker for-p-tag">Our Blog</p>
         <h2>
           Latest <span className='h2-italic'>Blog</span> & News
         </h2>
         <div className="blog-title-rule" aria-hidden="true" />
-        <p>
+        <p className="for-p-tag">
           Our blog features expert articles, industry news, and updates on
           cutting-edge solutions from Shabdd Technology.
         </p>
@@ -81,7 +81,7 @@ function Blog() {
               </div>
 
               <h3>{blog.title}</h3>
-              <p className="blog-description">{blog.description}</p>
+              <p className="blog-description for-p-tag">{blog.description}</p>
 
              
             </div>

@@ -9,7 +9,7 @@ function Banner({ title, subtitle, description }) {
         <div className="allservices-banner-text">
           <h4>{subtitle}</h4>
           <h1>{title}</h1>
-          <p>{description}</p>
+          <p className="for-p-tag">{description}</p>
         </div>
       </div>
     </div>

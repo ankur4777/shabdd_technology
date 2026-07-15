@@ -62,6 +62,6 @@
     .about-container p {
         width: min(86%, 300px);
         font-size: 13px;
-        top: 60%;
+        top: 65%;
     }
 }

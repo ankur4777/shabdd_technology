@@ -132,12 +132,12 @@ function Middle() {
               <div className="middle-profile-divider" />
 
               <div className="middle-profile-body">
-                <p>
+                <p className="for-p-tag">
                   At Shabdd Technologies, we are dedicated to delivering cutting-edge IT solutions that empower
                   businesses to succeed in the digital age.
                 </p>
 
-                <p>
+                <p className="for-p-tag">
                   From app development and lead generation to social media marketing and SEO management, we provide
                   comprehensive services tailored to your needs. <em>Let us help elevate your business to new heights.</em>
                 </p>
@@ -157,7 +157,7 @@ function Middle() {
               <img src="/Manager/Sir.jpeg" alt="Pardeep Bhatia" />
               <div className="middle-testimonial-content">
                 <h4>CEO</h4>
-                <p>Pardeep Bhatia</p>
+                <p className="for-p-tag">Pardeep Bhatia</p>
                 <small>Visionary Leader &amp; Digital Transformation Expert</small>
               </div>
             </div>
@@ -174,12 +174,12 @@ function Middle() {
               </div>
             </header>
 
-            <p className="middle-copy-detail">
+            <p className="middle-copy-detail for-p-tag">
               At Shabdd Technologies, we are dedicated to delivering IT solutions that help businesses thrive in an ever-evolving digital landscape. With a focus on app development, lead generation, social media marketing, and SEO management, we provide comprehensive services that cater to your unique business needs.
             </p>
 
            
-            <p className="middle-copy-detail">
+            <p className="middle-copy-detail for-p-tag">
               With expertise and a client-centric approach, Shabdd Technologies transforms ideas into powerful digital
               solutions. Whether you need a custom app, effective lead generation strategies, or a robust online presence,
               we are here to make it happen.
@@ -264,7 +264,7 @@ function Middle() {
                   <div className="middle-highlight-icon">{item.icon}</div>
                   <div className='middle-heighlight-text'>
                     <h4>{item.title}</h4>
-                    <p>{item.text}</p>
+                    <p className="for-p-tag">{item.text}</p>
                   </div>
                 </article>
               ))}
@@ -275,7 +275,7 @@ function Middle() {
                 </div>
                 <div>
                   <h4>Dedicated Support</h4>
-                  <p>A skilled team with you at every step.</p>
+                  <p className="for-p-tag">A skilled team with you at every step.</p>
                 </div>
                 <div className="middle-agent" aria-hidden="true">
                   <div className="middle-agent-body" />

@@ -17,7 +17,7 @@ function Poster() {
           <span className="main-text-span">Online Business</span>
         </h1>
 
-        <p className="poster-description">
+        <p className="poster-description for-p-tag">
           At Shabdd Technology, we offer cutting-edge digital marketing solutions designed
           to help your business thrive in the digital landscape. Our team of experts
           harnesses the power of data-driven strategies, creative content, and advanced

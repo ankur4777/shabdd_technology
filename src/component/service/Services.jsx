@@ -18,7 +18,7 @@ function Services() {
     <div className="root">
       <h2>Our <sapn className="h2-italic">Service</sapn></h2>
       <p className='for-p-tag'>Driving Digital Excellence with Tailored Solutions </p>
-      <p style={{ color: 'gray' }}>At Shabdd Technologies, we don't just offer services; we deliver expert-driven solutions designed to empower your business. Explore the unique advantages we bring to the table:</p>
+      <p className="for-p-tag" style={{ color: 'gray' }}>At Shabdd Technologies, we don't just offer services; we deliver expert-driven solutions designed to empower your business. Explore the unique advantages we bring to the table:</p>
       <div className='services'>
         {services.map((e, index) => (
           <Link className="service-link" to={e.path} key={e.path}>
@@ -28,7 +28,7 @@ function Services() {
               </div>
               <div className="service-card-content">
                 <h3>{e.lable}</h3>
-                <p className='description'>{e.description}</p>
+                <p className='description for-p-tag'>{e.description}</p>
                 <span className="learn-more">Learn More <span aria-hidden="true">&rarr;</span></span>
               </div>
             </div>

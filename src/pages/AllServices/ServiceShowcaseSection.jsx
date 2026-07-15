@@ -59,7 +59,7 @@ function ServiceShowcaseSection({ data }) {
             {!data.titlePrefix && data.title}
             {data.highlight && <span>{data.highlight}</span>}
           </h2>
-          {data.intro && <p>{data.intro}</p>}
+          {data.intro && <p className="for-p-tag">{data.intro}</p>}
         </div>
 
         <div className="service-showcase-grid">
@@ -75,7 +75,7 @@ function ServiceShowcaseSection({ data }) {
               </span>
               <h3>{card.title}</h3>
               <span className="service-showcase-line" />
-              <p>{card.text}</p>
+              <p className="for-p-tag">{card.text}</p>
             </article>
           ))}
         </div>

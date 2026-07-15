@@ -19,7 +19,7 @@ function OtherServices()
     <div className="otherservices">
       <div className="otherservices-heading">
         <h2>Other <span className='h2-italic'>Services</span></h2>
-        <p>Build a powerful digital presence with tailored solutions that captivate visitors and convert them into loyal customers.</p>
+        <p className="for-p-tag">Build a powerful digital presence with tailored solutions that captivate visitors and convert them into loyal customers.</p>
       </div>
       <div className="otherservice-container">
         <div className="otherservice-track">

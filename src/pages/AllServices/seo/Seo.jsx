@@ -93,7 +93,7 @@ export function SeoProjects() {
       <div className="seo-projects-heading">
         <span>Our Work</span>
         <h2>View Our <strong>Projects</strong></h2>
-        <p>
+        <p className="for-p-tag">
           At <strong>Shabdd Technology</strong>, our projects showcase innovative,
           custom solutions designed to meet diverse business needs. Explore how
           we've helped clients achieve their goals through cutting-edge technology
@@ -148,14 +148,14 @@ function Seo() {
           <div className="seo-overview-copy">
             <h2>Service <span>Overview</span></h2>
             <div className="seo-overview-line"/>
-            <p className='seo-overview-p'>
+            <p className='seo-overview-p for-p-tag'>
               At Shabdd Technologies, we recognize that search engine visibility is
               fundamental to achieving online success. In today's competitive digital
               world, simply having a website is not enough; your business needs to be
               found by the right audience. That's where our expert SEO Management
               services come in.
             </p>
-            <p className="seo-overview-p">
+            <p className="seo-overview-p for-p-tag">
               We focus on improving your website's ranking on major search engines
               like Google, driving high-quality organic traffic that converts. Our
               comprehensive approach combines on-page SEO, technical optimization,
@@ -172,7 +172,7 @@ function Seo() {
                   <span className="seo-service-icon">{service.icon}</span>
                   <div>
                     <h4>{service.title}</h4>
-                    <p>{service.text}</p>
+                    <p className="for-p-tag">{service.text}</p>
                   </div>
                   <strong>{String(index + 1).padStart(2, '0')}</strong>
                 </article>

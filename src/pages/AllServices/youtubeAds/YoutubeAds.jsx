@@ -79,12 +79,12 @@ function YoutubeAds() {
           </h2>
           <i />
 
-          <p>
+          <p className="for-p-tag">
             We create data-driven, audience-focused YouTube ad campaigns designed
             to maximize engagement, boost conversions, and optimize ROI.
           </p>
 
-          <p>
+          <p className="for-p-tag">
             From brand awareness to direct response marketing, our expertise in ad
             formats, audience segmentation, and bidding strategies ensures your
             message reaches the right viewers at the right time.
@@ -121,7 +121,7 @@ function YoutubeAds() {
               <span className="youtube-timeline-divider" />
               <div className="youtube-timeline-copy">
                 <h3>{step.title}</h3>
-                <p>{step.text}</p>
+                <p className="for-p-tag">{step.text}</p>
               </div>
             </article>
           ))}

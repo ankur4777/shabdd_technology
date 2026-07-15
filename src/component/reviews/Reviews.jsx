@@ -43,12 +43,12 @@ function Reviews() {
         <div className="reviews-dots reviews-dots-right" aria-hidden="true" />
 
         <div className="reviews-heading">
-          <p className="reviews-kicker">Testimonials</p>
+          <p className="reviews-kicker for-p-tag">Testimonials</p>
           <h2 className='h2-left-small'>
             Our <span className='h2-italic'>Client&apos;s</span> Reviews
           </h2>
           <div className="reviews-title-rule" aria-hidden="true" />
-          <p>
+          <p className="for-p-tag">
             Discover why businesses trust SHABDD Technology to elevate their
             digital presence and deliver outstanding results.
           </p>

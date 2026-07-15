@@ -41,7 +41,7 @@ export function WebApplicationProcess() {
         <div className="webApplication-process-copy">
           <h2>Our Web App Development Process</h2>
           <div className="webApplication-process-line" />
-          <p>
+          <p className="for-p-tag">
             Combining agile development, cloud scalability, and DevOps automation
             to build <span>future-proof</span> applications.
           </p>
@@ -59,7 +59,7 @@ export function WebApplicationProcess() {
                   <strong>{step.title}</strong>
                   <MdKeyboardArrowRight className="webApplication-process-arrow" />
                 </button>
-                <p className="webApplication-process-detail">{step.detail}</p>
+                <p className="webApplication-process-detail for-p-tag">{step.detail}</p>
               </article>
             ))}
           </div>
@@ -85,7 +85,7 @@ function WebApplication() {
         <img src="/webApplication/96b0e681-2c80-4656-8ade-81013c9665ea.png" alt="Web application illustration" />
         <div className="webApplication-right-text">
           <h2>Building Interactive, Scalable, and Secure <span>Online Solutions</span> </h2>
-          <p>Web application development is all about building dynamic, browser-based software designed to meet your unique business goals.
+          <p className="for-p-tag">Web application development is all about building dynamic, browser-based software designed to meet your unique business goals.
 
 Unlike static websites, our web apps deliver interactive functionality, real-time data processing, and seamless user experiences that drive efficiency and engagement.</p>
         </div>

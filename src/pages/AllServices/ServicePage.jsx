@@ -31,7 +31,7 @@ function ServicePage() {
     return (
       <div style={{ padding: '40px', textAlign: 'center' }}>
         <h2>Service not found</h2>
-        <p>The service key <strong>{serviceKey}</strong> is not valid.</p>
+        <p className="for-p-tag">The service key <strong>{serviceKey}</strong> is not valid.</p>
       </div>
     )
   }

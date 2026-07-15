@@ -7,7 +7,7 @@ function Footer() {
             <div className="footer-container">
                 <div className="footer-brand">
                     <img src="/Logo-removebg-preview.png" alt="Shabdd Innovations" />
-                    <p>
+                    <p className="for-p-tag">
                         Shabdd Innovations is a visionary parent company operating an ecosystem of innovative,
                         market-leading ventures. We’re committed to delivering excellence across technology,
                         travel, events, and personal development. With a focus on transformation, integrity,
@@ -33,9 +33,9 @@ function Footer() {
 
                 <div className="footer-column">
                     <h4>CONTACT</h4>
-                    <p>+91-9543305791 +91-7347673924</p>
-                    <p>info@shabddinnovations.in</p>
-                    <p><strong>Registered Office:</strong> #232, 4th Floor, Street 14, Gulab Vatika, Loni Ghaziabad, 201102</p>
+                    <p className="for-p-tag">+91-9543305791 +91-7347673924</p>
+                    <p className="for-p-tag">info@shabddinnovations.in</p>
+                    <p className="for-p-tag"><strong>Registered Office:</strong> #232, 4th Floor, Street 14, Gulab Vatika, Loni Ghaziabad, 201102</p>
                  
                 </div>
             </div>

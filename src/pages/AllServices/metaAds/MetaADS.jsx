@@ -55,7 +55,7 @@ function MetaADS() {
 
           <div className="meta-growth-copy">
             <span><FaUsers /></span>
-            <p>
+            <p className="for-p-tag">
               We create ROI-focused Meta ad campaigns that put your brand in
               front of the right audience at the right time.
             </p>
@@ -63,7 +63,7 @@ function MetaADS() {
 
           <div className="meta-growth-copy">
             <span><FaRocket /></span>
-            <p>
+            <p className="for-p-tag">
               Using advanced targeting, strategic bidding, and conversion-optimized
               creatives, we help businesses maximize engagement, increase revenue,
               and dominate their market.
@@ -78,7 +78,7 @@ function MetaADS() {
             From Setup to Scaling
             <span>We Optimize Every Step</span>
           </h2>
-          <p className="meta-optimization-intro">
+          <p className="meta-optimization-intro for-p-tag">
             We take a results-driven, data-backed approach to maximize performance,
             minimize waste, and scale profitable campaigns for long-term success.
           </p>
@@ -89,7 +89,7 @@ function MetaADS() {
                 <span className="meta-optimization-icon">{step.icon}</span>
                 <div className='meta-text-left'>
                   <h3>{step.title}</h3>
-                  <p>{step.text}</p>
+                  <p className="for-p-tag">{step.text}</p>
                 </div>
               </article>
             ))}

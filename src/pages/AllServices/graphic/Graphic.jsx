@@ -85,13 +85,13 @@ function Graphic() {
             <span>That Tell Your Story</span>
           </h2>
 
-          <p>
+          <p className="for-p-tag">
             Three Apples Graphic Design services go beyond aesthetics to create
             functional, visually stunning content that captivate users, showing
             your perspective into their lens.
           </p>
 
-          <p>
+          <p className="for-p-tag">
             With the latest design practices, we help you create an engaging
             digital experience that reflects your brand and meets your audience's needs.
           </p>
@@ -132,7 +132,7 @@ export function GraphicProcess() {
             <span className="graphic-process-divider" />
             <div className="graphic-process-copy">
               <h3>{step.title}</h3>
-              <p>{step.text}</p>
+              <p className="for-p-tag">{step.text}</p>
             </div>
           </article>
         ))}

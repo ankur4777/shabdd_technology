@@ -39,7 +39,7 @@ function DigitalMarketing() {
             Achieve Your Enrollments
             <span>Goals Faster</span>
           </h2>
-          <p>
+          <p className="for-p-tag">
             Target your prospects with high precision data to drive qualified leads
             through digital marketing strategies tailored to your specific programs.
           </p>
@@ -50,7 +50,7 @@ function DigitalMarketing() {
             </span>
             <div>
               <h3>Precise Targeting</h3>
-              <p>Reach the right audience with advanced targeting and segmentation.</p>
+              <p className="for-p-tag">Reach the right audience with advanced targeting and segmentation.</p>
             </div>
           </div>
 
@@ -60,7 +60,7 @@ function DigitalMarketing() {
             </span>
             <div>
               <h3>Data-Driven Strategy</h3>
-              <p>Make smarter decisions backed by real-time insights and analytics.</p>
+              <p className="for-p-tag">Make smarter decisions backed by real-time insights and analytics.</p>
             </div>
           </div>
         </div>

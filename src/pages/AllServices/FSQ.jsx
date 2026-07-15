@@ -69,7 +69,7 @@ function FSQ() {
               Frequently Asked
               <span>Questions</span>
             </h2> */}
-            <p>Find quick answers to the most common questions about our services and solutions.</p>
+            <p className="for-p-tag">Find quick answers to the most common questions about our services and solutions.</p>
 
             <div className="fsq-list" aria-label="Frequently asked questions">
               {faqItems.map((item, index) => {
@@ -91,7 +91,7 @@ function FSQ() {
                     </button>
 
                     <div className="fsq-answer" aria-hidden={!isOpen}>
-                      <p>{item.answer}</p>
+                      <p className="for-p-tag">{item.answer}</p>
                     </div>
                   </div>
                 )
@@ -125,7 +125,7 @@ function FSQ() {
           </span>
           <div className="fsq-contact-copy">
             <h3>Still have questions?</h3>
-            <p>We're here to help you. Get in touch with our team.</p>
+            <p className="for-p-tag">We're here to help you. Get in touch with our team.</p>
           </div>
           <a href="/contact" className="fsq-contact-button">
             <FaEnvelope aria-hidden="true" />

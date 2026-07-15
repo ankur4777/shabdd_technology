@@ -55,7 +55,7 @@ function Bottom() {
                         <article className="about-bottom-card" key={index}>
                             <img src={item.path} alt="" />
                             <h3>{item.h3}</h3>
-                            <p>{item.p}</p>
+                            <p className="for-p-tag">{item.p}</p>
                         </article>
                     ))}
                 </div>
@@ -64,7 +64,7 @@ function Bottom() {
                     <h1>
                         Empowering <span>Your Social Media</span> Presence
                     </h1>
-                    <p className="about-contect-p">Shabdd Technologies provides strategic solutions that amplify your brand's voice and engage your audience effectively.</p>
+                    <p className="about-contect-p for-p-tag">Shabdd Technologies provides strategic solutions that amplify your brand's voice and engage your audience effectively.</p>
 
                     <div className="about-bottom-progress-list">
                         {progress.map((item, idx) => (
