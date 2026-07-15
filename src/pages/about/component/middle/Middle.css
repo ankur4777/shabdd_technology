@@ -1153,12 +1153,11 @@
  }
 
  .middle-about-card .middle-copy-detail {
-   padding-bottom: 10px;
-   color: #4f5261;
-   font-family: inherit;
-   font-size: clamp(17px, 1.45vw, 21px) !important;
-   line-height: 29px !important;
-   text-align: left !important;
+    color: #6b7280 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.65 !important;
+    font-family: 'Manrope', sans-serif !important;
  }
 
  .middle-about-card-divider {

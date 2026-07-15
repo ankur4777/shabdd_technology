@@ -64,7 +64,7 @@ function Bottom() {
                     <h1>
                         Empowering <span>Your Social Media</span> Presence
                     </h1>
-                    <p>Shabdd Technologies provides strategic solutions that amplify your brand's voice and engage your audience effectively.</p>
+                    <p className="about-contect-p">Shabdd Technologies provides strategic solutions that amplify your brand's voice and engage your audience effectively.</p>
 
                     <div className="about-bottom-progress-list">
                         {progress.map((item, idx) => (

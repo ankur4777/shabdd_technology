@@ -107,7 +107,7 @@ function Middle() {
               
 
               <h2>
-                Your <span className='h2-italic' >Trusted</span> Partner
+                Your <span className='' >Trusted</span> Partner
                 <br />
                 in Digital Solutions
               </h2>

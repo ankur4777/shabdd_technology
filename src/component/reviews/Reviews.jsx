@@ -67,7 +67,7 @@ function Reviews() {
                   ))}
                 </div>
               </div>
-              <p className="review-text">&quot;{review.text}&quot;</p>
+              <p className="for-p-tag">&quot;{review.text}&quot;</p>
               <div className="quote-watermark" aria-hidden="true">
                 &rdquo;
               </div>

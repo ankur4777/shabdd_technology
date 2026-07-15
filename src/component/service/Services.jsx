@@ -17,7 +17,7 @@ function Services() {
   return (
     <div className="root">
       <h2>Our <sapn className="h2-italic">Service</sapn></h2>
-      <h4>Driving Digital Excellence with Tailored Solutions </h4>
+      <p className='for-p-tag'>Driving Digital Excellence with Tailored Solutions </p>
       <p style={{ color: 'gray' }}>At Shabdd Technologies, we don't just offer services; we deliver expert-driven solutions designed to empower your business. Explore the unique advantages we bring to the table:</p>
       <div className='services'>
         {services.map((e, index) => (
