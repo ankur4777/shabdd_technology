@@ -45,7 +45,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Route to send email
-app.post("/contact/send", async (req, res) => {
+app.post("/contact", async (req, res) => {
   const { userName, email, subject, message } = req.body;
 
   try {

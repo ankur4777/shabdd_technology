@@ -23,7 +23,7 @@ const socialLinks = [
   // { icon: <FaWhatsapp />, label: 'WhatsApp', href: 'https://www.whatsapp.com/' },
 ]
 
-const contactApiUrl = process.env.REACT_APP_CONTACT_API_URL || 'http://localhost:5000/contact/send'
+const contactApiUrl = "https://shabddtechnology.in/contact" || 'http://localhost:5000/contact'
 
 function ContactForm() {
   const [formData, setFormData] = useState({
