@@ -8,7 +8,6 @@ const setCorsHeaders = (req, res) => {
 
   if (
     origin === "https://shabddtechnology.in" ||
-    origin === "https://www.shabddtechnology.in" ||
     origin === "http://localhost:3000"
   ) {
     res.setHeader("Access-Control-Allow-Origin", origin);
@@ -29,7 +28,10 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: "test@shabddtechnology.in",   // ✅ your Hostinger mailbox
     pass: "Chasmewala@123"       // ✅ exact password from Hostinger hPanel
-  }
+  },
+  connectionTimeout: 15000,
+  greetingTimeout: 15000,
+  socketTimeout: 20000
 });
 
 const sendContactEmail = async (req, res) => {
@@ -62,7 +64,7 @@ app.options("/contact", (req, res) => {
 app.post("/contact", sendContactEmail);
 
 // Start server
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

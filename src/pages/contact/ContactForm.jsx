@@ -23,7 +23,8 @@ const socialLinks = [
   // { icon: <FaWhatsapp />, label: 'WhatsApp', href: 'https://www.whatsapp.com/' },
 ]
 
-const contactApiUrl = process.env.REACT_APP_CONTACT_API_URL || 'https://shabdd-technology-backend.onrender.com/contact'
+const contactApiUrl = 'https://shabdd-technology-backend.onrender.com/contact'
+const requestTimeout = 20000
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -82,8 +83,12 @@ const handleSubmit = async (e) => {
     }
   } catch (error) {
     console.error(error);
+    const errorMessage = error.code === "ECONNABORTED" || error.message === "Request timed out"
+      ? "Request timed out. Please try again."
+      : "Error sending message.";
+
     showNotification({
-      message: "Error sending message.",
+      message: errorMessage,
       image: "/Global/Wrong.png",
       type: "error",
       timeout: 3000,
