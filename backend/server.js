@@ -3,33 +3,21 @@ import nodemailer from "nodemailer";
 
 const app = express();
 
-const allowedOrigins = [
-  "https://shabddtechnology.in/",
-  "http://localhost:3000",
-];
-
-// Middleware
-app.use((req, res, next) => {
+const setCorsHeaders = (req, res) => {
   const origin = req.headers.origin;
 
-  if (origin && !allowedOrigins.includes(origin)) {
-    return res.status(403).send("Origin not allowed");
-  }
-
-  if (origin) {
+  if (
+    origin === "https://shabddtechnology.in" ||
+    origin === "https://www.shabddtechnology.in" ||
+    origin === "http://localhost:3000"
+  ) {
     res.setHeader("Access-Control-Allow-Origin", origin);
     res.setHeader("Vary", "Origin");
   }
 
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(204);
-  }
-
-  next();
-});
+};
 
 app.use(express.json());   // parse JSON body
 
@@ -44,8 +32,9 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Route to send email
-app.post("/contact", async (req, res) => {
+const sendContactEmail = async (req, res) => {
+  setCorsHeaders(req, res);
+
   const { userName, email, subject, message } = req.body;
 
   try {
@@ -62,7 +51,15 @@ app.post("/contact", async (req, res) => {
     console.error("Error sending email:", err);
     res.status(500).send("Message not sent");
   }
+};
+
+// Route to send email
+app.options("/contact", (req, res) => {
+  setCorsHeaders(req, res);
+  res.sendStatus(204);
 });
+
+app.post("/contact", sendContactEmail);
 
 // Start server
 const port = 5000;
