@@ -37,11 +37,15 @@ export const useNotification = () => {
 function GlobalNotificationUI({ notification, onDismiss }) {
   if (!notification) return null
 
+  const iconSrc = notification.image || (notification.type === 'error' ? '/Global/Wrong.png' : '/Global/Correct.png')
+
   return (
     <div className='global-notification-overlay'>
       <div className={`global-notification-container ${notification.type}`}>
         <div className='global-subcontainer'>
-          <img className='global-notification-icon' src={notification.image} alt={notification.type} />
+          <div className='global-notification-icon-wrap'>
+            <img className='global-notification-icon' src={iconSrc} alt={notification.type} />
+          </div>
           <h3>{notification.message}</h3>
           <button className='global-notification-close' onClick={onDismiss} aria-label='Close notification'>×</button>
         </div>

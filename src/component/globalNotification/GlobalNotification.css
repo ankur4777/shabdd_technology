@@ -39,10 +39,20 @@
   background: #fff;
 }
 
-.global-notification-icon {
+.global-notification-icon-wrap {
   width: 72px;
   height: 72px;
   margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 72px;
+}
+
+.global-notification-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
