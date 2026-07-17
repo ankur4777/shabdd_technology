@@ -30,6 +30,7 @@ function ContactForm() {
     subject: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e) => {
     setFormData({
@@ -41,6 +42,8 @@ function ContactForm() {
   const { showNotification } = useNotification()
 const handleSubmit = async (e) => {
   e.preventDefault();
+
+  if (isSubmitting) return;
 
   const requiredFields = [formData.userName, formData.email, formData.subject];
   const hasEmptyField = requiredFields.some((value) => !value.trim());
@@ -54,6 +57,8 @@ const handleSubmit = async (e) => {
     });
     return;
   }
+
+  setIsSubmitting(true);
 
   try {
     const response = await axios.post("http://localhost:5000/send", formData);
@@ -81,6 +86,8 @@ const handleSubmit = async (e) => {
       type: "error",
       timeout: 3000,
     });
+  } finally {
+    setIsSubmitting(false);
   }
 
   setFormData({
@@ -93,6 +100,15 @@ const handleSubmit = async (e) => {
 
   return (
     <div className="contact-form-panel">
+      {isSubmitting && (
+        <div className="contact-submit-overlay" role="status" aria-live="polite">
+          <div className="contact-submit-wait">
+            <span className="contact-submit-wait__spinner" aria-hidden="true"></span>
+            <span>Sending message...</span>
+          </div>
+        </div>
+      )}
+
       <form className="contact-form" onSubmit={handleSubmit}>
         <label className="contact-form__field">
           <span>Your Name</span>
@@ -157,9 +173,13 @@ const handleSubmit = async (e) => {
           </div>
         </label>
 
-        <button className="contact-form__submit" type="submit">
-          <FaPaperPlane aria-hidden="true" />
-          Submit
+        <button className="contact-form__submit" type="submit" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <span className="contact-form__loader" aria-hidden="true"></span>
+          ) : (
+            <FaPaperPlane aria-hidden="true" />
+          )}
+          {isSubmitting ? 'Sending...' : 'Submit'}
         </button>
       </form>
 

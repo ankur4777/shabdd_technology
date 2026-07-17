@@ -1,12 +1,22 @@
 import express from "express";
 import nodemailer from "nodemailer";
-import cors from "cors";
 
 const app = express();
 
 // Middleware
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
 app.use(express.json());   // parse JSON body
-app.use(cors());           // allow requests from React (port 3000)
 
 // Nodemailer transporter (Hostinger SMTP)
 const transporter = nodemailer.createTransport({
