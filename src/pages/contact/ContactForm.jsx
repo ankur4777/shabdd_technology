@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 import {
   FaEnvelope,
   FaFacebookF,
@@ -39,57 +40,57 @@ function ContactForm() {
   }
 
   const { showNotification } = useNotification()
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const requiredFields = [formData.userName, formData.email, formData.subject];
+  const hasEmptyField = requiredFields.some((value) => !value.trim());
 
-    const requiredFields = [formData.userName, formData.email, formData.subject]
-    const hasEmptyField = requiredFields.some((value) => !value.trim())
-
-    if (hasEmptyField) {
-      showNotification({
-        message: 'Message not sent. Please fill all required fields.',
-        image: '/Global/Copilot_20260705_215949.png',
-        type: 'error',
-        timeout: 3000,
-      })
-      return
-    }
-
-    emailjs.send(
-      "service_85rbvna",     // ✅ Your Service ID
-      "template_gscr50c",    // ✅ Your Template ID
-      formData,              // ✅ Form data object
-      "CobEiLceMkl6EN0Md"    // ✅ Your Public Key
-    ).then(
-      (result) => {
-        console.log("Message sent:", result.text)
-        showNotification({
-          message: 'Message sent successfully!',
-          image: '/Global/Correct-removebg-preview.png',
-          type: 'success',
-          timeout: 3000,
-        })
-      },
-      (error) => {
-        console.log("Error:", error.text)
-        showNotification({
-          message: 'Message not sent.',
-          image: '/Global/Copilot_20260705_215949.png',
-          type: 'error',
-          timeout: 3000,
-        })
-      }
-    )
-
-    setFormData({
-      userName: '',
-      email: '',
-      subject: '',
-      message: '',
-    })
-
+  if (hasEmptyField) {
+    showNotification({
+      message: "Message not sent. Please fill all required fields.",
+      image: "Global/Wrong.png", // ✅ apna correct image path do
+      type: "error",
+      timeout: 3000,
+    });
+    return;
   }
+
+  try {
+    const response = await axios.post("http://localhost:5000/send", formData);
+
+    if (response.status === 200) {
+      showNotification({
+        message: "Message sent successfully!",
+        image: "/Global/Correct.png",
+        type: "success",
+        timeout: 3000,
+      });
+    } else {
+      showNotification({
+        message: "Message not sent.",
+        image: "/Global/Wrong.png",
+        type: "error",
+        timeout: 3000,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    showNotification({
+      message: "Error sending message.",
+      image: "/Global/Wrong.png",
+      type: "error",
+      timeout: 3000,
+    });
+  }
+
+  setFormData({
+    userName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+};
 
   return (
     <div className="contact-form-panel">

@@ -1,45 +1,46 @@
 import express from "express";
 import nodemailer from "nodemailer";
+import cors from "cors";
 
 const app = express();
 
-// Middleware to parse JSON requests
-app.use(express.json());
+// Middleware
+app.use(express.json());   // parse JSON body
+app.use(cors());           // allow requests from React (port 3000)
 
-// ✅ Correct spelling: transporter
+// Nodemailer transporter (Hostinger SMTP)
 const transporter = nodemailer.createTransport({
   host: "smtp.hostinger.com",
-  port: 465, // SSL
-  secure: true,
+  port: 465,          // SSL port
+  secure: true,       // true for port 465
   auth: {
-    user: "test@shabddtechnology.in",   // your Hostinger mailbox
-    pass: "Chasmewala@123"             // your Hostinger mailbox password
+    user: "test@shabddtechnology.in",   // ✅ your Hostinger mailbox
+    pass: "Chasmewala@123"       // ✅ exact password from Hostinger hPanel
   }
 });
 
+// Route to send email
 app.post("/send", async (req, res) => {
   const { userName, email, subject, message } = req.body;
 
   try {
-  await transporter.sendMail({
-  from: "test@shabddtechnology.in", // ✅ must be your domain mailbox
-  to: "test@shabddtechnology.in",   // receiving mailbox
-  replyTo: email,                   // customer’s email for replies
-  subject: `New Query: ${subject}`,
-  text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`
-});
+    await transporter.sendMail({
+      from: "test@shabddtechnology.in", // ✅ must be your domain mailbox
+      to: "test@shabddtechnology.in",   // ✅ receiving mailbox
+      replyTo: email,                   // customer’s email for replies
+      subject: `New Query: ${subject}`,
+      text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`
+    });
 
-
-    // ✅ Use res.send instead of end
     res.send("Message sent successfully!");
   } catch (err) {
-    console.error(err);
+    console.error("Error sending email:", err);
     res.status(500).send("Message not sent");
   }
 });
 
+// Start server
 const port = 5000;
-
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
