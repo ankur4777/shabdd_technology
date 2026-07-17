@@ -23,6 +23,8 @@ const socialLinks = [
   // { icon: <FaWhatsapp />, label: 'WhatsApp', href: 'https://www.whatsapp.com/' },
 ]
 
+const contactApiUrl = process.env.REACT_APP_CONTACT_API_URL || 'http://localhost:5000/send'
+
 function ContactForm() {
   const [formData, setFormData] = useState({
     userName: '',
@@ -61,7 +63,7 @@ const handleSubmit = async (e) => {
   setIsSubmitting(true);
 
   try {
-    const response = await axios.post("http://localhost:5000/send", formData);
+    const response = await axios.post(contactApiUrl, formData);
 
     if (response.status === 200) {
       showNotification({

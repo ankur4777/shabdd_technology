@@ -3,9 +3,24 @@ import nodemailer from "nodemailer";
 
 const app = express();
 
+const allowedOrigins = [
+  "https://shabddtechnology.in/",
+  "http://localhost:3000",
+];
+
 // Middleware
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  const origin = req.headers.origin;
+
+  if (origin && !allowedOrigins.includes(origin)) {
+    return res.status(403).send("Origin not allowed");
+  }
+
+  if (origin) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
+
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
