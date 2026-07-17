@@ -13,7 +13,6 @@ import {
   // FaYoutube
 } from 'react-icons/fa'
 
-import emailjs from "emailjs-com";
 import { useNotification } from '../../component/globalNotification/GlobalNotification'
 
 const socialLinks = [
@@ -49,7 +48,7 @@ const handleSubmit = async (e) => {
   if (hasEmptyField) {
     showNotification({
       message: "Message not sent. Please fill all required fields.",
-      image: "Global/Wrong.png", // ✅ apna correct image path do
+      image: "/Global/Wrong.png",
       type: "error",
       timeout: 3000,
     });
