@@ -32,11 +32,11 @@ app.get("/health", (req, res) => {
 const smtpPort = Number(process.env.SMTP_PORT) || 587;
 const contactRecipient = process.env.CONTACT_RECIPIENT || "lk3400961@gmail.com";
 
-const transporter = nodemailer.createTransport({
+const createTransporter = (port) => nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: smtpPort,
-  secure: smtpPort === 465,
-  requireTLS: smtpPort === 587,
+  port,
+  secure: port === 465,
+  requireTLS: port === 587,
   connectionTimeout: 15000,
   greetingTimeout: 15000,
   socketTimeout: 20000,
@@ -44,8 +44,13 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-  family: 4
+  family: 4,
+  tls: {
+    servername: process.env.SMTP_HOST
+  }
 });
+
+const smtpPortsToTry = [...new Set([smtpPort, 465, 587])];
 
 const withTimeout = (promise, timeoutMs) => {
   let timeoutId;
@@ -60,29 +65,64 @@ const withTimeout = (promise, timeoutMs) => {
   return Promise.race([promise, timeout]).finally(() => clearTimeout(timeoutId));
 };
 
+const sendMailWithFallback = async (mailOptions) => {
+  const errors = [];
+
+  for (const port of smtpPortsToTry) {
+    try {
+      await withTimeout(createTransporter(port).sendMail(mailOptions), 25000);
+      return { port };
+    } catch (err) {
+      errors.push({
+        port,
+        secure: port === 465,
+        code: err.code,
+        command: err.command,
+        responseCode: err.responseCode,
+        message: err.message
+      });
+    }
+  }
+
+  const error = new Error("All SMTP attempts failed");
+  error.code = "SMTP_ALL_FAILED";
+  error.details = errors;
+  throw error;
+};
+
 const sendContactEmail = async (req, res) => {
   setCorsHeaders(req, res);
   const { userName, email, subject, message } = req.body;
 
   try {
-    await withTimeout(transporter.sendMail({
+    const result = await sendMailWithFallback({
       from: process.env.EMAIL_USER,
       to: contactRecipient,
       replyTo: email,
       subject: `New Query: ${subject}`,
       text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`
-    }), 25000);
-    res.send("Message sent successfully!");
+    });
+    res.json({
+      message: "Message sent successfully!",
+      smtpPort: result.port
+    });
   } catch (err) {
     console.error("Error sending email:", {
       code: err.code,
       command: err.command,
       responseCode: err.responseCode,
-      message: err.message
+      message: err.message,
+      details: err.details
     });
     res.status(500).json({
       message: "Message not sent",
-      error: err.code || err.responseCode || "SMTP_ERROR"
+      error: err.code || err.responseCode || "SMTP_ERROR",
+      details: err.details || [{
+        code: err.code,
+        command: err.command,
+        responseCode: err.responseCode,
+        message: err.message
+      }]
     });
   }
 };
