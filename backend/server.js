@@ -30,8 +30,8 @@ app.get("/health", (req, res) => {
 // Nodemailer transporter (Hostinger SMTP)
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT) || 465,
-  secure: Number(process.env.SMTP_PORT) === 465,
+  port: Number(process.env.SMTP_PORT),
+  secure: Number(process.env.SMTP_PORT),
   connectionTimeout: 15000,
   greetingTimeout: 15000,
   socketTimeout: 20000,
@@ -57,7 +57,7 @@ const sendContactEmail = async (req, res) => {
     });
     res.send("Message sent successfully!");
 
-    
+
   } catch (err) {
     console.error("Error sending email:", err);
     res.status(500).send("Message not sent");
