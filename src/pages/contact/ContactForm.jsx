@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios';
 import {
   FaEnvelope,
   FaFacebookF,
@@ -7,10 +6,7 @@ import {
   FaPaperPlane,
   FaPen,
   FaRegFileAlt,
-  // FaTwitter,
   FaUser,
-  // FaWhatsapp,
-  // FaYoutube
 } from 'react-icons/fa'
 
 import { useNotification } from '../../component/globalNotification/GlobalNotification'
@@ -18,12 +14,9 @@ import { useNotification } from '../../component/globalNotification/GlobalNotifi
 const socialLinks = [
   { icon: <FaFacebookF />, label: 'Facebook', href: 'https://www.facebook.com/share/1EBpFSzreB/' },
   { icon: <FaInstagram />, label: 'Instagram', href: 'https://www.instagram.com/shabddtechnology?igsh=NzEwaXl4ampma2N0' },
-  // { icon: <FaTwitter />, label: 'Twitter', href: 'https://twitter.com/' },
-  // { icon: <FaYoutube />, label: 'YouTube', href: 'https://www.youtube.com/' },
-  // { icon: <FaWhatsapp />, label: 'WhatsApp', href: 'https://www.whatsapp.com/' },
 ]
 
-const url = 'https://shabdd-technology-backend-srsb.onrender.com/contact'
+const contactApiUrl = 'https://shabdd-technology-backend-srsb.onrender.com/contact'
 const requestTimeout = 75000
 
 function ContactForm() {
@@ -43,67 +36,75 @@ function ContactForm() {
   }
 
   const { showNotification } = useNotification()
-const handleSubmit = async (e) => {
-  e.preventDefault();
 
-  if (isSubmitting) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
-  const requiredFields = [formData.userName, formData.email, formData.subject];
-  const hasEmptyField = requiredFields.some((value) => !value.trim());
+    if (isSubmitting) return
 
-  if (hasEmptyField) {
-    showNotification({
-      message: "Message not sent. Please fill all required fields.",
-      image: "/Global/Wrong.png",
-      type: "error",
-      timeout: 3000,
-    });
-    return;
-  }
+    const requiredFields = [formData.userName, formData.email, formData.subject]
+    const hasEmptyField = requiredFields.some((value) => !value.trim())
 
-  setIsSubmitting(true);
-
-  try {
-    const response = await axios.post(url, formData, { timeout: requestTimeout });
-
-    if (response.status === 200) {
+    if (hasEmptyField) {
       showNotification({
-        message: "Message sent successfully!",
-        image: "/Global/Correct.png",
-        type: "success",
-        timeout: 3000,
-      });
-    } else {
-      showNotification({
-        message: "Message not sent.",
+        message: "Message not sent. Please fill all required fields.",
         image: "/Global/Wrong.png",
         type: "error",
         timeout: 3000,
-      });
+      })
+      return
     }
-  } catch (error) {
-    console.error(error);
-    const errorMessage = error.code === "ECONNABORTED" || error.message === "Request timed out"
-      ? "Request timed out. Please try again."
-      : "Error sending message.";
 
-    showNotification({
-      message: errorMessage,
-      image: "/Global/Wrong.png",
-      type: "error",
-      timeout: 3000,
-    });
-  } finally {
-    setIsSubmitting(false);
+    setIsSubmitting(true)
+    let timeoutId
+
+    try {
+      const controller = new AbortController()
+      timeoutId = setTimeout(() => controller.abort(), requestTimeout)
+
+      const response = await fetch(contactApiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        signal: controller.signal,
+      })
+      if (response.ok) {
+        showNotification({
+          message: "Message sent successfully!",
+          image: "/Global/Correct.png",
+          type: "success",
+          timeout: 3000,
+        })
+      } else {
+        showNotification({
+          message: "Message not sent.",
+          image: "/Global/Wrong.png",
+          type: "error",
+          timeout: 3000,
+        })
+      }
+    } catch (error) {
+      console.error(error)
+      showNotification({
+        message: error.name === "AbortError" ? "Request timed out. Please try again." : "Error sending message.",
+        image: "/Global/Wrong.png",
+        type: "error",
+        timeout: 3000,
+      })
+    } finally {
+      clearTimeout(timeoutId)
+      setIsSubmitting(false)
+    }
+
+    setFormData({
+      userName: "",
+      email: "",
+      subject: "",
+      message: "",
+    })
   }
-
-  setFormData({
-    userName: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-};
 
   return (
     <div className="contact-form-panel">
@@ -161,8 +162,7 @@ const handleSubmit = async (e) => {
               <option value="Digital Marketing">Digital Marketing</option>
               <option value="Meta Ads">Meta Ads</option>
               <option value="Graphic Design">Graphic Design</option>
-              <option value="Youtub Ads">Youtub Ads</option>
-            
+              <option value="YouTube Ads">YouTube Ads</option>
             </select>
           </div>
         </label>

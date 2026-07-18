@@ -56,6 +56,8 @@ const sendContactEmail = async (req, res) => {
       text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`
     });
     res.send("Message sent successfully!");
+
+    
   } catch (err) {
     console.error("Error sending email:", err);
     res.status(500).send("Message not sent");
