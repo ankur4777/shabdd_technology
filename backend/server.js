@@ -46,18 +46,31 @@ const transporter = nodemailer.createTransport({
   family: 4
 });
 
+const withTimeout = (promise, timeoutMs) => {
+  let timeoutId;
+  const timeout = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => {
+      const error = new Error("SMTP request timed out");
+      error.code = "SMTP_TIMEOUT";
+      reject(error);
+    }, timeoutMs);
+  });
+
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timeoutId));
+};
+
 const sendContactEmail = async (req, res) => {
   setCorsHeaders(req, res);
   const { userName, email, subject, message } = req.body;
 
   try {
-    await transporter.sendMail({
+    await withTimeout(transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       replyTo: email,
       subject: `New Query: ${subject}`,
       text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`
-    });
+    }), 25000);
     res.send("Message sent successfully!");
   } catch (err) {
     console.error("Error sending email:", {
