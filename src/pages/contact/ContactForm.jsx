@@ -16,7 +16,10 @@ const socialLinks = [
   { icon: <FaInstagram />, label: 'Instagram', href: 'https://www.instagram.com/shabddtechnology?igsh=NzEwaXl4ampma2N0' },
 ]
 
-const contactApiUrl = process.env.REACT_APP_CONTACT_API_URL || 'http://localhost:8000/api/contact'
+const contactApiUrl = process.env.REACT_APP_CONTACT_API_URL
+  || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://127.0.0.1:8000/api/contact'
+    : '/api/contact')
 const requestTimeout = 75000
 
 function ContactForm() {
