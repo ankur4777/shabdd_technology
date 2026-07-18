@@ -3,9 +3,9 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
+
 const app = express();
 
-// ✅ Allowed origins (env + defaults)
 const allowedOrigins = new Set([
   process.env.CORS_ORIGIN,
   "https://shabddtechnology.in",
@@ -25,24 +25,27 @@ const setCorsHeaders = (req, res) => {
 
 app.use(express.json());
 
-// ✅ Health check route
 app.get("/health", (req, res) => {
   res.status(200).json({ ok: true });
 });
 
-// ✅ Nodemailer transporter (587 + IPv4)
+const smtpPort = Number(process.env.SMTP_PORT) || 587;
+
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,              // smtp.hostinger.com
-  port: Number(process.env.SMTP_PORT),      // 587
-  secure: false,                            // ✅ 587 ke liye false
+  host: process.env.SMTP_HOST,
+  port: smtpPort,
+  secure: smtpPort === 465,
+  requireTLS: smtpPort === 587,
+  connectionTimeout: 15000,
+  greetingTimeout: 15000,
+  socketTimeout: 20000,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-  family: 4 // ✅ force IPv4 only
+  family: 4
 });
 
-// ✅ Contact form handler
 const sendContactEmail = async (req, res) => {
   setCorsHeaders(req, res);
   const { userName, email, subject, message } = req.body;
@@ -57,21 +60,26 @@ const sendContactEmail = async (req, res) => {
     });
     res.send("Message sent successfully!");
   } catch (err) {
-    console.error("Error sending email:", err);
-    res.status(500).send("Message not sent");
+    console.error("Error sending email:", {
+      code: err.code,
+      command: err.command,
+      responseCode: err.responseCode,
+      message: err.message
+    });
+    res.status(500).json({
+      message: "Message not sent",
+      error: err.code || err.responseCode || "SMTP_ERROR"
+    });
   }
 };
 
-// ✅ Handle preflight request
 app.options("/contact", (req, res) => {
   setCorsHeaders(req, res);
   res.sendStatus(204);
 });
 
-// ✅ POST route
 app.post("/contact", sendContactEmail);
 
-// ✅ Server start
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
