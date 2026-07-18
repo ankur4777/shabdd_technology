@@ -1,6 +1,7 @@
 import express from "express";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import dns from "node:dns/promises";
 
 dotenv.config();
 
@@ -31,24 +32,37 @@ app.get("/health", (req, res) => {
 
 const smtpPort = Number(process.env.SMTP_PORT) || 587;
 const contactRecipient = process.env.CONTACT_RECIPIENT || "lk3400961@gmail.com";
+const smtpHost = process.env.SMTP_HOST;
+let smtpIPv4;
 
-const createTransporter = (port) => nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port,
-  secure: port === 465,
-  requireTLS: port === 587,
-  connectionTimeout: 15000,
-  greetingTimeout: 15000,
-  socketTimeout: 20000,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  },
-  family: 4,
-  tls: {
-    servername: process.env.SMTP_HOST
-  }
-});
+const getSmtpIPv4 = async () => {
+  if (smtpIPv4) return smtpIPv4;
+  const result = await dns.lookup(smtpHost, { family: 4 });
+  smtpIPv4 = result.address;
+  return smtpIPv4;
+};
+
+const createTransporter = async (port) => {
+  const host = await getSmtpIPv4();
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    requireTLS: port === 587,
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    },
+    family: 4,
+    tls: {
+      servername: smtpHost
+    }
+  });
+};
 
 const smtpPortsToTry = [...new Set([smtpPort, 465, 587])];
 
@@ -70,7 +84,8 @@ const sendMailWithFallback = async (mailOptions) => {
 
   for (const port of smtpPortsToTry) {
     try {
-      await withTimeout(createTransporter(port).sendMail(mailOptions), 25000);
+      const transporter = await createTransporter(port);
+      await withTimeout(transporter.sendMail(mailOptions), 25000);
       return { port };
     } catch (err) {
       errors.push({
