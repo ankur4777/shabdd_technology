@@ -33,6 +33,7 @@ app.get("/health", (req, res) => {
 const smtpPort = Number(process.env.SMTP_PORT) || 587;
 const contactRecipient = process.env.CONTACT_RECIPIENT || "lk3400961@gmail.com";
 const smtpHost = process.env.SMTP_HOST;
+const web3FormsAccessKey = process.env.WEB3FORMS_ACCESS_KEY;
 let smtpIPv4;
 
 const getSmtpIPv4 = async () => {
@@ -133,6 +134,40 @@ const sendViaFormSubmit = async ({ userName, email, subject, message }) => {
   return text;
 };
 
+const sendViaWeb3Forms = async ({ userName, email, subject, message }) => {
+  if (!web3FormsAccessKey) {
+    const error = new Error("WEB3FORMS_ACCESS_KEY is not configured");
+    error.code = "WEB3FORMS_NOT_CONFIGURED";
+    throw error;
+  }
+
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      access_key: web3FormsAccessKey,
+      from_name: userName,
+      email,
+      subject: `New Query: ${subject}`,
+      message: `Name: ${userName}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
+      replyto: email,
+      to: contactRecipient
+    })
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok || data.success === false) {
+    const error = new Error(data.message || "Web3Forms request failed");
+    error.code = `WEB3FORMS_${response.status}`;
+    throw error;
+  }
+
+  return data;
+};
+
 const sendContactEmail = async (req, res) => {
   setCorsHeaders(req, res);
   const { userName, email, subject, message } = req.body;
@@ -151,21 +186,42 @@ const sendContactEmail = async (req, res) => {
     });
   } catch (err) {
     try {
-      await withTimeout(sendViaFormSubmit({ userName, email, subject, message }), 25000);
-      console.warn("SMTP failed; message sent through FormSubmit fallback:", {
+      await withTimeout(sendViaWeb3Forms({ userName, email, subject, message }), 25000);
+      console.warn("SMTP failed; message sent through Web3Forms fallback:", {
         smtpError: err.code,
         smtpDetails: err.details
       });
       res.json({
         message: "Message sent successfully!",
-        provider: "formsubmit",
+        provider: "web3forms",
         smtpFallbackError: err.code
       });
       return;
-    } catch (fallbackErr) {
-      err.fallback = {
-        code: fallbackErr.code,
-        message: fallbackErr.message
+    } catch (web3FormsErr) {
+      try {
+        await withTimeout(sendViaFormSubmit({ userName, email, subject, message }), 25000);
+        console.warn("SMTP and Web3Forms failed; message sent through FormSubmit fallback:", {
+          smtpError: err.code,
+          web3FormsError: web3FormsErr.code
+        });
+        res.json({
+          message: "Message sent successfully!",
+          provider: "formsubmit",
+          smtpFallbackError: err.code,
+          web3FormsFallbackError: web3FormsErr.code
+        });
+        return;
+      } catch (formSubmitErr) {
+        err.fallback = {
+          web3Forms: {
+            code: web3FormsErr.code,
+            message: web3FormsErr.message
+          },
+          formSubmit: {
+            code: formSubmitErr.code,
+            message: formSubmitErr.message
+          }
+        };
       };
     }
 
