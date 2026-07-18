@@ -173,77 +173,87 @@ const sendContactEmail = async (req, res) => {
   const { userName, email, subject, message } = req.body;
 
   try {
-    const result = await sendMailWithFallback({
-      from: process.env.EMAIL_USER,
-      to: contactRecipient,
-      replyTo: email,
-      subject: `New Query: ${subject}`,
-      text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`
-    });
+    await withTimeout(sendViaWeb3Forms({ userName, email, subject, message }), 25000);
     res.json({
       message: "Message sent successfully!",
-      smtpPort: result.port
+      provider: "web3forms"
     });
-  } catch (err) {
+    return;
+  } catch (web3FormsErr) {
+    console.warn("Web3Forms email send failed; trying SMTP:", {
+      code: web3FormsErr.code,
+      message: web3FormsErr.message
+    });
+
+    let smtpErr;
+
     try {
-      await withTimeout(sendViaWeb3Forms({ userName, email, subject, message }), 25000);
-      console.warn("SMTP failed; message sent through Web3Forms fallback:", {
-        smtpError: err.code,
-        smtpDetails: err.details
+      const result = await sendMailWithFallback({
+        from: process.env.EMAIL_USER,
+        to: contactRecipient,
+        replyTo: email,
+        subject: `New Query: ${subject}`,
+        text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`
       });
       res.json({
         message: "Message sent successfully!",
-        provider: "web3forms",
-        smtpFallbackError: err.code
+        smtpPort: result.port
       });
       return;
-    } catch (web3FormsErr) {
-      try {
-        await withTimeout(sendViaFormSubmit({ userName, email, subject, message }), 25000);
-        console.warn("SMTP and Web3Forms failed; message sent through FormSubmit fallback:", {
-          smtpError: err.code,
-          web3FormsError: web3FormsErr.code
-        });
-        res.json({
-          message: "Message sent successfully!",
-          provider: "formsubmit",
-          smtpFallbackError: err.code,
-          web3FormsFallbackError: web3FormsErr.code
-        });
-        return;
-      } catch (formSubmitErr) {
-        err.fallback = {
+    } catch (err) {
+      smtpErr = err;
+    }
+
+    try {
+      await withTimeout(sendViaFormSubmit({ userName, email, subject, message }), 25000);
+      console.warn("Web3Forms and SMTP failed; message sent through FormSubmit fallback:", {
+        smtpError: smtpErr.code,
+        web3FormsError: web3FormsErr.code
+      });
+      res.json({
+        message: "Message sent successfully!",
+        provider: "formsubmit",
+        smtpFallbackError: smtpErr.code,
+        web3FormsFallbackError: web3FormsErr.code
+      });
+      return;
+    } catch (formSubmitErr) {
+      console.error("Error sending email:", {
+        code: "ALL_PROVIDERS_FAILED",
+        web3Forms: {
+          code: web3FormsErr.code,
+          message: web3FormsErr.message
+        },
+        smtp: {
+          code: smtpErr.code,
+          message: smtpErr.message,
+          details: smtpErr.details
+        },
+        formSubmit: {
+          code: formSubmitErr.code,
+          message: formSubmitErr.message
+        }
+      });
+      res.status(500).json({
+        message: "Message not sent",
+        error: "ALL_PROVIDERS_FAILED",
+        fallback: {
           web3Forms: {
             code: web3FormsErr.code,
             message: web3FormsErr.message
+          },
+          smtp: {
+            code: smtpErr.code,
+            message: smtpErr.message
           },
           formSubmit: {
             code: formSubmitErr.code,
             message: formSubmitErr.message
           }
-        };
-      };
+        },
+        details: smtpErr.details
+      });
     }
-
-    console.error("Error sending email:", {
-      code: err.code,
-      command: err.command,
-      responseCode: err.responseCode,
-      message: err.message,
-      details: err.details,
-      fallback: err.fallback
-    });
-    res.status(500).json({
-      message: "Message not sent",
-      error: err.code || err.responseCode || "SMTP_ERROR",
-      fallback: err.fallback,
-      details: err.details || [{
-        code: err.code,
-        command: err.command,
-        responseCode: err.responseCode,
-        message: err.message
-      }]
-    });
   }
 };
 
