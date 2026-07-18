@@ -16,7 +16,7 @@ const socialLinks = [
   { icon: <FaInstagram />, label: 'Instagram', href: 'https://www.instagram.com/shabddtechnology?igsh=NzEwaXl4ampma2N0' },
 ]
 
-const contactApiUrl = 'https://shabdd-technology-backend-srsb.onrender.com/contact'
+const contactApiUrl = process.env.REACT_APP_CONTACT_API_URL || 'http://localhost:8000/api/contact'
 const requestTimeout = 75000
 
 function ContactForm() {
@@ -67,7 +67,10 @@ function ContactForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          name: formData.userName,
+        }),
         signal: controller.signal,
       })
       if (response.ok) {
