@@ -30,6 +30,7 @@ app.get("/health", (req, res) => {
 });
 
 const smtpPort = Number(process.env.SMTP_PORT) || 587;
+const contactRecipient = process.env.CONTACT_RECIPIENT || "lk3400961@gmail.com";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -66,7 +67,7 @@ const sendContactEmail = async (req, res) => {
   try {
     await withTimeout(transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
+      to: contactRecipient,
       replyTo: email,
       subject: `New Query: ${subject}`,
       text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`
