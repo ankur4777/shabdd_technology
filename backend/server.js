@@ -4,12 +4,16 @@ import dotenv from "dotenv"
 dotenv.config()
 const app = express();
 
+const allowedOrigins = new Set([
+  process.env.CORS_ORIGIN,
+  "https://shabddtechnology.in",
+  "https://www.shabddtechnology.in",
+  "http://localhost:3000"
+].filter(Boolean));
+
 const setCorsHeaders = (req, res) => {
   const origin = req.headers.origin;
-  if (
-    origin === process.env.CORS_ORIGIN ||
-    origin === "http://localhost:3000"
-  ) {
+  if (allowedOrigins.has(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
     res.setHeader("Vary", "Origin");
   }
@@ -19,11 +23,18 @@ const setCorsHeaders = (req, res) => {
 
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ ok: true });
+});
+
 // Nodemailer transporter (Hostinger SMTP)
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: true,
+  port: Number(process.env.SMTP_PORT) || 465,
+  secure: Number(process.env.SMTP_PORT) === 465,
+  connectionTimeout: 15000,
+  greetingTimeout: 15000,
+  socketTimeout: 20000,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS

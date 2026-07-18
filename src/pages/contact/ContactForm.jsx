@@ -23,8 +23,8 @@ const socialLinks = [
   // { icon: <FaWhatsapp />, label: 'WhatsApp', href: 'https://www.whatsapp.com/' },
 ]
 
-const contactApiUrl = 'https://shabdd-technology-backend.onrender.com/contact'
-const requestTimeout = 20000
+const url = 'https://shabdd-technology-backend-srsb.onrender.com/contact'
+const requestTimeout = 75000
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ const handleSubmit = async (e) => {
   setIsSubmitting(true);
 
   try {
-    const response = await axios.post(contactApiUrl, formData);
+    const response = await axios.post(url, formData, { timeout: requestTimeout });
 
     if (response.status === 200) {
       showNotification({
