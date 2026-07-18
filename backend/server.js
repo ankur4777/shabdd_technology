@@ -105,6 +105,34 @@ const sendMailWithFallback = async (mailOptions) => {
   throw error;
 };
 
+const sendViaFormSubmit = async ({ userName, email, subject, message }) => {
+  const response = await fetch(`https://formsubmit.co/ajax/${contactRecipient}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      name: userName,
+      email,
+      subject: `New Query: ${subject}`,
+      message: `Name: ${userName}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
+      _subject: `New Query: ${subject}`,
+      _template: "table",
+      _captcha: "false"
+    })
+  });
+
+  const text = await response.text();
+  if (!response.ok) {
+    const error = new Error(text || "FormSubmit request failed");
+    error.code = `FORMSUBMIT_${response.status}`;
+    throw error;
+  }
+
+  return text;
+};
+
 const sendContactEmail = async (req, res) => {
   setCorsHeaders(req, res);
   const { userName, email, subject, message } = req.body;
@@ -122,16 +150,37 @@ const sendContactEmail = async (req, res) => {
       smtpPort: result.port
     });
   } catch (err) {
+    try {
+      await withTimeout(sendViaFormSubmit({ userName, email, subject, message }), 25000);
+      console.warn("SMTP failed; message sent through FormSubmit fallback:", {
+        smtpError: err.code,
+        smtpDetails: err.details
+      });
+      res.json({
+        message: "Message sent successfully!",
+        provider: "formsubmit",
+        smtpFallbackError: err.code
+      });
+      return;
+    } catch (fallbackErr) {
+      err.fallback = {
+        code: fallbackErr.code,
+        message: fallbackErr.message
+      };
+    }
+
     console.error("Error sending email:", {
       code: err.code,
       command: err.command,
       responseCode: err.responseCode,
       message: err.message,
-      details: err.details
+      details: err.details,
+      fallback: err.fallback
     });
     res.status(500).json({
       message: "Message not sent",
       error: err.code || err.responseCode || "SMTP_ERROR",
+      fallback: err.fallback,
       details: err.details || [{
         code: err.code,
         command: err.command,
