@@ -11,6 +11,7 @@ import AllserviceText from './AllserviceText'
 import ServiceShowcaseSection from './ServiceShowcaseSection'
 import servicesData from './serviceData'
 import FSQ from './FSQ'
+import NotFound from '../notFound/NotFound'
 
 const serviceComponents = {
   'web-development': WebDevelopment,
@@ -28,12 +29,7 @@ function ServicePage() {
   const service = servicesData[serviceKey]
 
   if (!SelectedService || !service) {
-    return (
-      <div style={{ padding: '40px', textAlign: 'center' }}>
-        <h2>Service not found</h2>
-        <p className="for-p-tag">The service key <strong>{serviceKey}</strong> is not valid.</p>
-      </div>
-    )
+    return <NotFound />
   }
 
   return (

@@ -9,6 +9,7 @@ import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import About from './pages/about/About';
 import ServicePage from './pages/AllServices/ServicePage';
 import Contact from './pages/contact/Contact';
+import NotFound from './pages/notFound/NotFound';
 import GlobalNotification, { NotificationProvider } from './component/globalNotification/GlobalNotification'
 import './typography.css';
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="services/:serviceKey" element={<ServicePage />} />
             <Route path="contact" element={<Contact/>}/>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <a className="mobile-call-button" href="tel:+917347673924" aria-label="Call Shabdd Technology">
