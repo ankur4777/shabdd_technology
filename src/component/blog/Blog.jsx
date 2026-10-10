@@ -18,11 +18,7 @@ function Blog() {
             Explore the latest trends, expert insights and practical guides on
             web development, digital marketing, SEO, design and more.
           </p>
-          <div className="blog-breadcrumb">
-            <span>Home</span>
-            <FaArrowRight aria-hidden="true" />
-            <strong>Blog</strong>
-          </div>
+        
         </div>
       </section>
 
