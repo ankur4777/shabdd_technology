@@ -18,6 +18,13 @@ return new class extends Migration
             $table->date("published_date");
             $table->string("title");
             $table->text("description");
+            $table->text("introduction")->nullable();
+            $table->unsignedInteger("read_time")->default(5);
+            $table->string("author_name")->nullable();
+            $table->string("author_role")->nullable();
+            $table->string("author_image")->nullable();
+            $table->text("author_bio")->nullable();
+            $table->json("content_sections")->nullable();
             $table->string("slug")->unique();
             $table->timestamps();
         });

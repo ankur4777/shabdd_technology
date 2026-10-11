@@ -11,6 +11,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -66,8 +67,12 @@ class BlogResource extends Resource
                 DatePicker::make('published_date')
                     ->label('Publish Date')
                     ->default(now())
-                    ->disabled()
-                    ->dehydrated()
+                    ->required(),
+
+                TextInput::make('read_time')
+                    ->label('Read Time (minutes)')
+                    ->numeric()
+                    ->default(5)
                     ->required(),
 
                 // 4. Blog Title
@@ -89,6 +94,53 @@ class BlogResource extends Resource
                     ->rows(3)
                     ->required()
                     ->columnSpanFull(),
+
+                Textarea::make('introduction')
+                    ->label('Introduction Text')
+                    ->rows(4)
+                    ->columnSpanFull(),
+
+                TextInput::make('author_name')
+                    ->label('Author Name')
+                    ->default('Priya Sharma')
+                    ->required(),
+
+                TextInput::make('author_role')
+                    ->label('Author Position / Role')
+                    ->default('Content Writer at Shabdd Technology')
+                    ->required(),
+
+                FileUpload::make('author_image')
+                    ->label('Author Image')
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/gif'])
+                    ->disk('public')
+                    ->directory('authors')
+                    ->imagePreviewHeight('80')
+                    ->columnSpanFull(),
+
+                Textarea::make('author_bio')
+                    ->label('Author Bio')
+                    ->rows(3)
+                    ->default('Passionate about technology, digital marketing, and helping businesses grow through innovative content.')
+                    ->columnSpanFull(),
+
+                Repeater::make('content_sections')
+                    ->label('Detail Page Sections')
+                    ->schema([
+                        TextInput::make('heading')
+                            ->label('Subtitle / Section Heading')
+                            ->required(),
+                        Textarea::make('body')
+                            ->label('Section Description')
+                            ->rows(3)
+                            ->required()
+                            ->columnSpanFull(),
+                    ])
+                    ->defaultItems(2)
+                    ->addActionLabel('Add Section')
+                    ->itemLabel(fn (array $state): ?string => $state['heading'] ?? 'Section')
+                    ->reorderableWithButtons()
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -107,6 +159,7 @@ class BlogResource extends Resource
                     ->label('Image'),
                 TextColumn::make('category')->badge()->searchable(),
                 TextColumn::make('title')->searchable()->limit(40),
+                TextColumn::make('author_name')->label('Author')->searchable(),
                 TextColumn::make('published_date')->date('M d, Y')->sortable(),
             ])
             ->recordActions([

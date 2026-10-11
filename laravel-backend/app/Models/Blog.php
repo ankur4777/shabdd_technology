@@ -12,9 +12,17 @@ class Blog extends Model
         "published_date",
         "title",
         "description",
+        "introduction",
+        "read_time",
+        "author_name",
+        "author_role",
+        "author_image",
+        "author_bio",
+        "content_sections",
         "slug"
     ]; 
     protected $casts = [
-        "published_date" => "date"
+        "published_date" => "date",
+        "content_sections" => "array"
     ];
 }
