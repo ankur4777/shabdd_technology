@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaArrowRight,
@@ -12,6 +12,8 @@ import { API_BASE_URL } from "../../config/api";
 import "./blog.css";
 
 const fallbackImage = "/blog/blog-card-banner.jpeg";
+const initialVisibleBlogs = 6;
+const visibleBlogsStep = 6;
 
 const getBlogTimestamp = (blog) =>
   new Date(blog.published_date || blog.date || blog.created_at || 0).getTime();
@@ -21,8 +23,10 @@ function Blog() {
   const [activeCategory, setActiveCategory] = useState("All Articles");
   const [searchTerm, setSearchTerm] = useState("");
   const [slideIndex, setSlideIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(initialVisibleBlogs);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const loadMoreRef = useRef(null);
 
   useEffect(() => {
     let ignore = false;
@@ -92,6 +96,7 @@ function Blog() {
 
   useEffect(() => {
     setSlideIndex(0);
+    setVisibleCount(initialVisibleBlogs);
   }, [activeCategory, searchTerm]);
 
   useEffect(() => {
@@ -107,6 +112,33 @@ function Blog() {
   }, [filteredBlogs.length]);
 
   const featuredPost = filteredBlogs[slideIndex] || filteredBlogs[0];
+  const visibleBlogs = filteredBlogs.slice(0, visibleCount);
+  const hasMoreBlogs = visibleCount < filteredBlogs.length;
+
+  useEffect(() => {
+    const loadMoreElement = loadMoreRef.current;
+
+    if (!loadMoreElement || !hasMoreBlogs) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleCount((current) =>
+            Math.min(current + visibleBlogsStep, filteredBlogs.length)
+          );
+        }
+      },
+      {
+        rootMargin: "280px 0px",
+      }
+    );
+
+    observer.observe(loadMoreElement);
+
+    return () => observer.disconnect();
+  }, [filteredBlogs.length, hasMoreBlogs]);
 
   const goToPreviousSlide = () => {
     if (!filteredBlogs.length) {
@@ -203,6 +235,7 @@ function Blog() {
               <img
                 src={featuredPost.image || fallbackImage}
                 alt={featuredPost.title}
+                fetchPriority="high"
               />
               <span>{slideIndex === 0 ? "LATEST" : "FEATURED"}</span>
             </Link>
@@ -254,7 +287,7 @@ function Blog() {
 
           <div className="blog-heading-side">
             <p>
-              Showing {filteredBlogs.length} database blog
+              Showing {visibleBlogs.length} of {filteredBlogs.length} database blog
               {filteredBlogs.length === 1 ? "" : "s"}.
             </p>
 
@@ -280,14 +313,19 @@ function Blog() {
         </div>
 
         <div className="blog-grid">
-          {filteredBlogs.map((post) => (
+          {visibleBlogs.map((post) => (
             <Link
               className="blog-card"
               to={`/blog/${post.slug}`}
               key={post.slug}
               aria-label={post.title}
             >
-              <img src={post.image || fallbackImage} alt={post.title} />
+              <img
+                src={post.image || fallbackImage}
+                alt={post.title}
+                loading="lazy"
+                decoding="async"
+              />
 
               <div className="blog-card-body">
                 <div className="blog-card-meta">
@@ -306,6 +344,12 @@ function Blog() {
             </Link>
           ))}
         </div>
+
+        {hasMoreBlogs && (
+          <div className="blog-load-more-sentinel" ref={loadMoreRef}>
+            <span>Loading more blogs...</span>
+          </div>
+        )}
       </section>
     </main>
   );

@@ -179,6 +179,7 @@ function BlogDetail() {
           className="blog-detail-image"
           src={post.image || fallbackImage}
           alt={post.title}
+          fetchPriority="high"
         />
 
         <div className="blog-detail-content">
@@ -205,6 +206,8 @@ function BlogDetail() {
           <img
             src={author.image || fallbackAuthorImage}
             alt={author.name || "Author"}
+            loading="lazy"
+            decoding="async"
           />
           <div>
             <span>Written by</span>
@@ -237,6 +240,8 @@ function BlogDetail() {
                 <img
                   src={relatedPost.image || fallbackImage}
                   alt={relatedPost.title}
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 <div className="blog-card-body">

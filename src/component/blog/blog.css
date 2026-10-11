@@ -527,6 +527,37 @@
   gap: 28px;
 }
 
+.blog-load-more-sentinel {
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+  color: var(--blog-muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.blog-load-more-sentinel span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-load-more-sentinel span::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(237, 28, 36, 0.2);
+  border-top-color: var(--blog-red);
+  border-radius: 50%;
+  animation: blogSpin 0.8s linear infinite;
+}
+
+@keyframes blogSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .blog-card {
   overflow: hidden;
   border: 1px solid rgba(21, 17, 63, 0.08);
