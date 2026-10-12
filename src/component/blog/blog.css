@@ -1021,7 +1021,6 @@
   margin-left: auto;
 }
 
-.blog-detail-share a,
 .blog-detail-share button {
   width: 34px;
   height: 34px;
@@ -1030,22 +1029,14 @@
   border: 0;
   border-radius: 50%;
   color: #ffffff;
-  background: var(--blog-red);
+  background: #25d366;
   cursor: pointer;
   text-decoration: none;
 }
 
-.blog-detail-share a:nth-of-type(2) {
-  background: #0a66c2;
-}
-
-.blog-detail-share a:nth-of-type(3) {
-  background: #1da1f2;
-}
-
 .blog-detail-share button {
-  color: var(--blog-ink);
-  background: #eef0f3;
+  color: #ffffff;
+  background: #25d366;
 }
 
 .blog-detail-page .blog-detail-image {
@@ -1226,25 +1217,20 @@
   color: var(--blog-ink);
 }
 
-.blog-detail-share a,
-.blog-detail-share a:nth-of-type(2),
-.blog-detail-share a:nth-of-type(3),
-.blog-detail-share button,
 .blog-stage-item > span {
   background: var(--blog-red);
   color: #ffffff;
 }
 
-.blog-detail-share a:hover,
 .blog-detail-share button:hover,
 .blog-view-all:hover,
 .blog-read-more:hover {
   color: #ffffff;
-  background: var(--blog-red-dark);
+  background: #1ebe5d;
 }
 
 .blog-detail-share button {
-  border: 1px solid rgba(237, 0, 24, 0.14);
+  border: 1px solid rgba(37, 211, 102, 0.24);
 }
 
 .blog-stage-item > span {
@@ -1330,16 +1316,10 @@
   white-space: nowrap;
 }
 
-.blog-detail-share span {
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.blog-detail-share a,
 .blog-detail-share button {
   width: 30px;
   height: 30px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .blog-detail-page .blog-detail-image {
@@ -1694,41 +1674,13 @@
   }
 }
 
-/* Original social app colors for blog share buttons */
-.blog-detail-share a:nth-of-type(1) {
-  background: #1877f2;
-  color: #ffffff;
-}
-
-.blog-detail-share a:nth-of-type(2) {
-  background: #0a66c2;
-  color: #ffffff;
-}
-
-.blog-detail-share a:nth-of-type(3) {
-  background: #1da1f2;
-  color: #ffffff;
-}
-
 .blog-detail-share button {
-  background: #ed0018;
+  background: #25d366;
   color: #ffffff;
-}
-
-.blog-detail-share a:nth-of-type(1):hover {
-  background: #0f5fca;
-}
-
-.blog-detail-share a:nth-of-type(2):hover {
-  background: #084f96;
-}
-
-.blog-detail-share a:nth-of-type(3):hover {
-  background: #0c85d0;
 }
 
 .blog-detail-share button:hover {
-  background: #d81018;
+  background: #1ebe5d;
 }
 
 /* Slightly smaller blog detail title */

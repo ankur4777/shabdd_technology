@@ -4,10 +4,7 @@ import {
   FaArrowRight,
   FaCalendarAlt,
   FaClock,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaLink,
-  FaTwitter,
+  FaWhatsapp,
 } from "react-icons/fa";
 import { API_BASE_URL } from "../../config/api";
 import NotFound from "../../pages/notFound/NotFound";
@@ -22,6 +19,7 @@ function BlogDetail() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [copiedShareLink, setCopiedShareLink] = useState(false);
 
   useEffect(() => {
     let ignore = false;
@@ -76,10 +74,25 @@ function BlogDetail() {
     return (sameCategory.length ? sameCategory : fallbackRelated).slice(0, 3);
   }, [blogs, post]);
 
-  const copyArticleLink = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href);
+  const shareArticleOnWhatsApp = async () => {
+    const articleUrl = window.location.href;
+    const shareText = `${post.title} ${articleUrl}`;
+
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(articleUrl);
+        setCopiedShareLink(true);
+        window.setTimeout(() => setCopiedShareLink(false), 1800);
+      }
+    } catch (error) {
+      setCopiedShareLink(false);
     }
+
+    window.open(
+      `https://wa.me/?text=${encodeURIComponent(shareText)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   if (loading) {
@@ -157,19 +170,14 @@ function BlogDetail() {
               {post.read_time || 5} Min Read
             </span>
 
-            <div className="blog-detail-share" aria-label="Share article">
-              <span>Share:</span>
-              <a href="https://www.facebook.com/" aria-label="Share on Facebook">
-                <FaFacebookF />
-              </a>
-              <a href="https://www.linkedin.com/" aria-label="Share on LinkedIn">
-                <FaLinkedinIn />
-              </a>
-              <a href="https://twitter.com/" aria-label="Share on Twitter">
-                <FaTwitter />
-              </a>
-              <button type="button" aria-label="Copy article link" onClick={copyArticleLink}>
-                <FaLink />
+            <div className="blog-detail-share" aria-label="Share article on WhatsApp">
+              <button
+                type="button"
+                aria-label="Copy link and share on WhatsApp"
+                title={copiedShareLink ? "Link copied" : "Share on WhatsApp"}
+                onClick={shareArticleOnWhatsApp}
+              >
+                <FaWhatsapp />
               </button>
             </div>
           </div>
