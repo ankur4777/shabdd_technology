@@ -17,21 +17,21 @@ const sections = [
   {
     title: 'Acceptance of Terms',
     icon: FaFileAlt,
-    image: '/terms/acceptance.webp',
+    image: '/terms/02_acceptance1.webp',
     summary:
       'By accessing or using the Shabdd Innovations website and services, you agree to comply with these Terms of Service. If you do not agree, please do not use our website or services.',
   },
   {
     title: 'Services',
     icon: FaLightbulb,
-    image: '/terms/services.webp',
+    image: '/terms/services1.webp',
     summary:
       'Shabdd Innovations provides digital, consulting, and business support services, including technology and related solutions. Service scope, delivery timelines, and pricing are defined in project-specific proposals or agreements.',
   },
   {
     title: 'User Responsibilities',
     icon: FaUserCheck,
-    image: '/terms/responsibilities.webp',
+    image: '/terms/responsibilities1.webp',
     summary: 'When using our website and services, you agree that:',
     points: [
       'You will provide accurate and complete information when contacting us.',
@@ -42,49 +42,49 @@ const sections = [
   {
     title: 'Intellectual Property',
     icon: FaLightbulb,
-    image: '/terms/property.webp',
+    image: '/terms/property1.webp',
     summary:
       'Website content, branding, designs, and materials are owned by or licensed to Shabdd Innovations unless otherwise stated. Unauthorized reproduction, distribution, or reuse is prohibited.',
   },
   {
     title: 'Payments and Commercial Terms',
     icon: FaDollarSign,
-    image: '/terms/payments.webp',
+    image: '/terms/payments1.webp',
     summary:
       'Payment schedules, milestones, refunds, and cancellation conditions are governed by signed agreements or approved quotations. Delays in payment may affect project timelines and delivery.',
   },
   {
     title: 'Limitation of Liability',
     icon: FaShieldAlt,
-    image: '/terms/liability.webp',
+    image: '/terms/liability1.webp',
     summary:
       'To the maximum extent permitted by law, Shabdd Innovations is not liable for indirect, incidental, special, or consequential damages arising from use of our website or services.',
   },
   {
     title: 'Warranties Disclaimer',
     icon: FaExclamationTriangle,
-    image: '/terms/warranty.webp',
+    image: '/terms/warranties.webp',
     summary:
       'Website content and services are provided on an “as available” and “as is” basis. We do not guarantee uninterrupted access, error-free operation, or specific outcomes unless expressly agreed in writing.',
   },
   {
     title: 'Third-Party Links and Services',
     icon: FaExternalLinkAlt,
-    image: '/terms/third-party.webp',
+    image: '/terms/third.webp',
     summary:
       'Our website may include links to third-party resources. We are not responsible for the availability, content, or policies of external websites and platforms.',
   },
   {
     title: 'Governing Law',
     icon: FaBalanceScale,
-    image: '/terms/law.webp',
+    image: '/terms/governing.webp',
     summary:
       'These Terms are governed by applicable laws of India, unless otherwise required by a signed contract with different jurisdiction terms.',
   },
   {
     title: 'Changes to Terms',
     icon: FaSyncAlt,
-    image: '/terms/updates.webp',
+    image: '/terms/changes.webp',
     summary:
       'We may update these Terms from time to time. Revised terms will be posted on this page with an updated effective date.',
   },
@@ -96,7 +96,7 @@ function TermsOfService() {
       <section className="terms-hero">
         <img
           className="terms-hero-image"
-          src={`${process.env.PUBLIC_URL}/terms/terms_hero.jpeg`}
+          src={`${process.env.PUBLIC_URL}/terms/terms_hero1.webp`}
           alt=""
           aria-hidden="true"
         />
