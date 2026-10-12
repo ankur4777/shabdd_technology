@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   FaArrowRight,
@@ -9,30 +9,117 @@ import {
   FaLink,
   FaTwitter,
 } from "react-icons/fa";
+import { API_BASE_URL } from "../../config/api";
 import NotFound from "../../pages/notFound/NotFound";
-import { allBlogPosts, posts } from "./blogData";
 import "./blog.css";
 
-const author = {
-  name: "Priya Sharma",
-  role: "Content Writer at Shabdd Technology",
-  image: "/blog/1.jpg",
-  bio: "Passionate about technology, digital marketing, and helping businesses grow through innovative content.",
-};
+const fallbackImage = "/blog/blog-card-banner.jpeg";
+const fallbackAuthorImage = "/blog/1.jpg";
 
 function BlogDetail() {
   const { slug } = useParams();
-  const post = allBlogPosts.find((item) => item.slug === slug);
+  const [post, setPost] = useState(null);
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
-  if (!post) {
+  useEffect(() => {
+    let ignore = false;
+
+    setLoading(true);
+    setNotFound(false);
+
+    Promise.all([
+      fetch(`${API_BASE_URL}/blogs/${slug}`),
+      fetch(`${API_BASE_URL}/blogs`),
+    ])
+      .then(async ([postResponse, blogsResponse]) => {
+        if (!postResponse.ok) {
+          throw new Error("not-found");
+        }
+
+        const postData = await postResponse.json();
+        const blogsData = blogsResponse.ok ? await blogsResponse.json() : [];
+
+        if (!ignore) {
+          setPost(postData);
+          setBlogs(Array.isArray(blogsData) ? blogsData : []);
+        }
+      })
+      .catch(() => {
+        if (!ignore) {
+          setNotFound(true);
+        }
+      })
+      .finally(() => {
+        if (!ignore) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      ignore = true;
+    };
+  }, [slug]);
+
+  const relatedPosts = useMemo(() => {
+    if (!post) {
+      return [];
+    }
+
+    const sameCategory = blogs.filter(
+      (item) => item.slug !== post.slug && item.category === post.category
+    );
+
+    const fallbackRelated = blogs.filter((item) => item.slug !== post.slug);
+
+    return (sameCategory.length ? sameCategory : fallbackRelated).slice(0, 3);
+  }, [blogs, post]);
+
+  const copyArticleLink = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href);
+    }
+  };
+
+  if (loading) {
+    return (
+      <main className="blog-page blog-detail-page">
+        <section className="blog-detail-wrapper">
+          <div className="blog-detail-loading" aria-label="Loading blog detail">
+            <i className="blog-detail-loading-breadcrumb" />
+            <i className="blog-detail-loading-title" />
+            <div className="blog-detail-loading-meta">
+              <i />
+              <i />
+              <i />
+            </div>
+            <i className="blog-detail-loading-image" />
+            <div className="blog-detail-loading-content">
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+            <div className="blog-detail-loading-author">
+              <i />
+              <span>
+                <i />
+                <i />
+              </span>
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
+  if (notFound || !post) {
     return <NotFound />;
   }
 
-  const relatedPosts = posts.filter((item) => item.slug !== post.slug).slice(0, 3);
-  const stagePoints = post.content.slice(0, 2).map((text, index) => ({
-    title: index === 0 ? "Define Your Goals" : "Research Your Audience",
-    text,
-  }));
+  const author = post.author || {};
+  const contentSections = post.content_sections || [];
 
   return (
     <main className="blog-page blog-detail-page">
@@ -50,20 +137,26 @@ function BlogDetail() {
 
           <div className="blog-detail-meta-row">
             <div className="blog-detail-author-mini">
-              <img src={author.image} alt={author.name} />
+              <img
+                src={author.image || fallbackAuthorImage}
+                alt={author.name || "Author"}
+              />
               <span>
-                <strong>By {author.name}</strong>
-                <small>{author.role}</small>
+                <strong>By {author.name || "Shabdd Technology"}</strong>
+                <small>{author.role || "Author"}</small>
               </span>
             </div>
+
             <span className="blog-detail-meta-item">
               <FaCalendarAlt />
               {post.date}
             </span>
+
             <span className="blog-detail-meta-item">
               <FaClock />
-              5 Min Read
+              {post.read_time || 5} Min Read
             </span>
+
             <div className="blog-detail-share" aria-label="Share article">
               <span>Share:</span>
               <a href="https://www.facebook.com/" aria-label="Share on Facebook">
@@ -75,66 +168,96 @@ function BlogDetail() {
               <a href="https://twitter.com/" aria-label="Share on Twitter">
                 <FaTwitter />
               </a>
-              <button type="button" aria-label="Copy article link">
+              <button type="button" aria-label="Copy article link" onClick={copyArticleLink}>
                 <FaLink />
               </button>
             </div>
           </div>
         </header>
 
-        <img className="blog-detail-image" src={post.image} alt={post.title} />
+        <img
+          className="blog-detail-image"
+          src={post.image || fallbackImage}
+          alt={post.title}
+          fetchPriority="high"
+        />
 
         <div className="blog-detail-content">
           <h2>Introduction</h2>
-          <p>{post.desc}</p>
-          <p>{post.content[0]}</p>
+          <p>{post.description || post.desc}</p>
+          {post.introduction && <p>{post.introduction}</p>}
 
-          <div className="blog-stage-list">
-            {stagePoints.map((stage, index) => (
-              <div className="blog-stage-item" key={stage.title}>
-                <span>{index + 1}</span>
-                <div>
-                  <h3>{stage.title}</h3>
-                  <p>{stage.text}</p>
+          {!!contentSections.length && (
+            <div className="blog-stage-list">
+              {contentSections.map((section, index) => (
+                <div className="blog-stage-item" key={`${section.heading}-${index}`}>
+                  <span>{index + 1}</span>
+                  <div>
+                    <h3>{section.heading}</h3>
+                    <p>{section.body}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="blog-author-box">
-          <img src={author.image} alt={author.name} />
+          <img
+            src={author.image || fallbackAuthorImage}
+            alt={author.name || "Author"}
+            loading="lazy"
+            decoding="async"
+          />
           <div>
             <span>Written by</span>
-            <h3>{author.name}</h3>
-            <p>{author.role}</p>
-            <small>{author.bio}</small>
+            <h3>{author.name || "Shabdd Technology"}</h3>
+            <p>{author.role || "Author"}</p>
+            {author.bio && <small>{author.bio}</small>}
           </div>
         </div>
       </article>
 
-      <section className="blog-wrapper blog-related-section">
-        <div className="blog-heading-row">
-          <div>
-            <h2>Related Articles</h2>
-          </div>
-          <Link className="blog-view-all" to="/blog">View All Blogs <FaArrowRight /></Link>
-        </div>
-        <div className="blog-grid">
-          {relatedPosts.map((relatedPost) => (
-            <Link className="blog-card" to={`/blog/${relatedPost.slug}`} key={relatedPost.slug} aria-label={relatedPost.title}>
-              <img src={relatedPost.image} alt={relatedPost.title} />
-              <div className="blog-card-body">
-                <div className="blog-card-meta">
-                  <small>{relatedPost.date}</small>
-                </div>
-                <h3>{relatedPost.title}</h3>
-                <span className="blog-read-more">Read More <FaArrowRight /></span>
-              </div>
+      {!!relatedPosts.length && (
+        <section className="blog-wrapper blog-related-section">
+          <div className="blog-heading-row">
+            <div>
+              <h2>Related Articles</h2>
+            </div>
+            <Link className="blog-view-all" to="/blog">
+              View All Blogs <FaArrowRight />
             </Link>
-          ))}
-        </div>
-      </section>
+          </div>
+
+          <div className="blog-grid">
+            {relatedPosts.map((relatedPost) => (
+              <Link
+                className="blog-card"
+                to={`/blog/${relatedPost.slug}`}
+                key={relatedPost.slug}
+                aria-label={relatedPost.title}
+              >
+                <img
+                  src={relatedPost.image || fallbackImage}
+                  alt={relatedPost.title}
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <div className="blog-card-body">
+                  <div className="blog-card-meta">
+                    <small>{relatedPost.date}</small>
+                  </div>
+                  <h3>{relatedPost.title}</h3>
+                  <span className="blog-read-more">
+                    Read More <FaArrowRight />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
