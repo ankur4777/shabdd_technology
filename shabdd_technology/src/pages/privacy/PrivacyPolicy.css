@@ -348,9 +348,10 @@
   display: flex;
   min-height: 300px;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
   padding: 56px max(32px, calc((100vw - 1180px) / 2));
-  background: linear-gradient(120deg, #15113f, #24527b);
+  background: linear-gradient(90deg, #07182c 0%, #0c2942 42%, #1f4663 100%);
   color: #fff;
 }
 
@@ -361,30 +362,40 @@
   height: 100%;
   object-fit: cover;
   object-position: center 54%;
+  filter: saturate(0.8) brightness(0.58);
 }
 
 .privacy-cta::before {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 85% 50%, rgba(237, 0, 24, 0.24), transparent 35%),
-    linear-gradient(90deg, rgba(12, 20, 47, 0.92), rgba(12, 20, 47, 0.56));
+    linear-gradient(90deg, rgba(6, 18, 29, 0.9) 0%, rgba(6, 18, 29, 0.74) 30%, rgba(8, 22, 36, 0.32) 62%, rgba(22, 34, 58, 0.08) 100%),
+    radial-gradient(ellipse at 78% 50%, rgba(237, 0, 24, 0.26), transparent 28%);
   content: "";
 }
 
 .privacy-cta-content {
   position: relative;
   z-index: 2;
-  max-width: 660px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .privacy-cta h2 {
+  margin: 18px 0 14px;
   color: #fff;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(38px, 4vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
 }
 
 .privacy-cta p {
   max-width: 520px;
-  color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.82);
+  text-align: center;
 }
 
 .privacy-cta-link {
@@ -412,9 +423,10 @@
   position: absolute;
   z-index: 2;
   right: max(8vw, calc((100vw - 1180px) / 2));
-  width: clamp(100px, 17vw, 190px);
+  width: clamp(100px, 17vw, 200px);
   height: auto;
-  color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.18);
+  transform: rotate(15deg);
 }
 
 @media (max-width: 720px) {

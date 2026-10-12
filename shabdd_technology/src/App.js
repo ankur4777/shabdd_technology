@@ -17,6 +17,7 @@ import './typography.css';
 import Gallery from './pages/gallery/Gallery';
 import DestinationGallery from './pages/gallery/DestinationGallery';
 import PrivacyPolicy from './pages/privacy/PrivacyPolicy';
+import TermsOfService from './pages/terms/TermsOfService';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -49,6 +50,7 @@ function App() {
             <Route path="gallery/:slug" element={<DestinationGallery />} />
             <Route path="contact" element={<Contact/>}/>
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
@@ -64,7 +66,7 @@ function App() {
         >
           <FaWhatsapp aria-hidden="true" />
         </a>
-        {pathname !== '/privacy-policy' && <Footer />}
+        <Footer />
 
         <a class="mobile-call-button" href="tel:+917347673924" aria-label="Call Shabdd Technology"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg></a>
 

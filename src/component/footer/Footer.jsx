@@ -63,7 +63,7 @@ function Footer() {
                   <div className="footer-policy">
                         <a href="#privacy">Privacy Policy</a>
                         <span>·</span>
-                        <a href="#terms">Terms of Service</a>
+                        <Link to="/terms-of-service">Terms of Service</Link>
                     </div>
             </div>
         </footer>

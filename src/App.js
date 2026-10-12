@@ -12,6 +12,7 @@ import Contact from './pages/contact/Contact';
 import NotFound from './pages/notFound/NotFound';
 import Blog from './component/blog/Blog';
 import BlogDetail from './component/blog/BlogDetail';
+import TermsOfService from './pages/terms/TermsOfService';
 import GlobalNotification, { NotificationProvider } from './component/globalNotification/GlobalNotification'
 import './typography.css';
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogDetail />} />
             <Route path="contact" element={<Contact/>}/>
+            <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
