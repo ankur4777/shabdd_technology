@@ -106,6 +106,22 @@ function Gallery() {
     return () => window.clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveWorkspaceIndex((currentIndex) => (currentIndex + 1) % workspaceImages.length);
+    }, 3200);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveStoryIndex((currentIndex) => (currentIndex + 1) % stories.length);
+    }, 3800);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   const goToSlide = (direction) => {
     setActiveIndex((currentIndex) => (currentIndex + direction + heroCards.length) % heroCards.length);
   };
