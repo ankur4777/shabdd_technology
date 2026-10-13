@@ -4,6 +4,7 @@ import {
   FaArrowRight,
   FaBriefcase,
   FaBuilding,
+  FaExternalLinkAlt,
   FaStar,
   FaUsers,
 } from 'react-icons/fa';
@@ -40,10 +41,25 @@ const workspaceImages = ['10.webp', '11.webp', '4.webp', '5.webp'];
 
 const projects = [
   {
-    title: 'Digital Ideas Turned Into Impact',
-    description: 'A look at how our project ideas grow into focused, useful and scalable digital solutions.',
-    image: galleryImage('shabdd-project.webp'),
-    tags: ['Web App', 'Innovation'],
+    title: 'Shabdd Travels',
+    description: 'A travel platform built for tour discovery, package browsing and smooth enquiry journeys.',
+    image: galleryImage('project-shabdd-travels.png'),
+    url: 'https://shabddtravels.in/',
+    tags: ['Travel Website', 'Bookings'],
+  },
+  {
+    title: 'Shabdd Innovations',
+    description: 'A digital agency website that presents services, portfolio work and business growth solutions.',
+    image: galleryImage('project-shabdd-innovations.png'),
+    url: 'https://shabddinnovations.in/',
+    tags: ['Business Website', 'Services'],
+  },
+  {
+    title: 'Shabdd LMS',
+    description: 'A learning management platform for courses, student progress, lessons and admin insights.',
+    image: galleryImage('project-shabdd-lms.png'),
+    url: 'https://lms.shabddtravels.in/',
+    tags: ['LMS', 'Education'],
   },
 ];
 
@@ -205,28 +221,30 @@ function Gallery() {
       </section>
 
       <section className="gallery-section gallery-projects">
-        <div className="gallery-container gallery-stories-layout gallery-projects-layout">
+        <div className="gallery-container gallery-projects-layout">
           <div className="gallery-story-heading">
             <p className="gallery-kicker">Our Projects</p>
             <h2>Ideas Turned Into <span>Impact</span></h2>
             <p>A look at some of the projects we have worked on, the solutions we have built and the clients we have helped grow.</p>
           </div>
-          <button className="gallery-small-control" aria-label="Previous project"><FaArrowLeft /></button>
-          <div className="story-cards project-cards">
+          <div className="project-cards">
             {projects.map((project) => (
-              <article className="story-card project-card" key={project.title}>
+              <a
+                className="story-card project-card"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={project.title}
+              >
                 <img src={project.image} alt={project.title} loading="lazy" />
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+                <div className="project-card-body">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <strong className="project-card-link">Visit Project <FaExternalLinkAlt /></strong>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
-          <button className="gallery-small-control" aria-label="Next project"><FaArrowRight /></button>
         </div>
       </section>
 

@@ -107,7 +107,7 @@ function TermsOfService() {
             <span aria-hidden="true">›</span>
             <span aria-current="page">Terms of Service</span>
           </nav>
-          <span className="terms-eyebrow">Terms of Service</span>
+         
           <h1>
             Terms of
             <br />
