@@ -1,68 +1,55 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaArrowLeft,
   FaArrowRight,
-  FaCamera,
-  FaMapMarkerAlt,
+  FaBriefcase,
+  FaBuilding,
   FaStar,
   FaUsers,
 } from 'react-icons/fa';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import './Gallery.css';
-import destinationData from './destinationData';
 
-const img = (id, width = 1200) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`;
+const galleryImage = (name) => `${process.env.PUBLIC_URL}/Gallery/${name}`;
 
 const heroCards = [
-  { title: 'Adventure', image: img('photo-1500530855697-b586d89ba3ee', 900) },
-  { title: 'Culture', image: img('photo-1528164344705-47542687000d', 900) },
-  { title: 'Destinations', image: img('photo-1548013146-72479768bada', 1000), featured: true },
-  { title: 'Memories', image: img('photo-1570077188670-e3a8d69ac5ff', 900) },
-  { title: 'Nature', image: img('photo-1506905925346-21bda4d32df4', 900) },
+  { title: 'Our Team', image: galleryImage('(3).webp') },
+  { title: 'Collaboration', image: galleryImage('4.webp') },
+  { title: 'Our Workspace', image: galleryImage('10.webp'), featured: true },
+  { title: 'Creative Space', image: galleryImage('11.webp') },
+  { title: 'Innovation', image: galleryImage('5.webp') },
 ];
 
 const stories = [
   {
-    name: 'Priya S.',
-    place: 'Greece',
-    quote: 'A trip filled with beauty and unforgettable memories.',
-    image: img('photo-1500530855697-b586d89ba3ee', 600),
-  },
-  {
-    name: 'Rahul K.',
-    place: 'Switzerland',
-    quote: 'Best group tour experience ever. Everything was so well planned.',
-    image: img('photo-1542359649-31e03cd4d909', 600),
-  },
-  {
-    name: 'Anjali M.',
-    place: 'Manali',
-    quote: 'Amazing destinations and a very supportive team.',
-    image: img('photo-1483664852095-d6cc6870702d', 600),
-  },
-  {
-    name: 'Vikram D.',
-    place: 'Maldives',
-    quote: 'Truly a life-changing experience.',
-    image: img('photo-1514282401047-d79a71a590e8', 600),
+    name: 'Shabdd Team',
+    place: 'People behind the work',
+    quote: 'Real people, real collaboration and real growth from the team that builds every idea with care.',
+    image: galleryImage('Shabdd-team.webp'),
   },
 ];
 
 const stats = [
-  { value: '5,000+', label: 'Travel Moments', icon: <FaCamera /> },
-  { value: '1,000+', label: 'Happy Travellers', icon: <FaUsers /> },
-  { value: '50+', label: 'Destinations', icon: <FaMapMarkerAlt /> },
-  { value: '4.8/5', label: 'Traveller Rating', icon: <FaStar /> },
+  { value: '50+', label: 'Team Members', icon: <FaUsers /> },
+  { value: '200+', label: 'Projects Delivered', icon: <FaBriefcase /> },
+  { value: '5+', label: 'Years of Experience', icon: <FaStar /> },
+  { value: '100+', label: 'Happy Clients', icon: <FaBuilding /> },
 ];
 
-const destinations = Array.isArray(destinationData) ? destinationData : [];
+const workspaceImages = ['10.webp', '11.webp', '4.webp', '5.webp'];
+
+const projects = [
+  {
+    title: 'Digital Ideas Turned Into Impact',
+    description: 'A look at how our project ideas grow into focused, useful and scalable digital solutions.',
+    image: galleryImage('shabdd-project.webp'),
+    tags: ['Web App', 'Innovation'],
+  },
+];
 
 function Gallery() {
   const [activeIndex, setActiveIndex] = useState(2);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const videoRef = useRef(null);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -97,10 +84,10 @@ function Gallery() {
 
         <div className="gallery-container gallery-hero-content">
           <p className="gallery-eyebrow"><span /> Our Gallery <span /></p>
-          <h1>Frames of a Bigger Journey</h1>
-          <p className="gallery-hero-copy">Real people. Real journeys. Real experiences.</p>
+          <h1>Inside <span>Shabdd Innovations</span></h1>
+          <p className="gallery-hero-copy">People. Ideas. Innovation.</p>
 
-          <div className="gallery-hero-cards" aria-label="Featured travel gallery">
+          <div className="gallery-hero-cards" aria-label="Featured Shabdd Innovations gallery">
             {heroCards.map((card, index) => {
               const offset = (index - activeIndex + heroCards.length) % heroCards.length;
               const isActive = offset === 0;
@@ -137,77 +124,6 @@ function Gallery() {
         </div>
       </section>
 
-      <section className="gallery-section gallery-destinations">
-        <div className="gallery-container">
-          <div className="gallery-section-header">
-            <div>
-              <h2>Our Travel Gallery</h2>
-            </div>
-          
-          </div>
-
-          <div className="destination-grid">
-            {destinations.map((destination) => (
-              <article className="destination-card" key={destination.slug}>
-                <img src={destination.image} alt={destination.place} loading="lazy" />
-                <span className="destination-card-shade" />
-                <span className="destination-card-title">{destination.place}</span>
-                <span className="destination-card-arrow"><FaArrowRight /></span>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="gallery-section gallery-video-section">
-        <div className="gallery-container gallery-video-layout">
-          <div className="gallery-video-copy">
-            <p className="gallery-kicker">Video gallery</p>
-            <h2>Experience Our Journeys in Motion</h2>
-            <p>Watch beautiful moments, real experiences and unforgettable destinations from our travellers across the world.</p>
-            <p className="gallery-video-attribution">
-              Travel footage: <a href="https://commons.wikimedia.org/wiki/File:Beach_in_Carrascal.webm" target="_blank" rel="noopener noreferrer">Beach in Carrascal</a> by Wazzup Carl, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
-            </p>
-            <Link className="gallery-solid-button" to="/contact">
-              Watch Full Gallery <FaArrowRight />
-            </Link>
-          </div>
-          <div className="gallery-video-card">
-            <video
-              ref={videoRef}
-              className="gallery-video-player"
-              poster={img('photo-1507525428034-b723cf961d3e', 1400)}
-              controls
-              playsInline
-              preload="metadata"
-              onPlay={() => setIsVideoPlaying(true)}
-              onPause={() => setIsVideoPlaying(false)}
-              aria-label="Travel moments video"
-            >
-              <source src={`${process.env.PUBLIC_URL}/travel-beach.webm`} type="video/webm" />
-              Your browser does not support video playback.
-            </video>
-            {!isVideoPlaying && (
-              <button
-                className="gallery-video-play"
-                type="button"
-                aria-label="Play travel video"
-                onClick={() => videoRef.current?.play()}
-              >
-                <span aria-hidden="true" />
-              </button>
-            )}
-          </div>
-          <div className="gallery-video-thumbs" aria-label="More videos">
-            <button aria-label="Previous videos"><FiChevronUp /></button>
-            <img src={img('photo-1506905925346-21bda4d32df4', 320)} alt="Mountain video thumbnail" loading="lazy" />
-            <img src={img('photo-1609948543911-7f01ff385be5', 320)} alt="Golden temple video thumbnail" loading="lazy" />
-            <img src={img('photo-1548013146-72479768bada', 320)} alt="Desert video thumbnail" loading="lazy" />
-            <button aria-label="Next videos"><FiChevronDown /></button>
-          </div>
-        </div>
-      </section>
-
       <section className="gallery-stats" aria-label="Gallery statistics">
         <div className="gallery-container gallery-stats-grid">
           {stats.map((stat) => (
@@ -222,18 +138,41 @@ function Gallery() {
         </div>
       </section>
 
+      <section className="gallery-section gallery-workspace">
+        <div className="gallery-container gallery-workspace-layout">
+          <div className="gallery-workspace-copy">
+            <p className="gallery-kicker">Our Workspace</p>
+            <h2>A Glimpse Into <span>Our World</span></h2>
+            <p>Explore our office, teams, projects and the moments that make Shabdd Innovations special. Real people, real work and real growth.</p>
+            <Link className="gallery-solid-button" to="/gallery">
+              View Full Gallery <FaArrowRight />
+            </Link>
+          </div>
+          <div className="gallery-workspace-main">
+            <img src={galleryImage('10.webp')} alt="Shabdd Innovations workspace" loading="lazy" />
+          </div>
+          <div className="gallery-video-thumbs" aria-label="Workspace photos">
+            <button aria-label="Previous workspace photos"><FiChevronUp /></button>
+            {workspaceImages.map((image) => (
+              <img src={galleryImage(image)} alt="Shabdd workspace thumbnail" loading="lazy" key={image} />
+            ))}
+            <button aria-label="Next workspace photos"><FiChevronDown /></button>
+          </div>
+        </div>
+      </section>
+
       <section className="gallery-section gallery-stories">
         <div className="gallery-container gallery-stories-layout">
           <div className="gallery-story-heading">
-            <p className="gallery-kicker">Traveller stories</p>
-            <h2>Captured by Our Travellers</h2>
-            <p>Real stories, real memories and real moments from our travel community.</p>
+            <p className="gallery-kicker">Our People</p>
+            <h2>Stories from <span>Our Team</span></h2>
+            <p>Real experiences, real growth and real moments from the people who make Shabdd Innovations.</p>
           </div>
           <button className="gallery-small-control" aria-label="Previous story"><FaArrowLeft /></button>
           <div className="story-cards">
             {stories.map((story) => (
               <article className="story-card" key={story.name}>
-                <img src={story.image} alt={`${story.name} travel memory`} loading="lazy" />
+                <img src={story.image} alt={`${story.name} at Shabdd Innovations`} loading="lazy" />
                 <p>"{story.quote}"</p>
                 <div>
                   <span className="story-avatar">{story.name.charAt(0)}</span>
@@ -244,21 +183,46 @@ function Gallery() {
           </div>
           <button className="gallery-small-control" aria-label="Next story"><FaArrowRight /></button>
         </div>
-        <div className="gallery-dots story-dots" aria-hidden="true">
-          <span className="active" />
-          <span />
-          <span />
+      </section>
+
+      <section className="gallery-section gallery-projects">
+        <div className="gallery-container gallery-stories-layout gallery-projects-layout">
+          <div className="gallery-story-heading">
+            <p className="gallery-kicker">Our Projects</p>
+            <h2>Ideas Turned Into <span>Impact</span></h2>
+            <p>A look at some of the projects we have worked on, the solutions we have built and the clients we have helped grow.</p>
+            <Link className="gallery-solid-button" to="/portfolio">
+              View All Projects <FaArrowRight />
+            </Link>
+          </div>
+          <button className="gallery-small-control" aria-label="Previous project"><FaArrowLeft /></button>
+          <div className="story-cards project-cards">
+            {projects.map((project) => (
+              <article className="story-card project-card" key={project.title}>
+                <img src={project.image} alt={project.title} loading="lazy" />
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="project-tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+          <button className="gallery-small-control" aria-label="Next project"><FaArrowRight /></button>
         </div>
       </section>
 
       <section className="gallery-cta">
         <div className="gallery-container gallery-cta-inner">
           <div>
-            <h2>Your Next Story <span>Could Be Here</span></h2>
-            <p>Travel with us and create memories worth sharing.</p>
+            <p className="gallery-kicker">Be a part of our journey</p>
+            <h2>Let's Build Something <span>Great Together</span></h2>
+            <p>Join hands with Shabdd Innovations to create innovative solutions, grow your business and turn ideas into reality.</p>
           </div>
           <Link className="gallery-solid-button" to="/contact">
-            Plan Your Journey <FaArrowRight />
+            Get a Free Consultation <FaArrowRight />
           </Link>
         </div>
       </section>
