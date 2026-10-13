@@ -28,6 +28,36 @@ const stories = [
     quote: 'Real people, real collaboration and real growth from the team that builds every idea with care.',
     image: galleryImage('Shabdd-team.webp'),
   },
+  {
+    name: 'Creative Team',
+    place: 'Design and content',
+    quote: 'Every campaign starts with a clear message, strong visuals and a deep understanding of the audience.',
+    image: galleryImage('(3).webp'),
+  },
+  {
+    name: 'Development Team',
+    place: 'Web and applications',
+    quote: 'We turn ideas into fast, responsive and practical digital products that businesses can actually use.',
+    image: galleryImage('4.webp'),
+  },
+  {
+    name: 'Marketing Team',
+    place: 'Growth strategy',
+    quote: 'From Meta Ads to search visibility, our work focuses on leads, brand trust and measurable growth.',
+    image: galleryImage('5.webp'),
+  },
+  {
+    name: 'AI Team',
+    place: 'Automation and systems',
+    quote: 'Smart tools help us simplify workflows, improve decisions and build better digital experiences.',
+    image: galleryImage('6.webp'),
+  },
+  {
+    name: 'Project Team',
+    place: 'Client delivery',
+    quote: 'We keep each project organized, transparent and focused from the first discussion to final launch.',
+    image: galleryImage('7.webp'),
+  },
 ];
 
 const stats = [
@@ -66,6 +96,7 @@ const projects = [
 function Gallery() {
   const [activeIndex, setActiveIndex] = useState(2);
   const [activeWorkspaceIndex, setActiveWorkspaceIndex] = useState(0);
+  const [activeStoryIndex, setActiveStoryIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -83,6 +114,10 @@ function Gallery() {
     setActiveWorkspaceIndex(
       (currentIndex) => (currentIndex + direction + workspaceImages.length) % workspaceImages.length
     );
+  };
+
+  const goToStory = (direction) => {
+    setActiveStoryIndex((currentIndex) => (currentIndex + direction + stories.length) % stories.length);
   };
 
   return (
@@ -203,8 +238,8 @@ function Gallery() {
             <h2>Stories from <span>Our Team</span></h2>
             <p>Real experiences, real growth and real moments from the people who make Shabdd Innovations.</p>
           </div>
-          <button className="gallery-small-control" aria-label="Previous story"><FaArrowLeft /></button>
-          <div className="story-cards">
+          <button className="gallery-small-control" aria-label="Previous story" onClick={() => goToStory(-1)}><FaArrowLeft /></button>
+          <div className="story-cards story-slider" style={{ '--story-index': activeStoryIndex }}>
             {stories.map((story) => (
               <article className="story-card" key={story.name}>
                 <img src={story.image} alt={`${story.name} at Shabdd Innovations`} loading="lazy" />
@@ -216,7 +251,7 @@ function Gallery() {
               </article>
             ))}
           </div>
-          <button className="gallery-small-control" aria-label="Next story"><FaArrowRight /></button>
+          <button className="gallery-small-control" aria-label="Next story" onClick={() => goToStory(1)}><FaArrowRight /></button>
         </div>
       </section>
 

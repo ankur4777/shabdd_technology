@@ -974,8 +974,16 @@
 }
 
 .gallery-stories .story-cards {
-  grid-template-columns: minmax(280px, 390px);
-  justify-content: start;
+  display: flex;
+  gap: 18px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.gallery-stories .story-card {
+  flex: 0 0 calc((100% - 36px) / 3);
+  transform: translateX(calc(var(--story-index, 0) * -100% - var(--story-index, 0) * 18px));
+  transition: transform 0.35s ease;
 }
 
 .gallery-projects-layout {
@@ -1122,6 +1130,10 @@
   .service-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .gallery-stories .story-card {
+    flex-basis: calc((100% - 18px) / 2);
+  }
 }
 
 @media (max-width: 760px) {
@@ -1187,7 +1199,17 @@
     height: 72px;
   }
 
-  .gallery-stories .story-cards,
+  .gallery-stories .story-cards {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .gallery-stories .story-card {
+    flex-basis: 86%;
+    transform: none;
+    scroll-snap-align: start;
+  }
+
   .project-cards,
   .service-cards {
     grid-template-columns: 1fr;
