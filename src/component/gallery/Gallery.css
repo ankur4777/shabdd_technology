@@ -932,6 +932,31 @@
   color: var(--gallery-red);
 }
 
+.gallery-video-thumbs .gallery-thumb-button {
+  width: 100%;
+  height: 84px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  margin: 0;
+  display: block;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+}
+
+.gallery-video-thumbs .gallery-thumb-button img {
+  height: 100%;
+  border: 2px solid #ffffff;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-video-thumbs .gallery-thumb-button.active img,
+.gallery-video-thumbs .gallery-thumb-button:hover img {
+  border-color: var(--gallery-red);
+  transform: scale(1.03);
+}
+
 .gallery-stories,
 .gallery-projects {
   padding: 72px 0;

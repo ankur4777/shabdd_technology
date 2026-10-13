@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -50,6 +49,7 @@ const projects = [
 
 function Gallery() {
   const [activeIndex, setActiveIndex] = useState(2);
+  const [activeWorkspaceIndex, setActiveWorkspaceIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -61,6 +61,12 @@ function Gallery() {
 
   const goToSlide = (direction) => {
     setActiveIndex((currentIndex) => (currentIndex + direction + heroCards.length) % heroCards.length);
+  };
+
+  const goToWorkspaceImage = (direction) => {
+    setActiveWorkspaceIndex(
+      (currentIndex) => (currentIndex + direction + workspaceImages.length) % workspaceImages.length
+    );
   };
 
   return (
@@ -144,19 +150,32 @@ function Gallery() {
             <p className="gallery-kicker">Our Workspace</p>
             <h2>A Glimpse Into <span>Our World</span></h2>
             <p>Explore our office, teams, projects and the moments that make Shabdd Innovations special. Real people, real work and real growth.</p>
-            <Link className="gallery-solid-button" to="/gallery">
-              View Full Gallery <FaArrowRight />
-            </Link>
           </div>
           <div className="gallery-workspace-main">
-            <img src={galleryImage('10.webp')} alt="Shabdd Innovations workspace" loading="lazy" />
+            <img
+              src={galleryImage(workspaceImages[activeWorkspaceIndex])}
+              alt="Shabdd Innovations workspace"
+              loading="lazy"
+            />
           </div>
           <div className="gallery-video-thumbs" aria-label="Workspace photos">
-            <button aria-label="Previous workspace photos"><FiChevronUp /></button>
-            {workspaceImages.map((image) => (
-              <img src={galleryImage(image)} alt="Shabdd workspace thumbnail" loading="lazy" key={image} />
+            <button type="button" aria-label="Previous workspace photos" onClick={() => goToWorkspaceImage(-1)}>
+              <FiChevronUp />
+            </button>
+            {workspaceImages.map((image, index) => (
+              <button
+                type="button"
+                className={`gallery-thumb-button ${index === activeWorkspaceIndex ? 'active' : ''}`}
+                aria-label={`Show workspace photo ${index + 1}`}
+                onClick={() => setActiveWorkspaceIndex(index)}
+                key={image}
+              >
+                <img src={galleryImage(image)} alt="Shabdd workspace thumbnail" loading="lazy" />
+              </button>
             ))}
-            <button aria-label="Next workspace photos"><FiChevronDown /></button>
+            <button type="button" aria-label="Next workspace photos" onClick={() => goToWorkspaceImage(1)}>
+              <FiChevronDown />
+            </button>
           </div>
         </div>
       </section>
@@ -191,9 +210,6 @@ function Gallery() {
             <p className="gallery-kicker">Our Projects</p>
             <h2>Ideas Turned Into <span>Impact</span></h2>
             <p>A look at some of the projects we have worked on, the solutions we have built and the clients we have helped grow.</p>
-            <Link className="gallery-solid-button" to="/portfolio">
-              View All Projects <FaArrowRight />
-            </Link>
           </div>
           <button className="gallery-small-control" aria-label="Previous project"><FaArrowLeft /></button>
           <div className="story-cards project-cards">
@@ -214,18 +230,6 @@ function Gallery() {
         </div>
       </section>
 
-      <section className="gallery-cta">
-        <div className="gallery-container gallery-cta-inner">
-          <div>
-            <p className="gallery-kicker">Be a part of our journey</p>
-            <h2>Let's Build Something <span>Great Together</span></h2>
-            <p>Join hands with Shabdd Innovations to create innovative solutions, grow your business and turn ideas into reality.</p>
-          </div>
-          <Link className="gallery-solid-button" to="/contact">
-            Get a Free Consultation <FaArrowRight />
-          </Link>
-        </div>
-      </section>
     </main>
   );
 }
