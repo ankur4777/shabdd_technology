@@ -4,6 +4,7 @@ import {
   FaArrowRight,
   FaCalendarAlt,
   FaClock,
+  FaLinkedinIn,
   FaWhatsapp,
 } from "react-icons/fa";
 import { API_BASE_URL } from "../../config/api";
@@ -12,6 +13,7 @@ import "./blog.css";
 
 const fallbackImage = "/blog/blog-card-banner.jpeg";
 const fallbackAuthorImage = "/blog/1.jpg";
+const linkedInUrl = "https://in.linkedin.com/company/shabdd-innovations";
 
 function BlogDetail() {
   const { slug } = useParams();
@@ -137,14 +139,7 @@ function BlogDetail() {
   return (
     <main className="blog-page blog-detail-page">
       <article className="blog-detail-wrapper">
-        <nav className="blog-detail-breadcrumb" aria-label="Breadcrumb">
-          <Link to="/">Home</Link>
-          <span>/</span>
-          <Link to="/blog">Blog</Link>
-          <span>/</span>
-          <strong>{post.title}</strong>
-        </nav>
-
+       
         <header className="blog-detail-header">
           <h1>{post.title}</h1>
 
@@ -170,8 +165,9 @@ function BlogDetail() {
               {post.read_time || 5} Min Read
             </span>
 
-            <div className="blog-detail-share" aria-label="Share article on WhatsApp">
+            <div className="blog-detail-share" aria-label="Share and social links">
               <button
+                className="blog-detail-share-button blog-detail-whatsapp"
                 type="button"
                 aria-label="Copy link and share on WhatsApp"
                 title={copiedShareLink ? "Link copied" : "Share on WhatsApp"}
@@ -179,6 +175,16 @@ function BlogDetail() {
               >
                 <FaWhatsapp />
               </button>
+              <a
+                className="blog-detail-share-button blog-detail-linkedin"
+                href={linkedInUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Shabdd Innovations on LinkedIn"
+                title="LinkedIn"
+              >
+                <FaLinkedinIn />
+              </a>
             </div>
           </div>
         </header>

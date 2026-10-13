@@ -1707,11 +1707,49 @@
 
 /* Final reduced blog detail heading size */
 .blog-detail-header h1 {
-  font-size: clamp(22px, 2.3vw, 30px);
+  width: 100%;
+  max-width: none;
+  font-size: clamp(34px, 4.4vw, 56px);
 }
 
 @media (max-width: 680px) {
   .blog-detail-header h1 {
-    font-size: 22px;
+    font-size: 32px;
   }
+}
+
+.blog-detail-share {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blog-detail-share .blog-detail-share-button {
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.blog-detail-share .blog-detail-whatsapp {
+  background: #25d366;
+}
+
+.blog-detail-share .blog-detail-whatsapp:hover {
+  background: #1ebe5d;
+}
+
+.blog-detail-share .blog-detail-linkedin {
+  background: #0a66c2;
+}
+
+.blog-detail-share .blog-detail-linkedin:hover {
+  background: #004182;
 }

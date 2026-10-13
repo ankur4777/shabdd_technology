@@ -78,6 +78,7 @@ function NavCenter({ isOpen = false, onNavigate }) {
       </div>
 
       <Link className="nav-link" to="/blog" onClick={handleNavigate}><b>BLOG</b></Link>
+      <Link className="nav-link" to="/gallery" onClick={handleNavigate}><b>GALLERY</b></Link>
       <Link className="nav-link" to="/contact" onClick={handleNavigate}><b>CONTACT US</b></Link>
     </div>
   );
