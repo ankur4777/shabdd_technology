@@ -163,11 +163,11 @@ function Blog() {
       <section className="blog-hero">
         <div className="blog-hero-content">
           <span className="blog-kicker">OUR BLOG</span>
-          <h1>
+          <h1 className="blog-hero-title">
             Ideas, Insights & <br />
-            <span>Digital Growth</span>
+            <span className="blog-hero-highlight">Digital Growth</span>
           </h1>
-          <p>
+          <p className="blog-hero-description">
             Explore the latest trends, expert insights and practical guides on
             web development, digital marketing, SEO, design and more.
           </p>
