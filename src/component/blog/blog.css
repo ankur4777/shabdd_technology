@@ -2012,10 +2012,11 @@
     content: "";
     position: absolute;
     top: 0;
-    right: -10px;
+    right: -14px;
     bottom: 0;
-    width: 56%;
-    background: url("../../../public/blog/blog-hero.svg") right center / auto 96% no-repeat;
+    width: 64%;
+    background: url("../../../public/blog/blog-hero.svg") right center / auto 126% no-repeat;
+    opacity: 0.52;
     pointer-events: none;
   }
 
@@ -2293,12 +2294,14 @@
 
 @media (max-width: 390px) {
   .blog-hero::before {
-    right: -24px;
-    width: 52%;
+    right: -12px;
+    width: 62%;
+    background-size: auto 118%;
+    opacity: 0.52;
   }
 
   .blog-hero::after {
-    background: linear-gradient(90deg, #ffffff 0%, #ffffff 54%, rgba(255, 255, 255, 0.74) 68%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 53%, rgba(255, 255, 255, 0.72) 68%, rgba(255, 255, 255, 0) 100%);
   }
 
   .blog-hero-title {
