@@ -1,5 +1,6 @@
 import './reviews.css';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
+import "../../typography.css"
 
 function Reviews() {
   const reviews = [
@@ -41,7 +42,7 @@ function Reviews() {
         <div className="reviews-heading">
           <p className="reviews-kicker for-p-tag">Testimonials</p>
           <h2 className='h2-left-small'>
-            Our <span className='h2-italic'>Client&apos;s</span> Reviews
+            Our <span className='primary-text'>Client&apos;s</span> Reviews
           </h2>
           <div className="reviews-title-rule" aria-hidden="true" />
           <p className="for-p-tag">

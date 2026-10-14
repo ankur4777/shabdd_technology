@@ -18,7 +18,7 @@ function OtherServices()
   return (
     <div className="otherservices">
       <div className="otherservices-heading">
-        <h2>Other <span className='h2-italic'>Services</span></h2>
+        <h2 className="primary-title">Other <span className='primary-text'>Services</span></h2>
         <p className="for-p-tag">Build a powerful digital presence with tailored solutions that captivate visitors and convert them into loyal customers.</p>
       </div>
       <div className="otherservice-container">
