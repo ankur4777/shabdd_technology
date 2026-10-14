@@ -20,7 +20,7 @@
 .h2-italic{
   font-style: italic !important; 
    transform: skew(-8deg);
-       font-size: clamp(2rem, 4vw, 3.4rem);
+       font-size: 48px;
        color: #FF3B30;
        font-weight: 100;
 }

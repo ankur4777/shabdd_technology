@@ -2056,6 +2056,7 @@
   .blog-featured-copy {
     min-height: auto;
     padding: 13px 14px 14px;
+    text-align: left;
   }
 
   .blog-category {
@@ -2081,6 +2082,7 @@
     overflow: hidden;
     font-size: 10px !important;
     line-height: 1.45 !important;
+    text-align: left !important;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
@@ -2089,10 +2091,14 @@
     gap: 12px;
     margin: 9px 0 8px;
     font-size: 8px;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .blog-featured-copy a {
+    justify-content: flex-start;
     font-size: 10px;
+    text-align: left;
   }
 
   .blog-featured-number {
