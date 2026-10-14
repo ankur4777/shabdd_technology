@@ -18,7 +18,7 @@ function Services() {
     <div className="root">
       <div style={{marginTop:"20px", marginBottom:"20px"}} >
       <h2 className="service-section-title">Our <span className="primary-text" >Service</span></h2>
-      <p className='for-p-tag'>Driving Digital Excellence with Tailored Solutions </p>
+      <p className='for-p-tag ' style={{marginTop:"30px"}}>Driving Digital Excellence with Tailored Solutions </p>
       <p className="for-p-tag" style={{ color: 'gray',wordSpacing: '5px' }}>At Shabdd Technologies, we don't just offer services; we deliver expert-driven solutions designed to empower your business. Explore the unique advantages we bring to the table:</p>
       </div>
       <div className='services'>

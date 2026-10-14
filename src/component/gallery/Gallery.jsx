@@ -168,20 +168,6 @@ function Gallery() {
     <main className="travel-gallery-page">
       <section className="gallery-hero">
         <div className="gallery-hero-overlay" />
-        <button
-          className="gallery-round-control gallery-round-control-left"
-          aria-label="Previous gallery slide"
-          onClick={() => goToSlide(-1)}
-        >
-          <FaArrowLeft />
-        </button>
-        <button
-          className="gallery-round-control gallery-round-control-right"
-          aria-label="Next gallery slide"
-          onClick={() => goToSlide(1)}
-        >
-          <FaArrowRight />
-        </button>
 
         <div className="gallery-container gallery-hero-content">
           <p className="gallery-eyebrow"><span /> Our Gallery <span /></p>
@@ -189,6 +175,13 @@ function Gallery() {
           <p className="gallery-hero-copy">People. Ideas. Innovation.</p>
 
           <div className="gallery-hero-cards" aria-label="Featured Shabdd Innovations gallery">
+            <button
+              className="gallery-round-control gallery-round-control-left"
+              aria-label="Previous gallery slide"
+              onClick={() => goToSlide(-1)}
+            >
+              <FaArrowLeft />
+            </button>
             {heroCards.map((card, index) => {
               const offset = (index - activeIndex + heroCards.length) % heroCards.length;
               const isActive = offset === 0;
@@ -204,11 +197,16 @@ function Gallery() {
                   className={`gallery-hero-card gallery-hero-card-${cardPosition} ${isActive ? 'gallery-hero-card-featured gallery-hero-card-active' : ''}`}
                   key={card.title}
                   style={{ backgroundImage: `url("${card.image}")` }}
-                >
-                  <span>{card.title}</span>
-                </article>
+                />
               );
             })}
+            <button
+              className="gallery-round-control gallery-round-control-right"
+              aria-label="Next gallery slide"
+              onClick={() => goToSlide(1)}
+            >
+              <FaArrowRight />
+            </button>
           </div>
 
           <div className="gallery-dots" aria-hidden="true">

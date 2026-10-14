@@ -53,13 +53,14 @@ class BlogResource extends Resource
                 Select::make('category')
                     ->label('Category Label')
                     ->options([
-                        'DIGITAL MARKETING' => 'DIGITAL MARKETING',
                         'WEB DEVELOPMENT' => 'WEB DEVELOPMENT',
+                        'WEB APPLICATION' => 'WEB APPLICATION',
+                        'DIGITAL MARKETING' => 'DIGITAL MARKETING',         
                         'SEO' => 'SEO',
-                        'DESIGN' => 'DESIGN',
-                        'E-COMMERCE' => 'E-COMMERCE',
-                        'TECHNOLOGY' => 'TECHNOLOGY',
-                        'BUSINESS' => 'BUSINESS',
+                        'META ADS' => 'META ADS',
+                        'GRAPHIC DESIGNER' => 'GRAPHIC DESIGNER',
+                        'YOUTUBE ADS' => 'YOUTUBE ADS',
+                       
                     ])
                     ->required(),
 
