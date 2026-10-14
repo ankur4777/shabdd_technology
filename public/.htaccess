@@ -1,13 +1,19 @@
+DirectoryIndex index.html index.php
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
-    RewriteRule ^(api|admin|livewire)(/.*)?$ index.php [L,QSA]
+    # Laravel / Filament / Livewire routes
+    RewriteCond %{REQUEST_URI} ^/api [OR]
+    RewriteCond %{REQUEST_URI} ^/admin [OR]
+    RewriteCond %{REQUEST_URI} ^/livewire
+    RewriteRule ^ index.php [L]
 
-    RewriteRule ^index\.html$ - [L]
+    # Serve real files directly
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-
-    RewriteRule . /index.html [L]
+    # React frontend routes
+    RewriteRule ^ index.html [L]
 </IfModule>
