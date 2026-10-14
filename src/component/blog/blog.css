@@ -1977,21 +1977,21 @@
 
 @media (max-width: 390px) {
   .blog-hero::before {
-    right: -24px;
-    width: 52%;
+    right: -12px;
+    width: 55%;
   }
 
   .blog-hero::after {
-    background: linear-gradient(90deg, #ffffff 0%, #ffffff 54%, rgba(255, 255, 255, 0.74) 68%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 51%, rgba(255, 255, 255, 0.72) 66%, rgba(255, 255, 255, 0) 100%);
   }
 
   .blog-hero-title {
-    max-width: 210px;
-    font-size: 20px !important;
+    max-width: 186px;
+    font-size: 18px !important;
   }
 
   .blog-hero-description {
-    max-width: 185px;
+    max-width: 165px;
   }
 }
 
@@ -2003,8 +2003,8 @@
   }
 
   .blog-hero {
-    min-height: 150px;
-    padding: 12px 0 10px;
+    min-height: 128px;
+    padding: 10px 0 8px;
     background: #ffffff;
   }
 
@@ -2012,10 +2012,10 @@
     content: "";
     position: absolute;
     top: 0;
-    right: -18px;
+    right: -10px;
     bottom: 0;
-    width: 54%;
-    background: url("../../../public/blog/blog-hero.svg") right center / auto 100% no-repeat;
+    width: 56%;
+    background: url("../../../public/blog/blog-hero.svg") right center / auto 96% no-repeat;
     pointer-events: none;
   }
 
@@ -2023,7 +2023,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, #ffffff 0%, #ffffff 51%, rgba(255, 255, 255, 0.76) 63%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 50%, rgba(255, 255, 255, 0.7) 65%, rgba(255, 255, 255, 0) 100%);
     pointer-events: none;
   }
 
@@ -2038,28 +2038,36 @@
   }
 
   .blog-kicker {
-    gap: 7px;
-    font-size: 7px;
+    gap: 6px;
+    font-size: 6px;
+    line-height: 1;
   }
 
   .blog-kicker::before {
-    width: 20px;
+    width: 18px;
     height: 2px;
   }
 
   .blog-hero-title {
-    max-width: 238px;
-    margin: 5px 0 5px;
-    font-size: 22px !important;
-    line-height: 1.03 !important;
+    max-width: 198px;
+    margin: 5px 0 4px;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: 19px !important;
+    font-weight: 800 !important;
+    line-height: 0.98 !important;
     text-align: left;
   }
 
   .blog-hero-description {
-    max-width: 205px;
-    font-size: 8px !important;
-    line-height: 1.4 !important;
+    max-width: 178px;
+    margin: 0;
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 7px !important;
+    line-height: 1.35 !important;
     text-align: left;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 
   .blog-wrapper {
