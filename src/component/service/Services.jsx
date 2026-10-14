@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import "./service.css"
-import { RxFontStyle } from 'react-icons/rx'
 
 function Services() {
 
@@ -16,9 +15,11 @@ function Services() {
 
   return (
     <div className="root">
-      <h2>Our <sapn className="h2-italic">Service</sapn></h2>
+      <div style={{marginTop:"20px", marginBottom:"20px"}} >
+      <h2 className="service-section-title">Our <span >Service</span></h2>
       <p className='for-p-tag'>Driving Digital Excellence with Tailored Solutions </p>
-      <p className="for-p-tag" style={{ color: 'gray' }}>At Shabdd Technologies, we don't just offer services; we deliver expert-driven solutions designed to empower your business. Explore the unique advantages we bring to the table:</p>
+      <p className="for-p-tag" style={{ color: 'gray',wordSpacing: '5px' }}>At Shabdd Technologies, we don't just offer services; we deliver expert-driven solutions designed to empower your business. Explore the unique advantages we bring to the table:</p>
+      </div>
       <div className='services'>
         {services.map((e, index) => (
           <Link className="service-link" to={e.path} key={e.path}>

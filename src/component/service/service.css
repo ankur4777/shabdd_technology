@@ -53,6 +53,21 @@
   animation: serviceTextIn 0.6s ease 0.22s forwards;
 }
 
+.service-section-title {
+  font-size: 48px;
+  line-height: 45.84px;
+}
+
+.service-section-title span {
+  display: inline;
+  color: #ff3b30;
+  font-size: inherit;
+  font-style: italic;
+  font-weight: inherit;
+  line-height: inherit;
+  transform: skew(-8deg);
+}
+
 .services {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -231,6 +246,11 @@
   .root {
     width: min(100% - 24px, 1180px);
     padding: 38px 0 46px;
+  }
+
+  .service-section-title {
+    font-size: 38px;
+    line-height: 38px;
   }
 
   .root::before {
