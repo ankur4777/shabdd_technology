@@ -166,6 +166,7 @@ function ContactForm() {
               <option value="Web Development">Web Development</option>
               <option value="Web Application">Web Application</option>
               <option value="Digital Marketing">Digital Marketing</option>
+              <option value="SEO"> SEO </option>
               <option value="Meta Ads">Meta Ads</option>
               <option value="Graphic Design">Graphic Design</option>
               <option value="YouTube Ads">YouTube Ads</option>

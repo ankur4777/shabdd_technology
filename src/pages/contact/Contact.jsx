@@ -22,7 +22,7 @@ const contactDetails = [
   {
     icon: <FaMapMarkedAlt/>,
     title: "Branch Office",
-    lines: ["Branch Office: 12342 72A Avenue, Surrey, BC V3W 9J6, Canada"],
+    lines: ["12342 72A Avenue, Surrey, BC V3W 9J6, Canada"],
   }
 ]
 

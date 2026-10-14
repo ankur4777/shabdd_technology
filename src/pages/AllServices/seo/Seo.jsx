@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from '../Banner'
 import servicesData from '../serviceData'
 import { FaBullseye, FaChevronLeft, FaChevronRight, FaGaugeHigh, FaLocationDot, FaStar } from 'react-icons/fa6'
@@ -37,7 +37,7 @@ const seoProjects = [
   },
   {
     title: 'Shabdd Innovation',
-    image: '/Gallery/project-shabdd-lms-clean.png',  image: '/Gallery/project-shabdd-lms-clean.png',
+    image: '/Gallery/project-shabdd-innovations.png',
     link: 'https://shabddinnovations.in/',
     className: 'seo-project-spider',
     featured: true,
@@ -53,6 +53,16 @@ const seoProjects = [
 
 export function SeoProjects() {
   const [activeProject, setActiveProject] = useState(1)
+
+  useEffect(() => {
+    const slideTimer = window.setInterval(() => {
+      setActiveProject((currentProject) => (
+        currentProject === seoProjects.length - 1 ? 0 : currentProject + 1
+      ))
+    }, 3000)
+
+    return () => window.clearInterval(slideTimer)
+  }, [])
 
   const previousProject = () => {
     setActiveProject((currentProject) => (
