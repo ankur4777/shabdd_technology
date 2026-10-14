@@ -65,3 +65,16 @@
         top: 65%;
     }
 }
+
+/* Typography rules moved from typography.css. */
+.about-container h1 {
+  color: var(--type-heading) !important;
+}
+
+.about-container p {
+  color: var(--type-heading) !important;
+}
+
+.about-container p {
+  color: var(--type-body) !important;
+}

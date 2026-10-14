@@ -309,3 +309,13 @@
     min-height: 42px;
   }
 }
+
+/* Typography rules moved from typography.css. */
+.nav-link :where(Link){
+  font-family:Manrope;
+font-size:13px;
+font-weight:700;
+letter-spacing:0.39px
+
+;
+}

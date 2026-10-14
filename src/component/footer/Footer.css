@@ -200,3 +200,28 @@
         text-align: justify;
     }
 }
+
+/* Typography rules moved from typography.css. */
+.footer p {
+  font-size: var(--type-small) !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+.footer li {
+  font-size: var(--type-small) !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+.footer a {
+  font-size: var(--type-small) !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+.footer-column :where(h4 p) {
+font-family:Manrope,sans-serif;
+font-size:13.5px;
+line-height:23.625px
+}

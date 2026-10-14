@@ -451,3 +451,17 @@
     height: 46px;
   }
 }
+
+/* Typography rules moved from typography.css. */
+.poster h1 {
+  font-size: var(--type-h1) !important;
+  font-weight: 800 !important;
+  color: var(--type-heading) !important;
+}
+
+.poster p {
+  color: var(--type-body) !important;
+  font-size: clamp(1rem, 1.35vw, 1.125rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.75 !important;
+}

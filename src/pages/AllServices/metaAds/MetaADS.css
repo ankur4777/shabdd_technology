@@ -621,3 +621,53 @@ text-align: left;
     min-height: 0;
   }
 }
+
+/* Typography rules moved from typography.css. */
+.meta-industries-header h2{
+  font-size: var(--type-h2) !important;
+  
+  color: var(--type-heading) !important;
+}
+
+.meta-growth-content h2{
+  font-size: var(--type-h2) !important;
+  
+  color: var(--type-heading) !important;
+}
+
+.meta-optimization-content h2{
+  font-size: var(--type-h2) !important;
+  
+  color: var(--type-heading) !important;
+}
+
+.meta-industries-header p {
+  color: var(--type-body);
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+.meta-growth-content p {
+  color: var(--type-body);
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+.meta-industry-card h3
+ {
+  color: var(--type-heading) !important;
+  font-size: var(--type-card) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  text-align:left;
+}
+
+.meta-industry-card p{
+  color:#6b7280 !important;
+  font-size:14px  !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  font-family: 'Manrope', sans-serif !important;
+  
+}

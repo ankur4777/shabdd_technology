@@ -172,3 +172,14 @@ height:20rem;
     justify-content: flex-start;
 }
 }
+
+/* Typography rules moved from typography.css. */
+.web-services-card strong {
+  color: var(--type-heading) !important;
+  font-weight: 600 !important;
+}
+.web-left-text h2{
+  font-size: var(--type-h2) !important;
+  
+  color: var(--type-heading) !important;
+}

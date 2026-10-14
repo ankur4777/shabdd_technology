@@ -85,3 +85,37 @@
         font-size: 0.9rem;
     }
 }
+
+/* Typography rules moved from typography.css. */
+.allservices-banner-text h1 {
+  font-size: var(--type-h1) !important;
+  font-weight: 800 !important;
+  color: var(--type-heading) !important;
+}
+
+.allservices-banner-text p {
+  color: var(--type-body) !important;
+  font-size: clamp(1rem, 1.35vw, 1.125rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.75 !important;
+}
+
+.allservices-banner-text {
+  color: var(--type-heading) !important;
+}
+
+.allservices-banner-text h1 {
+  color: var(--type-heading) !important;
+}
+
+.allservices-banner-text h4 {
+  color: var(--type-heading) !important;
+}
+
+.allservices-banner-text p {
+  color: var(--type-heading) !important;
+}
+
+.allservices-banner-text p {
+  color: var(--type-body) !important;
+}

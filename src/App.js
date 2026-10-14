@@ -17,7 +17,6 @@ import Gallery from './component/gallery/Gallery';
 import PrivacyPolicy from './component/privacy/PrivacyPolicy';
 import TermsOfService from './component/terms/TermsOfService';
 import GlobalNotification, { NotificationProvider } from './component/globalNotification/GlobalNotification'
-import './typography.css';
 
 function ScrollToTop() {
   const { pathname } = useLocation();

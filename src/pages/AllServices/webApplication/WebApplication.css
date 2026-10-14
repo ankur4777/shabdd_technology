@@ -382,3 +382,59 @@
     }
 }
 
+/* Typography rules moved from typography.css. */
+.webApplication-process-trigger strong,
+.webApplication-panel-title {
+  color: var(--type-heading) !important;
+  font-size: var(--type-card) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  text-align: left;
+}
+
+.webApplication-panel-text {
+  color: #6b7280 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  font-family: 'Manrope', sans-serif !important;
+}
+.webApplication-right-text h1 {
+  font-size: var(--type-h1) !important;
+  font-weight: 800 !important;
+  color: var(--type-heading) !important;
+}
+
+.webApplication-right-text p {
+  color: var(--type-body) !important;
+  font-size: clamp(1rem, 1.35vw, 1.125rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.75 !important;
+}
+
+.webApplication-process-copy h2{
+  font-size: var(--type-h2) !important;
+  
+  color: var(--type-heading) !important;
+}
+
+.webApplication-right-text h2{
+  font-size: var(--type-h2) !important;
+  
+  color: var(--type-heading) !important;
+}
+
+.webApplication-process-copy p {
+  color: var(--type-body);
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+}
+
+.webApplication-process-copy h2 {
+  color: #ffffff !important;
+}
+
+.webApplication-process-copy p {
+  color: #ffffff !important;
+}

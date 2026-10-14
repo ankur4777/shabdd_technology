@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import './Poster.css';
+import "../../typography.css"
 
 function Poster() {
   return (
@@ -14,7 +15,7 @@ function Poster() {
 
         <h1>
           Boost Your
-          <span className="main-text-span">Online Business</span>
+          <span className="primary-text">Online Business</span>
         </h1>
 
         <p className="poster-description for-p-tag">
