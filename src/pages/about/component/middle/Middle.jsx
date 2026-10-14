@@ -107,7 +107,7 @@ function Middle() {
               
 
               <h2>
-                Your <span className='' >Trusted</span> Partner
+                Your Trusted Partner
                 <br />
                 in Digital Solutions
               </h2>
@@ -147,7 +147,7 @@ function Middle() {
 
           <div className="middle-copy-main">
             <h2>
-              Your <span>Trusted</span> Partner
+              Your <span className="primary-text">Trusted</span> Partner
               <br />
               in Digital Solutions
             </h2>
@@ -156,7 +156,7 @@ function Middle() {
             <div className="middle-testimonial">
               <img src="/Manager/Sir.jpeg" alt="Pardeep Bhatia" />
               <div className="middle-testimonial-content">
-                <h4>CEO</h4>
+                <h4>CEO<span className="ceo-text"> Chief Executive Officer</span></h4>
                 <p className="for-p-tag">Pardeep Bhatia</p>
                 <small>Visionary Leader &amp; Digital Transformation Expert</small>
               </div>
