@@ -60,7 +60,6 @@ const stories = [
   },
 ];
 
-// Keep a complete extra cycle at both ends so every button click has cards to show.
 const storyCloneCount = stories.length;
 const carouselStories = [
   ...stories.slice(-storyCloneCount),
