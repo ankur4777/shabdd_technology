@@ -33,7 +33,7 @@ function WebDevelopment() {
 
       <div className="web-container">
         <div className='web-left-text'>
-          <h2>A Full-Scale <span>Website Design & Development</span> Agency in India</h2>
+          <h2>A Full-Scale <span className="primary-text">Website Design & Development</span> Agency in India</h2>
           <p className="for-p-tag">At Shabdd Technology delivers end-to-end website design and development to help your brand shine online. With responsive, secure, and scalable websites, we ensure your business stands out in today's digital world.</p>
         </div>
 

@@ -37,7 +37,7 @@ function DigitalMarketing() {
         <div className="digital-growth-content">
           <h2>
             Achieve Your Enrollments
-            <span>Goals Faster</span>
+            <span className="primary-text">Goals Faster</span>
           </h2>
           <p className="for-p-tag">
             Target your prospects with high precision data to drive qualified leads

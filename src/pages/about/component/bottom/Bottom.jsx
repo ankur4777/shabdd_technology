@@ -62,7 +62,7 @@ function Bottom() {
 
                 <div className="about-bottom-content">
                     <h1>
-                        Empowering <span>Your Social Media</span> Presence
+                        Empowering <span className="primary-text">Your Social Media</span> Presence
                     </h1>
                     <p className="about-contect-p for-p-tag">Shabdd Technologies provides strategic solutions that amplify your brand's voice and engage your audience effectively.</p>
 

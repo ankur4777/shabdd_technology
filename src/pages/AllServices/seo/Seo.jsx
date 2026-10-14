@@ -30,38 +30,25 @@ const seoOverviewServices = [
 
 const seoProjects = [
   {
-    title: 'Kamboj Logistics',
-    image: '/company_logo/1.png',
-    link: '#',
-    className: 'seo-project-kamboj',
+    title: 'Shabdd Travels',
+    image: '/Gallery/project-shabdd-travels.png',
+    link: 'https://shabddtravels.in/',
+   
   },
   {
-    title: 'Liberty Interiors',
-    image: '/company_logo/2.png',
-    link: '#',
+    title: 'Shabdd Innovation',
+    image: '/Gallery/project-shabdd-lms-clean.png',  image: '/Gallery/project-shabdd-lms-clean.png',
+    link: 'https://shabddinnovations.in/',
     className: 'seo-project-spider',
     featured: true,
   },
   {
     title: 'THE BTS',
-    image: '/company_logo/3.png',
-    link: '#',
+    image: '/Gallery/project-shabdd-lms-clean.png',
+    link: 'https://lms.shabddtravels.in/',
     className: 'seo-project-bts',
   },
-    {
-    title: 'Liberty Interiors',
-    image: '/company_logo/4.png',
-    link: '#',
-    className: 'seo-project-spider',
-    featured: true,
-  },
-     {
-    title: 'Liberty Interiors',
-    image: '/company_logo/5.png',
-    link: '#',
-    className: 'seo-project-spider',
-    featured: true,
-  },
+   
 ]
 
 export function SeoProjects() {
@@ -92,9 +79,9 @@ export function SeoProjects() {
     <section className="seo-projects-section" aria-label="SEO project portfolio">
       <div className="seo-projects-heading">
         <span>Our Work</span>
-        <h2>View Our <strong>Projects</strong></h2>
+        <h2>View Our <strong className='primary-text'>Projects</strong></h2>
         <p className="for-p-tag">
-          At <strong>Shabdd Technology</strong>, our projects showcase innovative,
+          At <strong className="ceo-text">Shabdd Technology</strong>, our projects showcase innovative,
           custom solutions designed to meet diverse business needs. Explore how
           we've helped clients achieve their goals through cutting-edge technology
           and strategic development.
@@ -146,7 +133,7 @@ function Seo() {
       <section className="seo-overview-section" aria-label="SEO service overview">
         <div className="seo-overview-panel">
           <div className="seo-overview-copy">
-            <h2>Service <span>Overview</span></h2>
+            <h2>Service <span className="primary-text">Overview</span></h2>
             <div className="seo-overview-line"/>
             <p className='seo-overview-p for-p-tag'>
               At Shabdd Technologies, we recognize that search engine visibility is
@@ -165,7 +152,7 @@ function Seo() {
           </div>
 
           <div className="seo-services-card">
-            <h3>Our <span>Key Services</span> Include</h3>
+            <h3>Our <span className='ceo-text'>Key Services</span> Include</h3>
             <div className="seo-services-list">
               {seoOverviewServices.map((service, index) => (
                 <article className="seo-service-item" key={service.title}>

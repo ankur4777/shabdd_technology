@@ -255,10 +255,10 @@ function Middle() {
 
           <div className="middle-highlights">
             <h4>
-              <span>Key Highlights</span> of Shabdd Technologies:
+              <span className="ceo-text">Key Highlights</span> of Shabdd Technologies:
             </h4>
 
-            <div className="middle-card-grid">
+          <div className="middle-card-grid">
               {highlights.map((item) => (
                 <article className="middle-highlight-card" key={item.title}>
                   <div className="middle-highlight-icon">{item.icon}</div>

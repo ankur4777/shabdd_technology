@@ -21,6 +21,13 @@ height:20rem;
 
 .web-left-text{
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.web-left-text p{
+    margin-top:20px;
 }
 
 .web-services-strip{

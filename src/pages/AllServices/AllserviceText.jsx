@@ -18,9 +18,9 @@ function AllserviceText({ serviceText }) {
   return (
     <section className="allservice-text">
       <div className="allservice-text-heading">
-        <h2>
+        <h2 className="primary-title">
           {serviceText.title.split(' ')[0]}{' '}
-          <span>{serviceText.title.split(' ').slice(1).join(' ')}</span>
+          <span className="primary-text">{serviceText.title.split(' ').slice(1).join(' ')}</span>
         </h2>
         <div className="allservice-title-line" />
         <p className="for-p-tag">{serviceText.intro}</p>
@@ -41,7 +41,7 @@ function AllserviceText({ serviceText }) {
             </div>
             <h2>{card.title}</h2>
             <p className="for-p-tag">{card.text}</p>
-            <strong className='h2-italic'>Proudly delivered by ShabdD Technology.</strong>
+            
           </article>
         ))}
       </div>
