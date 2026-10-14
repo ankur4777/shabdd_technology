@@ -51,6 +51,7 @@ function App() {
             <Route path="terms" element={<TermsOfService />} />
             <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="contact" element={<Contact/>}/>
+            <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

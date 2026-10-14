@@ -986,10 +986,15 @@
   transition: transform 0.35s ease;
 }
 
+.gallery-stories .story-slider-no-transition .story-card {
+  transition: none;
+}
+
 .gallery-projects-layout {
   display: grid;
   grid-template-columns: minmax(240px, 340px) 1fr;
-  gap: 32px;
+  column-gap: 52px;
+  row-gap: 32px;
   align-items: start;
 }
 
@@ -1030,7 +1035,7 @@
 }
 
 .project-card-body {
-  padding: 14px;
+  padding: 22px 14px 14px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1041,6 +1046,7 @@
   margin: 0;
   color: var(--gallery-navy);
   font-size: 18px;
+  padding: 6px;
 }
 
 .project-card p,
@@ -1208,6 +1214,11 @@
     flex-basis: 86%;
     transform: none;
     scroll-snap-align: start;
+  }
+
+  
+  .gallery-stories .story-card-clone {
+    display: none;
   }
 
   .project-cards,

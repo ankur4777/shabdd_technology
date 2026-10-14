@@ -60,6 +60,13 @@ const stories = [
   },
 ];
 
+const storyCloneCount = stories.length;
+const carouselStories = [
+  ...stories.slice(-storyCloneCount),
+  ...stories,
+  ...stories.slice(0, storyCloneCount),
+];
+
 const stats = [
   { value: '50+', label: 'Team Members', icon: <FaUsers /> },
   { value: '200+', label: 'Projects Delivered', icon: <FaBriefcase /> },
@@ -96,7 +103,8 @@ const projects = [
 function Gallery() {
   const [activeIndex, setActiveIndex] = useState(2);
   const [activeWorkspaceIndex, setActiveWorkspaceIndex] = useState(0);
-  const [activeStoryIndex, setActiveStoryIndex] = useState(0);
+  const [activeStoryIndex, setActiveStoryIndex] = useState(storyCloneCount);
+  const [storyTransitionEnabled, setStoryTransitionEnabled] = useState(true);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -116,7 +124,7 @@ function Gallery() {
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
-      setActiveStoryIndex((currentIndex) => (currentIndex + 1) % stories.length);
+      goToStory(1);
     }, 3800);
 
     return () => window.clearInterval(intervalId);
@@ -133,7 +141,27 @@ function Gallery() {
   };
 
   const goToStory = (direction) => {
-    setActiveStoryIndex((currentIndex) => (currentIndex + direction + stories.length) % stories.length);
+    setActiveStoryIndex((currentIndex) => currentIndex + direction);
+    setStoryTransitionEnabled(true);
+  };
+
+  const handleStoryTransitionEnd = () => {
+    const firstRealStory = storyCloneCount;
+    const lastRealStory = storyCloneCount + stories.length - 1;
+
+    if (activeStoryIndex > lastRealStory) {
+      setStoryTransitionEnabled(false);
+      setActiveStoryIndex(firstRealStory);
+    } else if (activeStoryIndex < firstRealStory) {
+      setStoryTransitionEnabled(false);
+      setActiveStoryIndex(lastRealStory);
+    }
+
+    if (activeStoryIndex > lastRealStory || activeStoryIndex < firstRealStory) {
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => setStoryTransitionEnabled(true));
+      });
+    }
   };
 
   return (
@@ -255,9 +283,18 @@ function Gallery() {
             <p>Real experiences, real growth and real moments from the people who make Shabdd Innovations.</p>
           </div>
           <button className="gallery-small-control" aria-label="Previous story" onClick={() => goToStory(-1)}><FaArrowLeft /></button>
-          <div className="story-cards story-slider" style={{ '--story-index': activeStoryIndex }}>
-            {stories.map((story) => (
-              <article className="story-card" key={story.name}>
+          <div
+            className={`story-cards story-slider ${storyTransitionEnabled ? '' : 'story-slider-no-transition'}`}
+            style={{ '--story-index': activeStoryIndex }}
+            onTransitionEnd={handleStoryTransitionEnd}
+          >
+            {carouselStories.map((story, index) => (
+              <article
+                className={`story-card ${
+                  index < storyCloneCount || index >= storyCloneCount + stories.length ? 'story-card-clone' : ''
+                }`}
+                key={`${story.name}-${index}`}
+              >
                 <img src={story.image} alt={`${story.name} at Shabdd Innovations`} loading="lazy" />
                 <p>"{story.quote}"</p>
                 <div>

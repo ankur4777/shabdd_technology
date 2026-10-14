@@ -19,7 +19,7 @@ const sections = [
   {
     title: 'Introduction',
     icon: FaFileAlt,
-    image: '/privacy/security.jpg',
+    image: '/privacy/introduction.webp',
     summary:
       'Shabdd Innovations (“we”, “our” or “us”) respects your privacy. This policy explains how we handle personal information when you visit our website, contact us or use our services.',
     detail: 'We aim to be clear about what we collect and why.',
@@ -27,7 +27,7 @@ const sections = [
   {
     title: 'Information We Collect',
     icon: FaUserCheck,
-    image: '/privacy/information.jpg',
+    image: '/privacy/information.webp',
     summary:
       'Personal information you submit, such as your name, phone number, email address, and business details. Project-related information you provide through forms, consultations, or email communication.',
     detail:
@@ -36,7 +36,7 @@ const sections = [
   {
     title: 'How We Use Your Information',
     icon: FaShieldAlt,
-    image: '/privacy/yourinfo1.jpg',
+    image: '/privacy/use-information.webp',
     summary: 'We use information to:',
     points: [
       'To respond to inquiries and provide requested services.',
@@ -48,14 +48,14 @@ const sections = [
   {
     title: 'Data Sharing and Disclosure',
     icon: FaShareAlt,
-    image: '/privacy/team-a.jpg',
+    image: '/privacy/data-sharing.webp',
     summary:
       'We do not sell your personal data. We may share information only with trusted service providers, technical partners, or legal authorities when required for service delivery, legal compliance, or protection of right.',
   },
   {
     title: 'Data Retention',
     icon: FaDatabase,
-    image: '/privacy/retention1.jpg',
+    image: '/privacy/data-retention.webp',
     summary:
       'We retain personal data only as long as needed for legitimate business purposes, legal compliance, and dispute resolution.',
     detail: 'When data is no longer required, we securely delete or anonymize it.',
@@ -63,7 +63,7 @@ const sections = [
   {
     title: 'Data Security',
     icon: FaLock,
-    image: '/privacy/security1.avif',
+    image: '/privacy/data-security.webp',
     summary:
       'We implement appropriate technical and organizational safeguards to protect your information from unauthorized access, disclosure, or misuse. ',
     detail: 'However, no online platform can be guaranteed as 100% secure.',
@@ -71,7 +71,7 @@ const sections = [
   {
     title: 'Your Rights',
     icon: FaUserFriends,
-    image: '/blog/3.jpg',
+    image: '/privacy/your-rights.webp',
     summary:
       'Depending on applicable law, you may have rights to access, correct, update, or request deletion of your personal data.',
     detail: 'You may also request details about how your information is used.',
@@ -79,7 +79,7 @@ const sections = [
   {
     title: 'Cookies and Tracking',
     icon: FaCookieBite,
-    image: '/privacy/cookies.jpg',
+    image: '/privacy/cookies.webp',
     summary:
       'Our website may use cookies or similar technologies to improve navigation, measure engagement, and optimize performance.',
     detail:
@@ -88,7 +88,7 @@ const sections = [
   {
     title: 'Third-Party Links',
     icon: FaExternalLinkAlt,
-    image: '/privacy/third.jpg',
+    image: '/privacy/third-party-links.webp',
     summary:
       'Our website may include links to third-party websites. ',
     detail: 'We are not responsible for the privacy practices or content of external sites, and we encourage you to read their privacy policies.',
@@ -96,7 +96,7 @@ const sections = [
   {
     title: 'Updates to This Policy',
     icon: FaSyncAlt,
-    image: '/privacy/update1.jpg',
+    image: '/privacy/policy-updates.webp',
     summary:
       'We may update this Privacy Policy from time to time. Any changes will be posted on this page with a revised effective date.',
     detail: 'Please check back periodically for the latest information.',
@@ -104,7 +104,7 @@ const sections = [
   {
     title: 'Contact Us',
     icon: FaEnvelope,
-    image: '/privacy/contactus.jpg',
+    image: '/privacy/contactus.webp',
     summary:
       'For questions or requests about this Privacy Policy or your personal information, contact Shabdd Innovations.',
     detail: 'We’ll do our best to respond as soon as reasonably possible.',
@@ -118,7 +118,7 @@ function PrivacyPolicy() {
       <section className="privacy-hero">
         <img
           className="privacy-hero-image"
-          src={`${process.env.PUBLIC_URL}/privacy/privacy-hero.jpg`}
+          src={`${process.env.PUBLIC_URL}/privacy/privacy-hero1.webp`}
           alt=""
           aria-hidden="true"
         />
