@@ -68,9 +68,9 @@ const carouselStories = [
 ];
 
 const stats = [
-  { value: '50+', label: 'Team Members', icon: <FaUsers /> },
-  { value: '200+', label: 'Projects Delivered', icon: <FaBriefcase /> },
-  { value: '5+', label: 'Years of Experience', icon: <FaStar /> },
+  { value: '50', label: 'Team Members', icon: <FaUsers /> },
+  { value: '200', label: 'Projects Delivered', icon: <FaBriefcase /> },
+  { value: '2+', label: 'Years of Experience', icon: <FaStar /> },
   { value: '100+', label: 'Happy Clients', icon: <FaBuilding /> },
 ];
 
@@ -94,7 +94,7 @@ const projects = [
   {
     title: 'Shabdd LMS',
     description: 'A learning management platform for courses, student progress, lessons and admin insights.',
-    image: galleryImage('project-shabdd-lms.png'),
+    image: galleryImage('project-shabdd-lms-clean.png'),
     url: 'https://lms.shabddtravels.in/',
     tags: ['LMS', 'Education'],
   },

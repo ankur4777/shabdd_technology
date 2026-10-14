@@ -6,30 +6,26 @@ function Reviews() {
     {
       text: 'Shabdd Technology exceeded our expectations with their top-notch web development services. The team was professional and responsive. Highly recommended.',
       name: 'Raman Makkar',
-      role: 'Client',
       initials: 'RM',
       tone: 'red',
     },
     {
       text: 'Exceptional mobile app development experience. The app is sleek and delivered on time. Fantastic work by the team.',
       name: 'Deepak Rawat',
-      role: 'Client',
       initials: 'DR',
       tone: 'blue',
     },
 
     {
   text: 'Even after delivery, the support team stayed responsive and helpful. It’s rare to find such dedication and attention to detail in tech services.',
-  name: 'Arjun',
-  role: 'Client',
-  initials: 'DR',
+  name: 'Robin Rajput',
+  initials: 'RR',
   tone: 'red',
 },
 {
   text: 'From concept to launch, everything was handled with precision and care. The project was completed on time and exceeded our expectations in quality.',
-  name: 'Ankur',
-  role: 'Client',
-  initials: 'DR',
+  name: 'Bhumika Sharma',
+  initials: 'BS',
   tone: 'blue',
 }
 
@@ -76,7 +72,6 @@ function Reviews() {
                 <div className="review-avatar">{review.initials}</div>
                 <div>
                   <h3>{review.name}</h3>
-                  <div id="review-client">{review.role}</div>
                 </div>
               </div>
             </article>
