@@ -47,7 +47,7 @@ function Footer() {
             </div>
 
             <div className="footer-bottom">
-                <div>© 2026 <span><Link to="">Shabdd Innovations. </Link></span> All rights reserved.</div>
+                <div>© 2026 <span><a href="https://shabddinnovations.in/" target="_blank" rel="noopener noreferrer">Shabdd Innovations. </a></span> All rights reserved.</div>
                 <div className="footer-bottom-right">
                     <div className="footer-payment">
                         <Link to="/"><img src="/Payment/amazon-pay.png" alt="Amazon Pay" /></Link>
@@ -61,7 +61,7 @@ function Footer() {
                 </div>
 
                   <div className="footer-policy">
-                        <a href="#privacy">Privacy Policy</a>
+                        <Link to="/privacy-policy">Privacy Policy</Link>
                         <span>·</span>
                         <Link to="/terms-of-service">Terms of Service</Link>
                     </div>

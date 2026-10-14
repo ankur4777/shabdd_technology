@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkedAlt, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 import './Contact.css'
 import ContactForm from './ContactForm'
 
@@ -12,14 +12,18 @@ const contactDetails = [
   {
     icon: <FaPhoneAlt />,
     title: 'Phone Number',
-    lines: ['+91-9543305791', '+91-7347673924'],
+    lines: ['+91-9543305791', '+91-7347673924', "+1 (604) 834-0062"],
   },
   {
     icon: <FaMapMarkerAlt />,
-    title: 'Head Office Address',
+    title: 'Head Office ',
     lines: ['#232, 4th Floor, Street 14, Gulab Vatika, Loni Ghaziabad, 201102'],
   },
-
+  {
+    icon: <FaMapMarkedAlt/>,
+    title: "Branch Office",
+    lines: ["Branch Office: 12342 72A Avenue, Surrey, BC V3W 9J6, Canada"],
+  }
 ]
 
 function Contact() {
