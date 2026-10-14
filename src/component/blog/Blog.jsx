@@ -1,10 +1,163 @@
-import React from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaRegCalendarAlt, FaRegCommentDots, FaArrowRight, FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaChevronLeft,
+  FaChevronRight,
+  FaClock,
+  FaRegCalendarAlt,
+  FaSearch,
+} from "react-icons/fa";
+import { API_BASE_URL } from "../../config/api";
 import "./blog.css";
-import { categories, featuredPost, posts } from "./blogData";
+
+const fallbackImage = "/blog/blog-card-banner.jpeg";
+const initialVisibleBlogs = 6;
+const visibleBlogsStep = 6;
+
+const getBlogTimestamp = (blog) =>
+  new Date(blog.published_date || blog.date || blog.created_at || 0).getTime();
 
 function Blog() {
+  const [blogs, setBlogs] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("All Articles");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(initialVisibleBlogs);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const loadMoreRef = useRef(null);
+
+  useEffect(() => {
+    let ignore = false;
+
+    fetch(`${API_BASE_URL}/blogs`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Blogs could not be loaded.");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        if (!ignore) {
+          const sortedBlogs = Array.isArray(data)
+            ? [...data].sort((first, second) => getBlogTimestamp(second) - getBlogTimestamp(first))
+            : [];
+
+          setBlogs(sortedBlogs);
+        }
+      })
+      .catch(() => {
+        if (!ignore) {
+          setError("Blogs load nahi ho pa rahe hain. Please backend API check karein.");
+        }
+      })
+      .finally(() => {
+        if (!ignore) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
+
+  const categories = useMemo(() => {
+    const blogCategories = blogs
+      .map((blog) => blog.category)
+      .filter(Boolean);
+
+    return ["All Articles", ...Array.from(new Set(blogCategories))];
+  }, [blogs]);
+
+  const filteredBlogs = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    return blogs.filter((blog) => {
+      const matchesCategory =
+        activeCategory === "All Articles" || blog.category === activeCategory;
+
+      const searchableText = [
+        blog.title,
+        blog.description,
+        blog.desc,
+        blog.category,
+        blog.author?.name,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+      return matchesCategory && (!query || searchableText.includes(query));
+    });
+  }, [activeCategory, blogs, searchTerm]);
+
+  useEffect(() => {
+    setSlideIndex(0);
+    setVisibleCount(initialVisibleBlogs);
+  }, [activeCategory, searchTerm]);
+
+  useEffect(() => {
+    if (filteredBlogs.length <= 1) {
+      return undefined;
+    }
+
+    const timer = window.setInterval(() => {
+      setSlideIndex((current) => (current + 1) % filteredBlogs.length);
+    }, 4000);
+
+    return () => window.clearInterval(timer);
+  }, [filteredBlogs.length]);
+
+  const featuredPost = filteredBlogs[slideIndex] || filteredBlogs[0];
+  const visibleBlogs = filteredBlogs.slice(0, visibleCount);
+  const hasMoreBlogs = visibleCount < filteredBlogs.length;
+
+  useEffect(() => {
+    const loadMoreElement = loadMoreRef.current;
+
+    if (!loadMoreElement || !hasMoreBlogs) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleCount((current) =>
+            Math.min(current + visibleBlogsStep, filteredBlogs.length)
+          );
+        }
+      },
+      {
+        rootMargin: "280px 0px",
+      }
+    );
+
+    observer.observe(loadMoreElement);
+
+    return () => observer.disconnect();
+  }, [filteredBlogs.length, hasMoreBlogs]);
+
+  const goToPreviousSlide = () => {
+    if (!filteredBlogs.length) {
+      return;
+    }
+
+    setSlideIndex((current) =>
+      current === 0 ? filteredBlogs.length - 1 : current - 1
+    );
+  };
+
+  const goToNextSlide = () => {
+    if (!filteredBlogs.length) {
+      return;
+    }
+
+    setSlideIndex((current) => (current + 1) % filteredBlogs.length);
+  };
+
   return (
     <main className="blog-page">
       <section className="blog-hero">
@@ -18,84 +171,185 @@ function Blog() {
             Explore the latest trends, expert insights and practical guides on
             web development, digital marketing, SEO, design and more.
           </p>
-        
         </div>
       </section>
 
       <section className="blog-wrapper">
         <div className="blog-filter-row">
-          {categories.map((category, index) => (
-            <button className={index === 0 ? "active" : ""} key={category} type="button">
+          {categories.map((category) => (
+            <button
+              className={category === activeCategory ? "active" : ""}
+              key={category}
+              type="button"
+              onClick={() => setActiveCategory(category)}
+            >
               {category}
             </button>
           ))}
-          <button className="blog-search" type="button" aria-label="Search blog posts">
+
+          <label className="blog-search-box" aria-label="Search blog posts">
             <FaSearch />
-          </button>
+            <input
+              type="search"
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              placeholder="Search blogs"
+            />
+          </label>
         </div>
 
-        <article className="blog-featured-card">
-          <Link className="blog-featured-media" to={`/blog/${featuredPost.slug}`}>
-            <img src={featuredPost.image} alt={featuredPost.title} />
-            <span>FEATURED</span>
-          </Link>
-          <div className="blog-featured-copy">
-            <span className="blog-category">{featuredPost.category}</span>
-            <h2>{featuredPost.title}</h2>
-            <p>{featuredPost.desc}</p>
-            <div className="blog-meta">
-              <span><FaRegCalendarAlt /> {featuredPost.date}</span>
-              <span><FaRegCommentDots /> 5 Comments</span>
+        {loading && (
+          <div className="blog-loading" aria-label="Loading blogs">
+            <div className="blog-loading-featured">
+              <span />
+              <div>
+                <i />
+                <i />
+                <i />
+                <i />
+              </div>
             </div>
-            <Link to={`/blog/${featuredPost.slug}`}>Read More <FaArrowRight /></Link>
-            <strong className="blog-featured-number">01</strong>
+
+            <div className="blog-loading-grid">
+              {[1, 2, 3].map((item) => (
+                <div className="blog-loading-card" key={item}>
+                  <span />
+                  <i />
+                  <i />
+                  <i />
+                </div>
+              ))}
+            </div>
           </div>
-        </article>
+        )}
+
+        {!loading && error && <div className="blog-empty">{error}</div>}
+
+        {!loading && !error && !filteredBlogs.length && (
+          <div className="blog-empty">No blogs found.</div>
+        )}
+
+        {!loading && !error && featuredPost && (
+          <article className="blog-featured-card" key={featuredPost.slug} aria-live="polite">
+            <Link className="blog-featured-media" to={`/blog/${featuredPost.slug}`}>
+              <img
+                src={featuredPost.image || fallbackImage}
+                alt={featuredPost.title}
+                fetchPriority="high"
+              />
+              <span>{slideIndex === 0 ? "LATEST" : "FEATURED"}</span>
+            </Link>
+
+            <div className="blog-featured-copy">
+              <span className="blog-category">{featuredPost.category}</span>
+              <h2>{featuredPost.title}</h2>
+              <p>{featuredPost.description || featuredPost.desc}</p>
+
+              <div className="blog-meta">
+                <span>
+                  <FaRegCalendarAlt /> {featuredPost.date}
+                </span>
+                <span>
+                  <FaClock /> {featuredPost.read_time || 5} Min Read
+                </span>
+              </div>
+
+              <Link to={`/blog/${featuredPost.slug}`}>
+                Read More <FaArrowRight />
+              </Link>
+
+              <strong className="blog-featured-number">
+                {String(slideIndex + 1).padStart(2, "0")}
+              </strong>
+            </div>
+          </article>
+        )}
+
+        {!loading && !error && filteredBlogs.length > 1 && (
+          <div className="blog-slide-dots" aria-label="Featured blog slideshow">
+            {filteredBlogs.map((post, index) => (
+              <button
+                className={index === slideIndex ? "active" : ""}
+                type="button"
+                key={post.slug}
+                aria-label={`Show featured blog ${index + 1}`}
+                onClick={() => setSlideIndex(index)}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="blog-heading-row">
           <div>
             <span className="blog-kicker">LATEST ARTICLES</span>
             <h2>Latest Blog & News</h2>
           </div>
+
           <div className="blog-heading-side">
             <p>
-              Stay updated with the latest trends in web development, digital
-              marketing, design and technology. Useful resources, guides and
-              expert insights for your business growth.
+              Showing {visibleBlogs.length} of {filteredBlogs.length} database blog
+              {filteredBlogs.length === 1 ? "" : "s"}.
             </p>
+
             <div className="blog-slider-controls">
-              <button type="button" aria-label="Previous articles"><FaChevronLeft /></button>
-              <button type="button" aria-label="Next articles"><FaChevronRight /></button>
+              <button
+                type="button"
+                aria-label="Previous featured blog"
+                onClick={goToPreviousSlide}
+                disabled={filteredBlogs.length <= 1}
+              >
+                <FaChevronLeft />
+              </button>
+              <button
+                type="button"
+                aria-label="Next featured blog"
+                onClick={goToNextSlide}
+                disabled={filteredBlogs.length <= 1}
+              >
+                <FaChevronRight />
+              </button>
             </div>
           </div>
         </div>
 
         <div className="blog-grid">
-          {posts.map((post) => (
-            <Link className="blog-card" to={`/blog/${post.slug}`} key={post.slug} aria-label={post.title}>
-              <img src={post.image} alt={post.title} />
+          {visibleBlogs.map((post) => (
+            <Link
+              className="blog-card"
+              to={`/blog/${post.slug}`}
+              key={post.slug}
+              aria-label={post.title}
+            >
+              <img
+                src={post.image || fallbackImage}
+                alt={post.title}
+                loading="lazy"
+                decoding="async"
+              />
+
               <div className="blog-card-body">
                 <div className="blog-card-meta">
                   <span>{post.category}</span>
-                  <small><FaRegCalendarAlt /> {post.date}</small>
+                  <small>
+                    <FaRegCalendarAlt /> {post.date}
+                  </small>
                 </div>
+
                 <h3>{post.title}</h3>
-                <p>{post.desc}</p>
-                <span className="blog-read-more">Read More <FaArrowRight /></span>
+                <p>{post.description || post.desc}</p>
+                <span className="blog-read-more">
+                  Read More <FaArrowRight />
+                </span>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="blog-pagination">
-          <button className="active" type="button">1</button>
-          <button type="button">2</button>
-          <button type="button">3</button>
-          <button type="button">4</button>
-          <button type="button">...</button>
-          <button type="button">8</button>
-          <button type="button" aria-label="Next page"><FaChevronRight /></button>
-        </div>
+        {hasMoreBlogs && (
+          <div className="blog-load-more-sentinel" ref={loadMoreRef}>
+            <span>Loading more blogs...</span>
+          </div>
+        )}
       </section>
     </main>
   );
