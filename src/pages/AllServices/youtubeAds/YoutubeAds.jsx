@@ -75,7 +75,7 @@ function YoutubeAds() {
         <div className="youtube-market-content">
           <h2>
             <span>YouTube Ads</span> Capable Of
-            <strong>Disrupting the Market</strong>
+            Disrupting the Market
           </h2>
           <i />
 

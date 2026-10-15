@@ -15,6 +15,7 @@
   hyphens: manual;
 }
 
+
 .App :where(.nav-main, .nav-main *, button, .global-notification, .global-notification *) {
   text-align: initial;
 }
