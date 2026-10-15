@@ -19,7 +19,7 @@
 }
 
 .primary-title{
-        font-family:var(--primary-font) !important;  
+        font-family:var(--primary-font) !important;     
     font-weight:var(--primary-weight) !important;
     font-size:var(--primary-text);
     color:var(--primary-title-color);
