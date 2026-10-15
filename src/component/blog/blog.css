@@ -2293,6 +2293,7 @@
   .blog-read-more {
     gap: 5px;
     font-size: 8px;
+    display: none;
   }
 }
 
@@ -2352,7 +2353,7 @@
   .blog-card {
     display: grid;
     grid-template-columns: 50% minmax(0, 1fr);
-    max-height: 130px;
+    max-height: 138px;
   }
 
   .blog-card img {
@@ -2370,7 +2371,7 @@
   }
 
   .blog-card-meta {
-    flex-wrap: nowrap;
+    
     align-items: center;
     min-width: 0;
     overflow: hidden;
