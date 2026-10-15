@@ -2101,7 +2101,7 @@
   }
 
   .blog-search-box input {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .blog-featured-card {
@@ -2351,8 +2351,8 @@
 @media (max-width: 520px) {
   .blog-card {
     display: grid;
-    grid-template-columns: 34% minmax(0, 1fr);
-    min-height: 180px;
+    grid-template-columns: 50% minmax(0, 1fr);
+    max-height: 130px;
   }
 
   .blog-card img {
