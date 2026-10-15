@@ -163,9 +163,9 @@ function Blog() {
       <section className="blog-hero">
         <div className="blog-hero-content">
           <span className="blog-kicker">OUR BLOG</span>
-          <h1 className="blog-hero-title">
+          <h1 className="primary-title" style={{textAlign: "left"}}>
             Ideas, Insights & <br />
-            <span className="blog-hero-highlight">Digital Growth</span>
+            <span className="primary-text">Digital Growth</span>
           </h1>
           <p className="blog-hero-description">
             Explore the latest trends, expert insights and practical guides on
