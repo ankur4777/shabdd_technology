@@ -12,8 +12,8 @@ import { API_BASE_URL } from "../../config/api";
 import "./blog.css";
 
 const fallbackImage = "/blog/blog-card-banner.jpeg";
-const initialVisibleBlogs = 6;
-const visibleBlogsStep = 6;
+const initialVisibleBlogs = 9;
+const visibleBlogsStep = 9;
 
 const getBlogTimestamp = (blog) =>
   new Date(blog.published_date || blog.date || blog.created_at || 0).getTime();
@@ -347,7 +347,7 @@ function Blog() {
 
         {hasMoreBlogs && (
           <div className="blog-load-more-sentinel" ref={loadMoreRef}>
-            <span>Loading more blogs...</span>
+            <span>Loading More blogs...</span>
           </div>
         )}
       </section>
