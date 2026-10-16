@@ -55,7 +55,15 @@
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
+  
 }
+.gallery-workspace-copy h2{
+  text-align:left
+}
+
+.gallery-story-heading h2{
+  text-align:left;
+};
 
 .gallery-eyebrow span,
 .gallery-kicker::after {
@@ -584,7 +592,7 @@
 
 .story-card > div {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 10px;
   padding: 0 14px 14px;
 }
@@ -1040,6 +1048,15 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+}
+
+.project-card-body h3{
+  text-align:left;
+}
+
+.project-card-body p{
+text-align:left
 }
 
 .project-card h3,
@@ -1076,7 +1093,7 @@
 
 .project-card-link {
   display: inline-flex;
-  align-items: center;
+
   gap: 8px;
   margin-top: auto;
   color: var(--gallery-red);
@@ -1651,5 +1668,11 @@
   .gallery-stats .gallery-stat span span {
     text-align: left;
     font-size: clamp(11px, 1.1vw, 14px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .travel-gallery-page .gallery-video-thumbs > button:not(.gallery-thumb-button) {
+    display: none !important;
   }
 }

@@ -271,10 +271,10 @@ function Gallery() {
       <section className="gallery-section gallery-stories">
         <div className="gallery-container gallery-stories-layout">
           <div className="gallery-story-heading">
-            <p className="gallery-kicker">Our People</p>
+            <p className="gallery-kicker" >Our People</p>
             <h2>Stories from <span>Our Team</span></h2>
             <p>Real experiences, real growth and real moments from the people who make Shabdd Innovations.</p>
-          </div>
+          </div>  
           <button className="gallery-small-control" aria-label="Previous story" onClick={() => goToStory(-1)}><FaArrowLeft /></button>
           <div
             className={`story-cards story-slider ${storyTransitionEnabled ? '' : 'story-slider-no-transition'}`}
