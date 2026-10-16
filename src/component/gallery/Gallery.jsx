@@ -34,12 +34,7 @@ const stories = [
     quote: 'Every campaign starts with a clear message, strong visuals and a deep understanding of the audience.',
     image: galleryImage('(3).webp'),
   },
-  {
-    name: 'Development Team',
-    place: 'Web and applications',
-    quote: 'We turn ideas into fast, responsive and practical digital products that businesses can actually use.',
-    image: galleryImage('4.webp'),
-  },
+
   {
     name: 'Marketing Team',
     place: 'Growth strategy',
