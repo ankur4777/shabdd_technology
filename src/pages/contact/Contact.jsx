@@ -57,7 +57,7 @@ function Contact() {
     <div className='contact-container'>
 
       <div className='contact-left-text'>
-        <h2>Feel Free To <span>Contact </span>  & Get In Touch !</h2>
+        <h2>Feel Free To Contact  & Get In Touch !</h2>
         <p className="for-p-tag" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', textAlign: 'justify' }}>
           Ready to take your digital marketing to the next level? Whether you're looking to enhance your online presence, boost traffic, or drive more conversions, Shabdd Technology is here to help. Our dedicated team of digital marketing professionals is ready to tailor strategies that meet your unique business goals.
 

@@ -6,7 +6,7 @@ function Poster() {
   return (
     <section className="poster">
       <video className="poster-bg-video" autoPlay muted loop playsInline>
-        <source src={`${process.env.PUBLIC_URL}/hero-bg-video.mp4`} type="video/mp4" />
+        <source src={`${process.env.PUBLIC_URL}/Shabdd_New_Hero_Background_24s.mp4`} type="video/mp4" />
       </video>
       <div className="poster-video-overlay" aria-hidden="true" />
 

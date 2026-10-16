@@ -174,7 +174,7 @@
 }
 
 .service-showcase-section.process .service-showcase-grid{
-  gap: clamp(1rem, 2vw, 1.6rem);
+  gap: clamp(3rem, 2vw, 1.6rem);
 }
 
 .service-showcase-section.process .service-showcase-card{
