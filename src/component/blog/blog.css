@@ -1239,12 +1239,7 @@
   color: #ffffff;
 }
 
-.blog-detail-share button:hover,
-.blog-view-all:hover,
-.blog-read-more:hover {
-  color: #ffffff;
-  background: #1ebe5d;
-}
+
 
 .blog-detail-share button {
   border: 1px solid rgba(37, 211, 102, 0.24);
@@ -2397,4 +2392,47 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
+
+  .blog-card>img, .blog-related-section .blog-card>img {
+    aspect-ratio: 16 / 13;
+    height: auto;
+}
+}
+
+/* Keep full blog artwork visible in every card and article placement. */
+.blog-featured-media {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  background: #f4f6f8;
+}
+
+.blog-featured-media img,
+.blog-card > img,
+.blog-detail-page .blog-detail-image {
+  width: 100%;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #f4f6f8;
+}
+
+.blog-featured-media img {
+  height: 100%;
+  animation: none;
+}
+
+.blog-card > img,
+.blog-related-section .blog-card > img {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.blog-card:hover > img {
+  transform: none;
+}
+
+.blog-detail-page .blog-detail-image {
+  height: auto;
+  max-height: none;
+  aspect-ratio: 16 / 9;
 }
