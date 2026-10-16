@@ -432,7 +432,7 @@
 
 @media (max-width: 720px) {
   .privacy-hero {
-    min-height: 450px;
+    min-height: 300px;
   }
 
   .privacy-hero-shade {
@@ -451,7 +451,23 @@
   }
 
   .privacy-hero-content {
-    margin-top: 82px;
+    margin: 30px auto 22px;
+  }
+
+  .privacy-hero-content .terms-breadcrumb {
+    margin-bottom: 16px;
+  }
+
+  .privacy-hero h1 {
+    margin: 8px 0 10px;
+    font-size: clamp(46px, 6vw, 68px);
+    line-height: 0.98;
+  }
+
+  .privacy-hero-content > p {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.55;
   }
 
   .privacy-hero-mark {
