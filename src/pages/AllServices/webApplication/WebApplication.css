@@ -423,6 +423,9 @@
   font-size: var(--type-h2) !important;
   
   color: var(--type-heading) !important;
+  font-size: var(--type-h2) !important;
+    color: var(--type-heading) !important;
+    margin-bottom: 20px;
 }
 
 .webApplication-process-copy p {

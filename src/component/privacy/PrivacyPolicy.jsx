@@ -101,15 +101,7 @@ const sections = [
       'We may update this Privacy Policy from time to time. Any changes will be posted on this page with a revised effective date.',
     detail: 'Please check back periodically for the latest information.',
   },
-  {
-    title: 'Contact Us',
-    icon: FaEnvelope,
-    image: '/privacy/contactus.webp',
-    summary:
-      'For questions or requests about this Privacy Policy or your personal information, contact Shabdd Innovations.',
-    detail: 'We’ll do our best to respond as soon as reasonably possible.',
-    contact: true,
-  },
+
 ];
 
 function PrivacyPolicy() {

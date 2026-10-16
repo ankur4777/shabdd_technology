@@ -272,7 +272,7 @@ function Gallery() {
         <div className="gallery-container gallery-stories-layout">
           <div className="gallery-story-heading">
             <p className="gallery-kicker" >Our People</p>
-            <h2>Stories from <span>Our Team</span></h2>
+            <h2>Behind Our <span>Success</span></h2>
             <p>Real experiences, real growth and real moments from the people who make Shabdd Innovations.</p>
           </div>  
           <button className="gallery-small-control" aria-label="Previous story" onClick={() => goToStory(-1)}><FaArrowLeft /></button>
