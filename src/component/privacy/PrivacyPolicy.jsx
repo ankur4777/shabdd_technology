@@ -116,12 +116,12 @@ function PrivacyPolicy() {
         />
         <div className="privacy-hero-shade" />
         <div className="privacy-hero-content">
-          <nav className="privacy-breadcrumb" aria-label="Breadcrumb">
+            <nav className="terms-breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
-            <span aria-hidden="true">/</span>
+            <span aria-hidden="true">›</span>
             <span aria-current="page">Privacy Policy</span>
           </nav>
-          <span className="privacy-eyebrow">Privacy Policy</span>
+          
           <h1>
             Your Privacy,
             <br />

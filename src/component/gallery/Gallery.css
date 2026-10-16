@@ -1331,19 +1331,11 @@ text-align:left
   }
 
   .gallery-stories .story-cards {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    overflow: hidden;
   }
 
   .gallery-stories .story-card {
-    flex-basis: 86%;
-    transform: none;
-    scroll-snap-align: start;
-  }
-
-  
-  .gallery-stories .story-card-clone {
-    display: none;
+    flex-basis: 100%;
   }
 
   .project-cards,
