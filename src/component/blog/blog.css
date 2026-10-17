@@ -2436,3 +2436,17 @@
   max-height: none;
   aspect-ratio: 16 / 9;
 }
+
+@media (max-width: 520px) {
+  /* Stretch the thumbnail through the full height of the horizontal card. */
+  .blog-grid .blog-card > img {
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
+  .blog-grid .blog-card-meta small {
+    display: none;
+  }
+}
