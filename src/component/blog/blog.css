@@ -2094,8 +2094,11 @@
     border-radius: 4px;
     padding: 0 10px;
     font-size: 10px;
+<<<<<<< HEAD
     margin-left:10px;
     margin-right:10px
+=======
+>>>>>>> 91e8d363014b19104149d59417a78e0c5b9028ed
   }
 
   .blog-search-box input {
