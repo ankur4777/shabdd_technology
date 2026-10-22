@@ -1,0 +1,252 @@
+@import "leaflet/dist/leaflet.css";
+
+
+.App {
+  text-align: center;
+  max-width: 1540px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.App :where(p, li) {
+  text-align: inherit;
+  text-justify: auto;
+  hyphens: manual;
+}
+
+
+.App :where(.nav-main, .nav-main *, button, .global-notification, .global-notification *) {
+  text-align: initial;
+}
+
+.mobile-call-button {
+  display: none;
+}
+
+.sticky-whatsapp-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1100;
+  display: flex;
+  width: 58px;
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.34);
+  text-decoration: none;
+}
+
+.sticky-whatsapp-button svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 768px) {
+  .mobile-call-button {
+    position: fixed;
+    right: 18px;
+    bottom: 22px;
+    z-index: 1100;
+    display: flex;
+    width: 58px;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ed0018;
+    color: #ffffff;
+    box-shadow: 0 14px 30px rgba(237, 0, 24, 0.34);
+    text-decoration: none;
+  }
+
+  .mobile-call-button svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sticky-whatsapp-button {
+    right: 18px;
+    bottom: 92px;
+  }
+}
+
+/* Typography rules moved from typography.css. */
+@media (max-width: 768px) {
+  .App :where(h1, h2, h3) {
+    letter-spacing: -0.015em !important;
+  }
+
+  .App :where(p, li) {
+    line-height: 1.65;
+  }
+}
+.App {
+  color: var(--type-body);
+  font-family: var(--type-font);
+}
+
+.App :where(h1, h2, h3, h4, h5, h6)
+ {
+  font-family: var(--type-font) !important;
+}
+
+.App :where(h1, h2, h3, h4, h5, h6) {
+  color: var(--type-heading);
+  text-wrap: balance;
+}
+
+.App h1 {
+  font-size: var(--type-h1) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+
+}
+
+.App h2 {
+ font-family:Cormorant Garamond Georgia serif;
+font-size:48px;
+letter-spacing:-1.088px;
+line-height:45.84px;
+text-align: center;
+font-weight: 100;
+
+}
+
+.App h3 {
+font-family:Cormorant Garamond;
+font-size:24px;
+font-weight:600;
+letter-spacing:-0.24px;
+line-height:28.8px
+}
+
+.App h4 {
+  font-size: clamp(1.125rem, 1.9vw, 1.5rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.28 !important;
+  letter-spacing: 0 !important;
+}
+
+.App h6 {
+  color: var(--type-secondary) !important;
+  font-size: clamp(1rem, 1.35vw, 1.125rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+}
+
+.App h7{
+  font-size: 15px;
+    font-weight: 700px;
+    font-family:sans-serif;
+    
+   
+    color: #9aa0ab;
+    margin-bottom: 3px;
+}
+
+.App p{
+  color: var(--type-body);
+    font-family: Manrope, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 26.25px;
+    letter-spacing: 0;
+}
+
+.App :where(p, li) {
+  color: var(--type-body);
+  font-family: Manrope, sans-serif;   /* Changed from var(--type-font) */
+  font-size: 15px;                    /* Changed from var(--type-body-size) */
+  font-weight: 400;
+    line-height: 26.25px;               /* Changed from 1.7 */
+  letter-spacing: 0;
+}
+
+.App :where(small, figcaption, .caption, .meta, .blog-date, .allservices-banner-text h4) {
+  color: var(--type-secondary) !important;
+  font-size: var(--type-small) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+}
+
+.App :where(button, .poster-secondary, .fsq-contact-button, .contact-form__submit, .blog-card a) {
+  font-family: var(--type-font) !important;
+  font-size: var(--type-button) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.App :where(input, textarea, select, label) {
+  color: var(--type-body);
+  font-family: var(--type-font);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.App :where(input, textarea, select)::placeholder {
+  color: var(--type-muted);
+}
+
+.App p {
+  color: var(--type-body) !important;
+  font-size: clamp(1rem, 1.35vw, 1.125rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.75 !important;
+}
+
+.App h6{
+  color:#6b7280 !important;
+  font-size:14px  !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  font-family: 'Manrope', sans-serif !important;
+  
+}
+
+.App p{
+  color: #6b7280 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  font-family: 'Manrope', sans-serif !important;
+}
+
+.App :where(.eyebrow, .blog-eyebrow, .reviews-eyebrow, .service-showcase-eyebrow, .meta-eyebrow, .fsq-eyebrow) {
+  color: var(--type-brand) !important;
+  font-size: var(--type-small) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+}
+
+.App :where(.seo-projects-heading > span, .youtube-kicker, .poster-kicker) {
+  color: var(--type-brand) !important;
+  font-size: var(--type-small) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+}
+
+.App :where(h1, h2, h3, h4) span {
+  color: var(--type-brand);
+  font-style: italic;
+  font-weight: 100;
+  
+  
+}
+
+.App :where(.webApplication-process, .webApplication-process-copy, .webApplication-process-copy h2, .webApplication-process-copy p) {
+  color: #ffffff !important;
+}

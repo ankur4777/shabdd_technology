@@ -1,0 +1,53 @@
+:root{
+    --primary-color:#FF3830;
+    --primary-text:clamp(2rem, 4vw, 3.4rem);
+    --primary-font:'Cormorant Garamond', Georgia, serif;
+    --primary-weight:400;
+    --primary-italic:italic;
+    --primary-skew:-8deg;
+    --primary-title-color:black;
+}
+
+.primary-text{
+    font-family:var(--primary-font); 
+    font-weight:var(--primary-weight);
+    font-size:var(--primary-text);
+    color:var(--primary-color) !important;
+    font-style:var(--primary-italic);
+    transform:skew(var(--primary-skew));
+
+}
+
+.App :is(h1, h2) span {
+  font-family:var(--primary-font); 
+    font-weight:var(--primary-weight);
+    font-size:var(--primary-text);
+    color:var(--primary-color) !important;
+    font-style:var(--primary-italic);
+    transform:skew(var(--primary-skew));
+  
+}
+
+.primary-title{
+        font-family:var(--primary-font) !important;     
+    font-weight:var(--primary-weight) !important;
+    font-size:var(--primary-text);
+    color:var(--primary-title-color);
+
+
+}
+
+.main-heading-h2{
+     font-family: Georgia, "Times New Roman", serif;
+      font-size:var(--primary-text);
+      font-weight: 900;
+        line-height: 1.16;
+   letter-spacing: 0;
+}
+
+
+.ceo-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight:400;
+    color:#FF3830;
+}
