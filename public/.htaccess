@@ -15,7 +15,7 @@ DirectoryIndex index.html index.php
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
     # Laravel / Filament / Livewire routes
-    RewriteRule ^(api|admin|livewire|up)(/|$) index.php [L]
+    RewriteRule ^(api|admin|up|livewire(-[a-f0-9]+)?)(/|$) index.php [L]
 
     # Serve real files directly
     RewriteCond %{REQUEST_FILENAME} -f
