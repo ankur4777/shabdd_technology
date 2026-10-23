@@ -25,5 +25,5 @@ yarn-error.log*
 hosting-fix.zip
 hosting-fix/
 .tmp_zip_check/
-.vendor
+.vender
 vendor/
