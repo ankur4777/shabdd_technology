@@ -27,7 +27,7 @@
   "scripts": {
     "start": "cross-env DANGEROUSLY_DISABLE_HOST_CHECK=true react-scripts start",
     "server": "node backend/server.js",
-    "build": "react-scripts build",
+    "build": "react-scripts build && node scripts/prepare-deployment.cjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "create": "node createComponent.js"

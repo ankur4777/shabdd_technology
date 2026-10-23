@@ -14,4 +14,7 @@ require __DIR__.'/../laravel-backend/vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../laravel-backend/bootstrap/app.php';
 
+// On shared hosting this directory is public_html, beside laravel-backend.
+$app->usePublicPath(__DIR__);
+
 $app->handleRequest(Request::capture());
