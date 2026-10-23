@@ -2402,7 +2402,7 @@
 }
 }
 
-/* Keep full blog artwork visible in every card and article placement. */
+/* Keep full artwork visible in the featured image and article placement. */
 .blog-featured-media {
   min-height: 0;
   aspect-ratio: 16 / 9;
@@ -2410,7 +2410,6 @@
 }
 
 .blog-featured-media img,
-.blog-card > img,
 .blog-detail-page .blog-detail-image {
   width: 100%;
   min-height: 0;
@@ -2424,12 +2423,6 @@
   animation: none;
 }
 
-.blog-card > img,
-.blog-related-section .blog-card > img {
-  height: auto;
-  aspect-ratio: 16 / 9;
-}
-
 .blog-card:hover > img {
   transform: none;
 }
@@ -2440,20 +2433,6 @@
   aspect-ratio: 16 / 9;
 }
 
-@media (max-width: 520px) {
-  /* Stretch the thumbnail through the full height of the horizontal card. */
-  .blog-grid .blog-card > img {
-    height: 100%;
-    min-height: 0;
-    aspect-ratio: auto;
-    object-fit: cover;
-  }
-
-  .blog-grid .blog-card-meta small {
-    display: none;
-  }
-}
-
 /* Override mobile backgrounds after all responsive hero rules. */
 @media (min-width: 425px) and (max-width: 1000px) {
   .blog-hero {
@@ -2462,5 +2441,157 @@
 
   .blog-hero::before {
     background-image: none;
+  }
+}
+
+/* Shared listing and related cards: four desktop columns, three on tablets. */
+.blog-page .blog-grid,
+.blog-page .blog-loading-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.blog-grid .blog-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  max-height: none;
+}
+
+.blog-grid .blog-card > img {
+  display: block;
+  flex: none;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blog-grid .blog-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px;
+}
+
+.blog-grid .blog-card-meta {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  font-size: 11px;
+}
+
+.blog-grid .blog-card h3 {
+  display: -webkit-box;
+  flex: none;
+  min-height: 0;
+  overflow: hidden;
+  margin: 12px 0 8px;
+  font-size: 22px !important;
+  line-height: 1.3 !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.blog-grid .blog-card p {
+  min-height: 0;
+  margin: 0 0 12px;
+}
+
+.blog-grid .blog-read-more {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+@media (min-width: 681px) and (max-width: 1100px) {
+  .blog-page .blog-grid,
+  .blog-page .blog-loading-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .blog-grid .blog-card-body {
+    padding: 14px;
+  }
+
+  .blog-grid .blog-card h3 {
+    font-size: 20px !important;
+  }
+}
+
+/* Mobile reference: full-height image on the left, compact text on the right. */
+@media (max-width: 680px) {
+  .blog-page .blog-grid,
+  .blog-page .blog-loading-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .blog-grid .blog-card {
+    display: grid;
+    grid-template-columns: 48% minmax(0, 1fr);
+    height: clamp(150px, 34vw, 180px);
+    min-height: 0;
+    max-height: none;
+  }
+
+  .blog-grid .blog-card > img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .blog-grid .blog-card-body {
+    min-height: 0;
+    overflow: hidden;
+    padding: 14px 12px;
+  }
+
+  .blog-grid .blog-card-meta {
+    flex: none;
+    min-height: 0;
+    overflow: hidden;
+    white-space: normal;
+  }
+
+  .blog-grid .blog-card-meta span {
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 999px;
+    padding: 3px 7px;
+    background: var(--blog-red);
+    color: #ffffff;
+    font-size: 9px;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .blog-grid .blog-card-meta small {
+    display: none;
+  }
+
+  .blog-grid .blog-card h3 {
+    margin: 8px 0 6px;
+    font-size: clamp(18px, 4.8vw, 24px) !important;
+    line-height: 1.25 !important;
+    -webkit-line-clamp: 2;
+  }
+
+  .blog-grid .blog-card p {
+    margin: 0;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    -webkit-line-clamp: 1;
+  }
+
+  .blog-grid .blog-read-more {
+    display: none;
   }
 }

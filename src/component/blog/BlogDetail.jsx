@@ -71,9 +71,11 @@ function BlogDetail() {
       (item) => item.slug !== post.slug && item.category === post.category
     );
 
-    const fallbackRelated = blogs.filter((item) => item.slug !== post.slug);
+    const fallbackRelated = blogs.filter(
+      (item) => item.slug !== post.slug && item.category !== post.category
+    );
 
-    return (sameCategory.length ? sameCategory : fallbackRelated).slice(0, 3);
+    return [...sameCategory, ...fallbackRelated].slice(0, 4);
   }, [blogs, post]);
 
   const shareArticleOnWhatsApp = async () => {
@@ -260,9 +262,11 @@ function BlogDetail() {
 
                 <div className="blog-card-body">
                   <div className="blog-card-meta">
+                    <span>{relatedPost.category}</span>
                     <small>{relatedPost.date}</small>
                   </div>
                   <h3>{relatedPost.title}</h3>
+                  <p>{relatedPost.description || relatedPost.desc}</p>
                   <span className="blog-read-more">
                     Read More <FaArrowRight />
                   </span>
