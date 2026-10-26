@@ -5,7 +5,7 @@ import Home from './component/home/Home';
 import Footer from './component/footer/Footer';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaPhoneAlt } from 'react-icons/fa';
 import About from './pages/about/About';
 import ServicePage from './pages/AllServices/ServicePage';
 import Contact from './pages/contact/Contact';
