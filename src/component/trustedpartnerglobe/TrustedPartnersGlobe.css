@@ -1,0 +1,134 @@
+.video-globe-wrapper {
+position: relative;
+width: 100%;
+min-height: 100vh;
+background-color: #010409;
+color: #ffffff;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+user-select: none;
+font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Top Pills Bar */
+.video-globe-topbar {
+position: relative;
+z-index: 30;
+padding-top: 22px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 14px;
+}
+
+.video-company-pill {
+padding: 7px 20px;
+border-radius: 9999px;
+font-size: 12px;
+font-weight: 600;
+color: #e2e8f0;
+background: rgba(8, 16, 28, 0.82);
+border: 1px solid rgba(255, 255, 255, 0.14);
+backdrop-filter: blur(10px);
+cursor: pointer;
+transition: all 0.25s ease;
+}
+
+.video-company-pill:hover,
+.video-company-pill.active {
+color: #ffffff;
+border-color: rgba(0, 229, 255, 0.65);
+box-shadow: 0 0 18px rgba(0, 229, 255, 0.3);
+}
+
+/* Main 3D Globe Stage */
+.video-globe-stage {
+position: relative;
+width: 100%;
+max-width: 1280px;
+height: 760px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.video-globe-canvas {
+width: 100%;
+height: 100%;
+cursor: grab;
+display: block;
+}
+
+.video-globe-canvas:active {
+cursor: grabbing;
+}
+
+/* Floating 3D Location Badges */
+.video-globe-badges {
+position: absolute;
+inset: 0;
+pointer-events: none;
+z-index: 20;
+}
+
+.video-hub-badge {
+position: absolute;
+top: 0;
+left: 0;
+pointer-events: auto;
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 8px 14px;
+border-radius: 12px;
+background: rgba(7, 16, 30, 0.88);
+border: 1px solid rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(12px);
+box-shadow: 0 8px 28px rgba(0, 0, 0, 0.88);
+will-change: transform, opacity;
+transition: opacity 0.2s ease, border-color 0.2s ease;
+cursor: pointer;
+}
+
+.video-hub-badge:hover {
+border-color: rgba(56, 189, 248, 0.55);
+}
+
+.hub-dot {
+width: 9px;
+height: 9px;
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+.hub-dot.amber {
+background-color: #f59e0b;
+box-shadow: 0 0 10px #f59e0b;
+}
+
+.hub-dot.red {
+background-color: #ef4444;
+box-shadow: 0 0 10px #ef4444;
+}
+
+.hub-title {
+font-size: 12px;
+font-weight: 700;
+color: #ffffff;
+line-height: 1.2;
+}
+
+.hub-sub {
+font-size: 10.5px;
+color: #cbd5e1;
+margin-top: 2px;
+}
+
+.hub-sub strong {
+color: #ffffff;
+font-weight: 600;
+}
+

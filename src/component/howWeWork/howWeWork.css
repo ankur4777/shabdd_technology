@@ -1,0 +1,110 @@
+.how-we-work {
+  width: 100%;
+  background: #ffffff;
+  color: #202023;
+}
+
+.how-we-work__inner {
+  width: min(100% - 32px, 720px);
+  margin: 0 auto;
+  padding: clamp(72px, 8vw, 110px) 0 clamp(82px, 9vw, 126px);
+  text-align: left;
+}
+
+.how-we-work__eyebrow {
+  margin: 0 0 12px;
+  color: #5b6065;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  line-height: 1.2;
+  text-align: left !important;
+}
+
+.how-we-work h2 {
+  max-width: 650px;
+  margin: 0;
+  color: #202023;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.15rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  text-align: left !important;
+}
+
+.how-we-work__underline {
+  width: 374px;
+  max-width: 100%;
+  height: 2px;
+  margin-top: 14px;
+  background: #ff3830;
+}
+
+.how-we-work__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.how-we-work__step {
+  min-width: 0;
+  padding-top: 16px;
+  border-top: 1px solid #242424;
+  text-align: left;
+}
+
+.how-we-work__number {
+  display: block;
+  margin-bottom: 9px;
+  color: #ff3830;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.how-we-work__step h3 {
+  margin: 0 0 7px;
+  color: #29292b;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-align: left;
+}
+
+.how-we-work__step p {
+  margin: 0;
+  color: #565a5e;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 12px !important;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: left;
+}
+
+@media (max-width: 680px) {
+  .how-we-work__inner {
+    padding-top: 64px;
+    padding-bottom: 72px;
+  }
+
+  .how-we-work h2 {
+    font-size: clamp(2.45rem, 11vw, 3.5rem);
+  }
+
+  .how-we-work__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .how-we-work__steps {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,143 @@
+.mysls-module {
+  padding: 96px 32px 88px;
+  background: #f4f5f7;
+  color: #202124;
+  font-family: 'Manrope', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.mysls-module__content {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.mysls-module__eyebrow {
+  margin: 0 0 10px;
+  color: #74787d;
+  font-size: 3px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+}
+
+.mysls-module h2 {
+  margin: 0;
+  color: #1f2023;
+  font-size: clamp(2.15rem, 4vw, 3.15rem);
+  font-weight: 700;
+  letter-spacing: -1.8px;
+  line-height: 1.08;
+}
+
+.mysls-module h2 span {
+  color: #009daf;
+}
+
+.mysls-module__lead {
+  margin: 12px 0 28px;
+  color: #6a6f74;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.mysls-module__dashboard {
+  display: block;
+  width: min(100%, 860px);
+  height: auto;
+  margin: 0 auto 34px;
+  border-radius: 12px;
+  box-shadow: 0 22px 38px rgba(45, 54, 65, 0.16);
+}
+
+.mysls-module__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 16px;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.mysls-module__item {
+  min-height: 92px;
+  padding: 14px 0 16px;
+  border-top: 1px solid #d8d9dc;
+}
+
+.mysls-module__item h3 {
+  margin: 0 0 8px;
+  color: #22252a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.mysls-module__item p {
+  margin: 0;
+  color: #6b7075;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.mysls-module__links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 22px;
+}
+
+.mysls-module__links a {
+  color: #ff3830;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.mysls-module__links a:hover,
+.mysls-module__links a:focus-visible {
+  text-decoration: none;
+}
+
+.mysls-module__links span {
+  display: inline-block;
+  padding-left: 0;
+  font-size: 0;
+  vertical-align: baseline;
+}
+
+.mysls-module__links span::after {
+  content: '\2192';
+  font-size: 12px;
+}
+
+@media (max-width: 620px) {
+  .mysls-module {
+    padding: 64px 18px 56px;
+  }
+
+  .mysls-module__desktop-break {
+    display: none;
+  }
+
+  .mysls-module__grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 480px;
+    gap: 0 18px;
+  }
+
+  .mysls-module__item h3 {
+    font-size: 17px;
+  }
+
+  .mysls-module__item p {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mysls-module__grid {
+    grid-template-columns: 1fr;
+  }
+}
