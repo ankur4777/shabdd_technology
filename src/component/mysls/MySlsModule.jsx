@@ -5,7 +5,7 @@ function MySlsModule() {
     <section className="mysls-module" aria-labelledby="mysls-module-title">
       <div className="mysls-module__content">
         <p className="mysls-module__eyebrow">PLATFORM · MySLS</p>
-        <h2 id="mysls-module-title">100+ modules. One login<span>.</span></h2>
+        <h2 id="mysls-module-title">Multiple modules. One login<span>.</span></h2>
         <p className="mysls-module__lead">
           Admissions, records, fees, a full Learning Hub and auto-grading —
           <br className="mysls-module__desktop-break" /> with an AI assistant on top and compliance checks built in.

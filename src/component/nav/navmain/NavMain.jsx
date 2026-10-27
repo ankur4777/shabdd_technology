@@ -12,6 +12,7 @@ function NavMain(){
     const [isScrolled, setIsScrolled] = useState(false);
     const isHomePage = pathname === '/';
     const showSolidNav = !isHomePage || isScrolled;
+    const isMobileViewport = typeof window !== 'undefined' && window.innerWidth <= 900;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,7 +30,7 @@ function NavMain(){
     return(
         <div className={`full-width ${showSolidNav ? 'nav-scrolled' : ''}`}>
         <div className={`nav-main ${menuOpen ? 'nav-open' : ''} ${showSolidNav ? 'nav-main-scrolled' : ''}` }>
-            <NavLogo isScrolled={showSolidNav} />
+            <NavLogo isScrolled={showSolidNav || isMobileViewport} />
             <button
                 className="nav-menu-toggle"
                 type="button"

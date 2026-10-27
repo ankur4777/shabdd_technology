@@ -1,0 +1,13 @@
+<svg width="368" height="98" viewBox="0 0 368 98" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MY SLS</title>
+  <desc id="desc">MY SLS, Shabdd Learning Solution</desc>
+  <rect x="1.5" y="1.5" width="365" height="95" rx="13" stroke="#F53336" stroke-width="3"/>
+  <path d="M1.5 15.5C1.5 7.768 7.768 1.5 15.5 1.5H69.5C77.232 1.5 83.5 7.768 83.5 15.5V82.5C83.5 90.232 77.232 96.5 69.5 96.5H15.5C7.768 96.5 1.5 90.232 1.5 82.5V15.5Z" fill="#FF3338"/>
+  <path d="M43 19L74 36.5L43 54L12 36.5L43 19Z" fill="white"/>
+  <path d="M23 48.5L43 60L63 48.5V60.5L43 72L23 60.5V48.5Z" fill="white"/>
+  <path d="M63 48V62.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="63" cy="65.5" r="3.5" fill="white"/>
+  <text x="94" y="54" fill="#050505" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="900" letter-spacing="-2">MY</text>
+  <text x="205" y="54" fill="#D82C31" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="900" letter-spacing="-2">SLS</text>
+  <text x="96" y="76" fill="#181818" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">SHABDD LEARNING SOLUTION</text>
+</svg>

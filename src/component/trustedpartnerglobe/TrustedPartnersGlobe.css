@@ -2,22 +2,63 @@
 position: relative;
 width: 100%;
 min-height: 100vh;
+padding-bottom: 40px;
 background-color: #010409;
 color: #ffffff;
 overflow: hidden;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: space-between;
+justify-content: flex-start;
 user-select: none;
 font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+.video-globe-intro {
+position: relative;
+z-index: 30;
+width: min(100% - 32px, 700px);
+margin: 72px auto 0;
+text-align: center;
+}
+
+.video-globe-kicker {
+margin: 0 0 12px;
+color: #a9b3be;
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 0.28em;
+line-height: 1.2;
+}
+
+.video-globe-intro h2 {
+margin: 0;
+color: #f8fafc;
+font-family: Manrope, Arial, sans-serif;
+font-size: clamp(2.8rem, 6vw, 4.7rem);
+font-weight: 800;
+line-height: 0.98;
+letter-spacing: -0.06em;
+}
+
+.video-globe-description {
+max-width: 590px;
+margin: 16px auto 0;
+color: #aab4bf;
+font-size: 13px;
+line-height: 1.5;
+}
+
+.video-globe-description strong {
+color: #00e5ff;
+font-weight: 700;
 }
 
 /* Top Pills Bar */
 .video-globe-topbar {
 position: relative;
 z-index: 30;
-padding-top: 22px;
+padding-top: 20px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -48,8 +89,8 @@ box-shadow: 0 0 18px rgba(0, 229, 255, 0.3);
 .video-globe-stage {
 position: relative;
 width: 100%;
-max-width: 1280px;
-height: 760px;
+max-width: 850px;
+height: 480px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -130,5 +171,19 @@ margin-top: 2px;
 .hub-sub strong {
 color: #ffffff;
 font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .video-globe-intro {
+    margin-top: 48px;
+  }
+
+  .video-globe-description {
+    font-size: 12px;
+  }
+
+  .video-globe-stage {
+    height: 340px;
+  }
 }
 

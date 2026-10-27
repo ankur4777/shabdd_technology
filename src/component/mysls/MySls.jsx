@@ -6,20 +6,19 @@ function MySls() {
       <div className="mysls__intro">
         <p className="mysls__eyebrow">FLAGSHIP PLATFORM</p>
 
-        <div className="mysls__brand" aria-label="ClassTrack">
-          <span className="mysls__brand-mark" aria-hidden="true">
-            <span className="mysls__brand-cap" />
-            <span className="mysls__brand-books" />
-          </span>
-          <span id="mysls-title" className="mysls__brand-name">
-            My<span>SLS</span>
-          </span>
+        <div className="mysls__brand">
+          <img
+            id="mysls-title"
+            className="mysls__brand-logo"
+            src="/mysls/my-sls-logo.svg"
+            alt="MY SLS — Shabdd Learning Solution"
+          />
         </div>
 
         <p className="mysls__description">
           The all-in-one education platform and LMS for
-          <br className="mysls__desktop-break" /> Canadian colleges. Engineered and scaled by us,
-          <br className="mysls__desktop-break" /> delivered across Canada by EduWeb Consulting.
+          <br className="mysls__desktop-break" /> Canadian colleges. Engineered and scaled by us, delivered across Canada by EduWeb Consulting.
+          {/* <br className="mysls__desktop-break" /> delivered across Canada by EduWeb Consulting. */}
         </p>
 
         <div className="mysls__links">
@@ -39,7 +38,7 @@ function MySls() {
       <div className="mysls__showcase" id="mysls-platform">
         <div className="mysls__device mysls__device--profile">
           <img
-            src="/mysls/profile.png"
+            src="/mysls/profile1.webp"
             alt="ClassTrack college admin profile displayed on a laptop"
           />
         </div>

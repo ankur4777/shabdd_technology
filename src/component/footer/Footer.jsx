@@ -36,11 +36,8 @@ function Footer() {
 
                 <div className="footer-column">
                     <h4>CONTACT</h4>
-                    <p className="for-p-tag"><i class="fa-light fa-phone-arrow-right"></i>+91-9543305791  +91-7347673924 </p>
-                    
                     <p className="for-p-tag">+1 (604) 834-0062 </p>
                     <p className="for-p-tag">shabddtechnology@gmail.com</p>
-                    <p className="for-p-tag"><strong>Head Office:</strong> #232, 4th Floor, Street 14, Gulab Vatika, Loni Ghaziabad, 201102</p>
                     <p className="for-p-tag"><strong>Branch Office:</strong>  12342 72A Avenue, Surrey, BC V3W 9J6, Canada</p>
                  
                 </div>

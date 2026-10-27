@@ -8,7 +8,6 @@ import MySls from '../mysls/MySls';
 import MySlsModule from '../mysls/MySlsModule';
 import StartProject from '../startProject/StartProject';
 import HowWeWork from '../howWeWork/HowWeWork';
-import GlobalTeam from '../globalTeam/GlobalTeam';
 import TrustedPartnersGlobe from '../trustedpartnerglobe/TrustedPartnersGlobe';
 
 
@@ -20,13 +19,12 @@ function Home() {
       <Services />
       <MySls />
       <MySlsModule />
-      <StartProject />
-      <HowWeWork />
-      <GlobalTeam />
       <TrustedPartnersGlobe />
+      <HowWeWork />
       <Partner />
       <Reviews />
       <OtherServices />
+      <StartProject />
     </div>
   );
 }

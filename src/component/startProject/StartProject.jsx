@@ -1,13 +1,12 @@
 import React from 'react'
 import { FaArrowRight, FaEnvelope, FaPhoneAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 import './startProject.css'
 
 function StartProject() {
   return (
     <section className="start-project" aria-labelledby="start-project-title">
-      <div className="start-project__orb start-project__orb--cyan" aria-hidden="true" />
-      <div className="start-project__orb start-project__orb--red" aria-hidden="true" />
+      <div className="start-project__wash start-project__wash--left" aria-hidden="true" />
+      <div className="start-project__wash start-project__wash--right" aria-hidden="true" />
 
       <div className="start-project__content">
         <div className="start-project__eyebrow">
@@ -27,23 +26,29 @@ function StartProject() {
         </p>
 
         <div className="start-project__actions">
-          <Link className="start-project__primary" to="/contact">
+          <a
+            className="start-project__primary"
+            href="https://wa.me/16048340062?text=Hello%20Shabdd%20Technology%2C%20I%20want%20to%20start%20a%20project."
+            target="_blank"
+            rel="noreferrer"
+          >
             Start a Project <FaArrowRight aria-hidden="true" />
-          </Link>
+          </a>
         </div>
 
         <div className="start-project__contact-links">
           <a href="mailto:info@shabddtechnology.in">
             <FaEnvelope aria-hidden="true" />
-            info@shabddtechnology.in
+            info@shabddtechnology.ca
           </a>
           <span aria-hidden="true" />
           <a href="tel:+917347673924">
             <FaPhoneAlt aria-hidden="true" />
-            +91 7347673924
+            +1 (604) 834-0062
           </a>
         </div>
       </div>
+
     </section>
   )
 }

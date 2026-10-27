@@ -122,14 +122,14 @@ const HUBS = {
     lat: 22.0,
     lon: 78.5
   },
-  winnipeg: {
-    id: 'winnipeg',
-    name: 'Winnipeg, Canada',
+  sydney: {
+    id: 'sydney',
+    name: 'Sydney, Australia',
     subtitle: 'Global Maple System',
-    timeZone: 'America/Winnipeg',
-    defaultTime: '04:17',
-    lat: 49.89,
-    lon: -97.14
+    timeZone: 'Australia/Sydney',
+    defaultTime: '14:17',
+    lat: -33.87,
+    lon: 151.21
   },
   surrey: {
     id: 'surrey',
@@ -149,7 +149,7 @@ export default function GlobeSection() {
   const canvasRef = useRef(null);
   const badgeRefs = {
     india: useRef(null),
-    winnipeg: useRef(null),
+    sydney: useRef(null),
     surrey: useRef(null)
   };
 
@@ -171,7 +171,7 @@ export default function GlobeSection() {
   const [hoveredHub, setHoveredHub] = useState(null);
   const [clocks, setClocks] = useState({
     india: '14:47',
-    winnipeg: '04:17',
+    sydney: '14:17',
     surrey: '02:17'
   });
 
@@ -230,8 +230,8 @@ export default function GlobeSection() {
 
     const arcs = [
       {
-        id: 'winnipeg',
-        points: build3DArc(HUBS.india, HUBS.winnipeg, 120, 0.27),
+        id: 'sydney',
+        points: build3DArc(HUBS.india, HUBS.sydney, 120, 0.27),
         speed: 0.26,
         offset: 0.0,
         reverseOffset: 0.52,
@@ -257,7 +257,7 @@ export default function GlobeSection() {
 
     const hubVecs = {
       india: latLonToVec3(HUBS.india.lat, HUBS.india.lon, 1),
-      winnipeg: latLonToVec3(HUBS.winnipeg.lat, HUBS.winnipeg.lon, 1),
+      sydney: latLonToVec3(HUBS.sydney.lat, HUBS.sydney.lon, 1),
       surrey: latLonToVec3(HUBS.surrey.lat, HUBS.surrey.lon, 1)
     };
 
@@ -267,7 +267,7 @@ export default function GlobeSection() {
   const handleSelectCompany = (companyId) => {
     const next = activeCompany === companyId ? null : companyId;
     setActiveCompany(next);
-    if (next === 'winnipeg') {
+    if (next === 'sydney') {
       rotRef.current.targetYaw = 0.08;
       rotRef.current.targetPitch = 0.58;
     } else if (next === 'surrey') {
@@ -307,7 +307,7 @@ export default function GlobeSection() {
       const W = rect.width;
       const H = rect.height;
       const cx = W * 0.5;
-      const cy = H * 0.54;
+      const cy = H * 0.48;
       const R = Math.min(W, H) * 0.41;
 
       ctx.clearRect(0, 0, W, H);
@@ -326,12 +326,15 @@ export default function GlobeSection() {
         if (st.targetYaw !== null && blend > 0) {
           st.yaw += (st.targetYaw - st.yaw) * 0.05 * blend;
           st.pitch += (st.targetPitch - st.pitch) * 0.05 * blend;
+
+          if (Math.abs(st.targetYaw - st.yaw) < 0.01) {
+            st.targetYaw = null;
+            st.targetPitch = null;
+          }
         } else if (blend > 0) {
-          st.clock += dt * 0.55;
-          const desiredYaw = BASE_YAW + Math.sin(st.clock) * 0.22;
-          const desiredPitch = BASE_PITCH + Math.cos(st.clock * 0.8) * 0.06;
-          st.yaw += (desiredYaw - st.yaw) * 0.04 * blend;
-          st.pitch += (desiredPitch - st.pitch) * 0.04 * blend;
+          // Continuous 360-degree rotation around the globe.
+          st.yaw += dt * 0.18 * blend;
+          st.pitch += (BASE_PITCH - st.pitch) * 0.025 * blend;
         }
       }
 
@@ -624,13 +627,21 @@ export default function GlobeSection() {
       onTouchMove={handlePointerMove}
       onTouchEnd={handlePointerUp}
     >
+      <div className="video-globe-intro">
+        <p className="video-globe-kicker">CANADA · INDIA · AUSTRALIA</p>
+        <h2>Three countries. One team.</h2>
+        <p className="video-globe-description">
+          Strategy and delivery in Sydney, Australia, with our partner <strong>Global Maple System</strong>; colleges across Canada with <strong>EduWeb Consulting</strong>, our education partner since 2017. Engineering and design across India and Australia. When one office signs off, the other picks it up — so your project moves around the clock.
+        </p>
+      </div>
+
       {/* Top Company Pills */}
       <div className="video-globe-topbar">
         <button
-          onClick={() => handleSelectCompany('winnipeg')}
-          onMouseEnter={() => setHoveredHub('winnipeg')}
+          onClick={() => handleSelectCompany('sydney')}
+          onMouseEnter={() => setHoveredHub('sydney')}
           onMouseLeave={() => setHoveredHub(null)}
-          className={`video-company-pill ${activeCompany === 'winnipeg' ? 'active' : ''}`}
+          className={`video-company-pill ${activeCompany === 'sydney' ? 'active' : ''}`}
         >
           Global Maple System
         </button>
@@ -671,16 +682,16 @@ export default function GlobeSection() {
           </div>
 
           <div
-            ref={badgeRefs.winnipeg}
-            onMouseEnter={() => setHoveredHub('winnipeg')}
+            ref={badgeRefs.sydney}
+            onMouseEnter={() => setHoveredHub('sydney')}
             onMouseLeave={() => setHoveredHub(null)}
             className="video-hub-badge"
           >
             <span className="hub-dot red" />
             <div>
-              <div className="hub-title">Winnipeg, Canada</div>
+              <div className="hub-title">Sydney, Australia</div>
               <div className="hub-sub">
-                Global Maple System • <strong>{clocks.winnipeg}</strong>
+                Global Maple System • <strong>{clocks.sydney}</strong>
               </div>
             </div>
           </div>
