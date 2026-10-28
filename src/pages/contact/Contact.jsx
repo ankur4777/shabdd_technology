@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaEnvelope, FaMapMarkedAlt, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkedAlt, FaPhoneAlt } from 'react-icons/fa'
 import './Contact.css'
 import ContactForm from './ContactForm'
 
@@ -7,17 +7,12 @@ const contactDetails = [
   {
     icon: <FaEnvelope />,
     title: 'Email Address',
-    lines: ['shabddtechnology@gmail.com'],
+    lines: ['formshabddtechnology@gmail.com'],
   },
   {
     icon: <FaPhoneAlt />,
     title: 'Phone Number',
-    lines: ['+91-9543305791', '+91-7347673924', "+1 (604) 834-0062"],
-  },
-  {
-    icon: <FaMapMarkerAlt />,
-    title: 'Head Office ',
-    lines: ['#232, 4th Floor, Street 14, Gulab Vatika, Loni Ghaziabad, 201102'],
+    lines: ["+1 (604) 834-0062"],
   },
   {
     icon: <FaMapMarkedAlt/>,

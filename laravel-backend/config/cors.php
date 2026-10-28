@@ -5,8 +5,8 @@ return [
     'allowed_methods' => ['*'],
     'allowed_origins' => [
         'http://localhost:3000',
-        'https://shabddtechnology.in',
-        'https://www.shabddtechnology.in',
+        'https://shabddtechnology.ca',
+        'https://www.shabddtechnology.ca',
     ],
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],

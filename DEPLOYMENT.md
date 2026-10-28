@@ -23,8 +23,8 @@ Install Node dependencies at the project root and Composer dependencies in
 working `.env`.
 
 The root `.env.production` sets the blog API to
-`https://shabddtechnology.in/api` and the contact endpoint to
-`https://shabddtechnology.in/api/contact` for production builds. These are public
+`https://shabddtechnology.ca/api` and the contact endpoint to
+`https://shabddtechnology.ca/api/contact` for production builds. These are public
 URLs, not credentials. Local `.env.production.local` overrides take precedence;
 keep any such overrides aligned with the production domain.
 
@@ -59,7 +59,7 @@ images in a different location need to be transferred separately once.
 
 For scheduled jobs or Artisan commands that write to the public disk, set
 `APP_PUBLIC_PATH` in the **server** backend `.env` to the absolute path of
-`public_html` (for example `/home/account/domains/shabddtechnology.in/public_html`;
+`public_html` (for example `/home/account/domains/shabddtechnology.ca/public_html`;
 replace the account path with the real hosting path).
 The public filesystem disk then uses the same storage directory for CLI and web
 requests. Leave this unset locally.
@@ -69,14 +69,14 @@ Use these values in the server's backend `.env`:
 ```dotenv
 APP_ENV=production
 APP_DEBUG=false
-APP_URL=https://shabddtechnology.in
-APP_STORAGE_URL=https://shabddtechnology.in/storage
+APP_URL=https://shabddtechnology.ca
+APP_STORAGE_URL=https://shabddtechnology.ca/storage
 FILESYSTEM_DISK=public
 ```
 
 Keep the existing `APP_KEY`, database credentials and mail credentials. Backend
 `.env` files are never copied into `build`. The admin login URL is
-`https://shabddtechnology.in/admin/login`.
+`https://shabddtechnology.ca/admin/login`.
 
 Apache/LiteSpeed must support `.htaccess` rewrite rules. `/admin`, `/api`,
 `/livewire` and `/up` are handled by Laravel; other page routes use React.

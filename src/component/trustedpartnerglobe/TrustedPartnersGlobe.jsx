@@ -125,7 +125,7 @@ const HUBS = {
   sydney: {
     id: 'sydney',
     name: 'Sydney, Australia',
-    subtitle: 'Global Maple System',
+    subtitle: 'Shabdd Technology',
     timeZone: 'Australia/Sydney',
     defaultTime: '14:17',
     lat: -33.87,
@@ -134,7 +134,7 @@ const HUBS = {
   surrey: {
     id: 'surrey',
     name: 'Surrey, Canada',
-    subtitle: 'EduWeb Consulting',
+    subtitle: 'ShabddLearningSolution',
     timeZone: 'America/Vancouver',
     defaultTime: '02:17',
     lat: 49.19,
@@ -631,7 +631,7 @@ export default function GlobeSection() {
         <p className="video-globe-kicker">CANADA · INDIA · AUSTRALIA</p>
         <h2>Three countries. One team.</h2>
         <p className="video-globe-description">
-          Strategy and delivery in Sydney, Australia, with our partner <strong>Global Maple System</strong>; colleges across Canada with <strong>EduWeb Consulting</strong>, our education partner since 2017. Engineering and design across India and Australia. When one office signs off, the other picks it up — so your project moves around the clock.
+          Strategy and delivery in Sydney, Australia, with the <strong>Shabdd Technology</strong> team; colleges across Canada with <strong>ShabddLearningSolution</strong>. Engineering and design across India, Canada and Australia. When one office signs off, the other picks it up — so your project moves around the clock.
         </p>
       </div>
 
@@ -643,7 +643,7 @@ export default function GlobeSection() {
           onMouseLeave={() => setHoveredHub(null)}
           className={`video-company-pill ${activeCompany === 'sydney' ? 'active' : ''}`}
         >
-          Global Maple System
+          Shabdd Technology
         </button>
         <button
           onClick={() => handleSelectCompany('surrey')}
@@ -651,7 +651,7 @@ export default function GlobeSection() {
           onMouseLeave={() => setHoveredHub(null)}
           className={`video-company-pill ${activeCompany === 'surrey' ? 'active' : ''}`}
         >
-          EduWeb Consulting
+          ShabddLearningSolution
         </button>
       </div>
 
@@ -676,7 +676,7 @@ export default function GlobeSection() {
             <div>
               <div className="hub-title">Surrey, Canada</div>
               <div className="hub-sub">
-                EduWeb Consulting • <strong>{clocks.surrey}</strong>
+                ShabddLearningSolution • <strong>{clocks.surrey}</strong>
               </div>
             </div>
           </div>
@@ -691,7 +691,7 @@ export default function GlobeSection() {
             <div>
               <div className="hub-title">Sydney, Australia</div>
               <div className="hub-sub">
-                Global Maple System • <strong>{clocks.sydney}</strong>
+                Shabdd Technology • <strong>{clocks.sydney}</strong>
               </div>
             </div>
           </div>

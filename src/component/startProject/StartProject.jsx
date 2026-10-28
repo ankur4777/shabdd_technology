@@ -37,9 +37,9 @@ function StartProject() {
         </div>
 
         <div className="start-project__contact-links">
-          <a href="mailto:info@shabddtechnology.in">
+          <a href="mailto:info@shabddtechnology.ca">
             <FaEnvelope aria-hidden="true" />
-            info@shabddtechnology.ca
+           formshabddtechnology@gmail.com
           </a>
           <span aria-hidden="true" />
           <a href="tel:+917347673924">
