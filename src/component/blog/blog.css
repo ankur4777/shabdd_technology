@@ -306,6 +306,7 @@
 .blog-featured-card {
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
+  margin: 5px;
   overflow: hidden;
   border: 1px solid rgba(21, 17, 63, 0.08);
   border-radius: 8px;
@@ -2447,7 +2448,7 @@
 /* Shared listing and related cards: four desktop columns, three on tablets. */
 .blog-page .blog-grid,
 .blog-page .blog-loading-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
 }
@@ -2468,7 +2469,7 @@
   height: auto;
   min-height: 0;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -2508,6 +2509,23 @@
   padding-top: 8px;
 }
 
+/* Keep featured blog descriptions compact across every viewport. */
+.blog-featured-copy p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.blog-featured-copy h2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
 @media (min-width: 681px) and (max-width: 1100px) {
   .blog-page .blog-grid,
   .blog-page .blog-loading-grid {
@@ -2534,8 +2552,8 @@
 
   .blog-grid .blog-card {
     display: grid;
-    grid-template-columns: 48% minmax(0, 1fr);
-    height: clamp(150px, 34vw, 180px);
+    grid-template-columns: 55% minmax(0, 1fr);
+    height: clamp(auto , 34vw, 180px);
     min-height: 0;
     max-height: none;
   }
