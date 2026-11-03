@@ -2623,3 +2623,57 @@
     display: none;
   }
 }
+
+/* Article sections have no numbered badge or reserved badge column. */
+.blog-detail-content .blog-stage-item {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.blog-detail-content > h2,
+.blog-detail-content > p {
+  width: 100%;
+  margin-left: 0;
+}
+
+.blog-section-content {
+  overflow-wrap: anywhere;
+}
+
+.blog-section-content p + p,
+.blog-section-content ul,
+.blog-section-content ol,
+.blog-section-content blockquote {
+  margin: 10px 0;
+}
+
+.blog-section-content ul,
+.blog-section-content ol {
+  padding-left: 24px;
+}
+
+.blog-section-content ul {
+  list-style: disc;
+}
+
+.blog-section-content ol {
+  list-style: decimal;
+}
+
+.blog-section-content h2 {
+  margin: 16px 0 8px;
+}
+
+.blog-section-content blockquote {
+  border-left: 3px solid var(--blog-red);
+  padding-left: 14px;
+}
+
+.blog-section-content a {
+  color: var(--blog-red);
+  text-decoration: underline;
+}
+
+.blog-section-plain-text {
+  white-space: pre-line;
+}

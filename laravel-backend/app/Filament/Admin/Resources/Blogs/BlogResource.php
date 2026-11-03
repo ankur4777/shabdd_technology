@@ -11,7 +11,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -60,7 +60,9 @@ class BlogResource extends Resource
                         'META ADS' => 'META ADS',
                         'GRAPHIC DESIGNER' => 'GRAPHIC DESIGNER',
                         'YOUTUBE ADS' => 'YOUTUBE ADS',
-                       
+                        'OTHER' => 'OTHER',
+
+
                     ])
                     ->required(),
 
@@ -125,22 +127,19 @@ class BlogResource extends Resource
                     ->default('Passionate about technology, digital marketing, and helping businesses grow through innovative content.')
                     ->columnSpanFull(),
 
-                Repeater::make('content_sections')
-                    ->label('Detail Page Sections')
-                    ->schema([
-                        TextInput::make('heading')
-                            ->label('Subtitle / Section Heading')
-                            ->required(),
-                        Textarea::make('body')
-                            ->label('Section Description')
-                            ->rows(3)
-                            ->required()
-                            ->columnSpanFull(),
+                RichEditor::make('article_content')
+                    ->label('Blog Content')
+                    ->afterStateHydrated(function (RichEditor $component, ?Blog $record): void {
+                        $content = $record?->article_content;
+                        $component->state(filled($content) ? $content : null);
+                    })
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'strike', 'link'],
+                        ['h2', 'h3', 'bulletList', 'orderedList', 'blockquote'],
+                        ['undo', 'redo'],
                     ])
-                    ->defaultItems(2)
-                    ->addActionLabel('Add Section')
-                    ->itemLabel(fn (array $state): ?string => $state['heading'] ?? 'Section')
-                    ->reorderableWithButtons()
+                    ->helperText('Write and format your blog content here.')
+                    ->required()
                     ->columnSpanFull(),
             ]);
     }

@@ -12,7 +12,7 @@ import NotFound from "../../pages/notFound/NotFound";
 import "./blog.css";
 
 const fallbackImage = "/blog/blog-card-banner.jpeg";
-const fallbackAuthorImage = "/blog/1.jpg";
+const fallbackAuthorImage = "/blog/What's DP.webp";
 const linkedInUrl = "https://in.linkedin.com/company/shabdd-innovations";
 
 function BlogDetail() {
@@ -207,10 +207,16 @@ function BlogDetail() {
             <div className="blog-stage-list">
               {contentSections.map((section, index) => (
                 <div className="blog-stage-item" key={`${section.heading}-${index}`}>
-                  <span>{index + 1}</span>
                   <div>
-                    <h3>{section.heading}</h3>
-                    <p>{section.body}</p>
+                    {section.heading && <h3>{section.heading}</h3>}
+                    {section.body_html != null ? (
+                      <div
+                        className="blog-section-content"
+                        dangerouslySetInnerHTML={{ __html: section.body_html }}
+                      />
+                    ) : (
+                      <p className="blog-section-plain-text">{section.body}</p>
+                    )}
                   </div>
                 </div>
               ))}

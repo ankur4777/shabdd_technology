@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,7 +46,16 @@ class BlogController extends Controller
                 'image' => $this->publicUrl($blog->author_image),
                 'bio' => $blog->author_bio,
             ],
-            'content_sections' => $blog->content_sections ?? [],
+            'content_sections' => array_map(static function (array $section): array {
+                $body = (string) ($section['body'] ?? '');
+
+                return [
+                    ...$section,
+                    'body_html' => Str::sanitizeHtml(
+                        $body === strip_tags($body) ? nl2br(e($body)) : $body
+                    ),
+                ];
+            }, $blog->content_sections ?? []),
         ];
     }
 
