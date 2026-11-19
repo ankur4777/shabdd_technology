@@ -9,6 +9,7 @@ import {
   TrendingUp,
   ArrowUpRight,
 } from "lucide-react";
+
 import "./howWeWork.css";
 
 const steps = [

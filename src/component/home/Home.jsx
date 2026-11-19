@@ -11,6 +11,7 @@ import TrustedPartnersGlobe from '../trustedpartnerglobe/TrustedPartnersGlobe';
 import HowWeWork from '../howWeWork/HowWeWork';
 
 
+
 function Home() {
   return (
     <div className="home">
