@@ -21,9 +21,9 @@ function Footer() {
                     <Link to="services/web-application">Web Application</Link>
                     <Link to="services/digital-marketing">Digital Marketing</Link>
                     <Link to="services/seo">SEO</Link>
-                    <Link to="services/meta-ads">Meta ADS</Link>
+                    <Link to="services/meta-ads">Meta Ads</Link>
                     <Link to="services/graphic-designing">Graphic Design</Link>
-                    <Link to="services/youtube-ads">Youtube ADS</Link>
+                    <Link to="services/youtube-ads">YouTube Ads</Link>
                 </div>
 
                 <div className="footer-column">
@@ -47,7 +47,7 @@ function Footer() {
             </div>
 
             <div className="footer-bottom">
-                <div>© 2026 <span><a href="https://shabddinnovations.in/" target="_blank" rel="noopener noreferrer">Shabdd Innovations. </a></span> All rights reserved.</div>
+                <div>© 2026 <span><a href="https://shabddinnovations.in/" target="_blank" rel="noopener noreferrer">Shabdd Innovations </a></span> All rights reserved.</div>
                 <div className="footer-bottom-right">
                     <div className="footer-payment">
                         <Link to="/"><img src="/Payment/amazon-pay.png" alt="Amazon Pay" /></Link>
