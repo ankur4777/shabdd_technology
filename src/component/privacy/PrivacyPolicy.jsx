@@ -50,7 +50,7 @@ const sections = [
     icon: FaShareAlt,
     image: '/privacy/data-sharing.webp',
     summary:
-      'We do not sell your personal data. We may share information only with trusted service providers, technical partners, or legal authorities when required for service delivery, legal compliance, or protection of right.',
+      'We do not sell your personal data. We may share information only with trusted service providers, technical partners, or legal authorities when required for service delivery, legal compliance, or protection of rights.',
   },
   {
     title: 'Data Retention',

@@ -45,7 +45,7 @@ const seoProjects = [
   {
     title: 'THE BTS',
     image: '/Gallery/project-shabdd-lms-clean.png',
-    link: 'https://lms.shabddtravels.in/',
+    link: 'https://shabddlearningsolution.com/',
     className: 'seo-project-bts',
   },
    

@@ -16,14 +16,14 @@ function Footer() {
                 </div>
 
                 <div className="footer-column">
-                    <h4>Service</h4>
+                    <h4>Services</h4>
                     <Link to="services/web-development">Web Development</Link>
                     <Link to="services/web-application">Web Application</Link>
                     <Link to="services/digital-marketing">Digital Marketing</Link>
                     <Link to="services/seo">SEO</Link>
                     <Link to="services/meta-ads">Meta ADS</Link>
-                    <Link to="services/graphic-designing">Graphic Designin</Link>
-                    <Link to="services/youtube-ads">Youtub ADS</Link>
+                    <Link to="services/graphic-designing">Graphic Design</Link>
+                    <Link to="services/youtube-ads">Youtube ADS</Link>
                 </div>
 
                 <div className="footer-column">
@@ -31,7 +31,7 @@ function Footer() {
    
                     <a href="https://shabddinnovations.in/" target="blank">Shabdd Innovations</a>
                     <a href="https://shabddtravels.in/" target="blank">Shabdd Travels</a>
-                    <a href="https://lms.shabddtravels.in/" target="blank">Shabdd Learning Solution</a>
+                    <a href="https://shabddlearningsolution.com/" target="blank">Shabdd Learning Solution</a>
                 </div>
 
                 <div className="footer-column">

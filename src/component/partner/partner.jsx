@@ -54,7 +54,7 @@ function Partner() {
         </div>
 
         <div className="partner-text">
-          <h2>Our Genuine Trusted Partners & Clients</h2>
+          <h2>Our Trusted Partners & Clients</h2>
         </div>
         
       </div>

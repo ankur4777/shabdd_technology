@@ -90,7 +90,7 @@ const projects = [
     title: 'Shabdd LMS',
     description: 'A learning management platform for courses, student progress, lessons and admin insights.',
     image: galleryImage('project-shabdd-lms-clean.png'),
-    url: 'https://lms.shabddtravels.in/',
+    url: 'https://shabddlearningsolution.com/',
     tags: ['LMS', 'Education'],
   },
 ];

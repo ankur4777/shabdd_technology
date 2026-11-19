@@ -6,7 +6,7 @@ function Reviews() {
   const reviews = [
     {
       text: 'Shabdd Technology exceeded our expectations with their top-notch web development services. The team was professional and responsive. Highly recommended.',
-      name: 'Raman Makkar',
+      name: 'Raman Malhotra',
       initials: 'RM',
       tone: 'red',
     },

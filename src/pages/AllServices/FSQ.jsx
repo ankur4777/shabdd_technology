@@ -16,7 +16,7 @@ import {
 const faqItems = [
   {
     question: 'What services does Shabdd Technology offer?',
-    answer: 'Shabdd Technology offers web development, web applications, ERP software solutions, digital marketing, SEO, Meta Ads, graphic designing, YouTube Ads, lead generation, and website maintenance services.',
+    answer: 'Shabdd Technology offers web development, web applications, ERP software solutions, digital marketing, SEO, Meta Ads, graphic design, YouTube Ads, lead generation, and website maintenance services.',
     icon: <FaCode />,
     tone: 'red',
   },
