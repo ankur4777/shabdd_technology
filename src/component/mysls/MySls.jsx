@@ -21,12 +21,6 @@ function MySls() {
           {/* <br className="mysls__desktop-break" /> delivered across Canada by EduWeb Consulting. */}
         </p>
 
-        <div className="mysls__links">
-          <a href="https://mysls.ca/" target="_blank" rel="noreferrer">
-            Visit mysls.ca  <span aria-hidden="true">›</span>
-          </a>
-        </div>
-
         <div className="mysls__badges" aria-label="MySLS platform highlights">
           <span>Proudly Canadian</span>
           <span>100+ modules · one login</span>
