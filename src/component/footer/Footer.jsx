@@ -22,7 +22,7 @@ function Footer() {
                     <Link to="services/digital-marketing">Digital Marketing</Link>
                     <Link to="services/seo">SEO</Link>
                     <Link to="services/meta-ads">Meta Ads</Link>
-                    <Link to="services/graphic-designing">Graphic Design</Link>
+                    <Link to="services/graphic-designing">Graphic Designing</Link>
                     <Link to="services/youtube-ads">YouTube Ads</Link>
                 </div>
 
