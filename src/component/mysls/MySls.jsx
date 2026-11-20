@@ -2,7 +2,7 @@ import './mysls.css';
 
 function MySls() {
   return (
-    <section className="mysls" aria-labelledby="mysls-title">
+    <section className="mysls" aria-labelledby="mysls-title" id="mysls-platform">
       <div className="mysls__intro">
         <p className="mysls__eyebrow">FLAGSHIP PLATFORM</p>
 
@@ -35,7 +35,7 @@ function MySls() {
         </div>
       </div>
 
-      <div className="mysls__showcase" id="mysls-platform">
+      <div className="mysls__showcase">
         <div className="mysls__device mysls__device--profile">
           <img
             src="/mysls/image.webp"
