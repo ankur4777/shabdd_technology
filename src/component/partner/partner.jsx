@@ -38,7 +38,7 @@ function Partner() {
 
   return (
     <div ref={partnerRef} className={`partner ${isVisible ? 'partner-visible' : ''}`}>
-      <img className="partner-bg" src="/allservicetext/divBackground.png" alt="" />
+      <img className="partner-bg" src="/allservicetext/divBackground.png" alt="" loading="lazy" decoding="async" />
       <div className="partner-content">
 
         <div className="partner-logo-wrapper">
@@ -46,7 +46,7 @@ function Partner() {
             {[0, 1].map((group) => (
               <div className="partner-logo-group" key={`logo-group-${group}`} aria-hidden={group === 1}>
                 {marqueeLogos.map((e, index) => (
-                  <img key={`logo-${group}-${index}`} src={e.path} alt={`Partner logo ${index + 1}`} />
+                  <img key={`logo-${group}-${index}`} src={e.path} alt={`Partner logo ${index + 1}`} loading="lazy" decoding="async" />
                 ))}
               </div>
             ))}

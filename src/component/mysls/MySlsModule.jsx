@@ -15,6 +15,8 @@ function MySlsModule() {
           className="mysls-module__dashboard"
           src="/mysls/image (1).webp"
           alt="MySLS modules dashboard showing education platform features"
+          loading="lazy"
+          decoding="async"
         />
 
         <div className="mysls-module__links">

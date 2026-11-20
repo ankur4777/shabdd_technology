@@ -81,7 +81,7 @@ function Services() {
               }}
             >
               <div className="service-icon-box">
-                <img src={e.image} alt="" />
+                <img src={e.image} alt="" loading="lazy" decoding="async" />
               </div>
               <div className="service-card-content">
                 <h3>{e.lable}</h3>

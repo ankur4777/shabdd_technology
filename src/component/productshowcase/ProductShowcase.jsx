@@ -165,6 +165,8 @@ export default function ProductShowcase({
               <img
                 src={chatbotScreenshot}
                 alt="Shabdd TripMate chatbot showing greeting, trip options and a connect-to-support button"
+                loading="lazy"
+                decoding="async"
               />
               <span className="sts-zoom">
                 <Icon name="zoom" size={16} /> View
@@ -180,6 +182,8 @@ export default function ProductShowcase({
                 <img
                   src={dashboardScreenshot}
                   alt="Support agent dashboard with availability, waiting chats, active chats and recent conversations"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="sts-laptop-base" aria-hidden="true" />

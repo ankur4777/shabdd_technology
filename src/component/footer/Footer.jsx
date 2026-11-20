@@ -50,12 +50,12 @@ function Footer() {
                 <div>© 2026 <span><a href="https://shabddinnovations.in/" target="_blank" rel="noopener noreferrer">Shabdd Innovations </a></span> All rights reserved.</div>
                 <div className="footer-bottom-right">
                     <div className="footer-payment">
-                        <Link to="/"><img src="/Payment/amazon-pay.png" alt="Amazon Pay" /></Link>
-                        <Link to="/"><img src="/Payment/mastercard.png" alt="Mastercard" /></Link>
-                        <Link to="/"><img src="/Payment/paypal.png" alt="PayPal" /></Link>
-                        <Link to="/"><img src="/Payment/razorpay.png" alt="Razorpay" /></Link>
-                        <Link to="/"><img src="/Payment/shop-pay.png" alt="Shop Pay" /></Link>
-                         <Link to="/"><img src="/Payment/stripe.png" alt="Stripe" /></Link>
+                        <Link to="/"><img src="/Payment/amazon-pay.png" alt="Amazon Pay" loading="lazy" decoding="async" /></Link>
+                        <Link to="/"><img src="/Payment/mastercard.png" alt="Mastercard" loading="lazy" decoding="async" /></Link>
+                        <Link to="/"><img src="/Payment/paypal.png" alt="PayPal" loading="lazy" decoding="async" /></Link>
+                        <Link to="/"><img src="/Payment/razorpay.png" alt="Razorpay" loading="lazy" decoding="async" /></Link>
+                        <Link to="/"><img src="/Payment/shop-pay.png" alt="Shop Pay" loading="lazy" decoding="async" /></Link>
+                        <Link to="/"><img src="/Payment/stripe.png" alt="Stripe" loading="lazy" decoding="async" /></Link>
                     </div>
                   
                 </div>

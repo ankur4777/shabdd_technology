@@ -12,6 +12,8 @@ function MySls() {
             className="mysls__brand-logo"
             src="/mysls/myslslogo.png"
             alt="MY SLS — Shabdd Learning Solution"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -34,12 +36,16 @@ function MySls() {
           <img
             src="/mysls/image.webp"
             alt="ClassTrack college admin profile displayed on a laptop"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="mysls__device mysls__device--dashboard">
           <img
             src="/mysls/admindashboard.jpeg"
             alt="ClassTrack college admin dashboard"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
