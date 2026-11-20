@@ -13,7 +13,7 @@ function MySlsModule() {
 
         <img
           className="mysls-module__dashboard"
-          src="/mysls/moduledashboard.png"
+          src="/mysls/image (1).webp"
           alt="MySLS modules dashboard showing education platform features"
         />
 

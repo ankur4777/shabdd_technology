@@ -38,7 +38,7 @@ function MySls() {
       <div className="mysls__showcase" id="mysls-platform">
         <div className="mysls__device mysls__device--profile">
           <img
-            src="/mysls/profile1.webp"
+            src="/mysls/image.webp"
             alt="ClassTrack college admin profile displayed on a laptop"
           />
         </div>

@@ -153,17 +153,17 @@
 
 .mysls__device--profile {
   width: 440px;
-  height: 320px;
-  overflow: hidden;
+  height: auto;
+  overflow: visible;
   margin-bottom: 48px;
   filter: drop-shadow(0 18px 16px rgba(53, 66, 80, 0.23));
 }
 
 .mysls__device--profile img {
-  width: 480px;
-  max-width: none;
-  margin: -10px 0 0 -15px;
-  clip-path: inset(25px 35px 26px 35px round 14px 14px 0 0);
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  clip-path: none;
 }
 
 .mysls__device--dashboard {
@@ -213,13 +213,13 @@
 
   .mysls__device--profile {
     width: min(42vw, 440px);
-    height: 30vw;
+    height: auto;
     margin-bottom: 4vw;
   }
 
   .mysls__device--profile img {
-    width: calc(100% + 40px);
-    margin: -1vw 0 0 -1.5vw;
+    width: 100%;
+    margin: 0;
   }
 
   .mysls__device--dashboard {
@@ -242,13 +242,13 @@
 
   .mysls__device--profile {
     width: min(44vw, 440px);
-    height: 31vw;
+    height: auto;
     margin-bottom: 4vw;
   }
 
   .mysls__device--profile img {
-    width: calc(100% + 40px);
-    margin: -1vw 0 0 -1.5vw;
+    width: 100%;
+    margin: 0;
   }
 
   .mysls__device--dashboard {
@@ -294,7 +294,7 @@
     width: 100%;
     max-width: 100%;
     margin: 0;
-    clip-path: inset(18px 20px 22px 20px round 12px 12px 0 0);
+    clip-path: none;
   }
 }
 
