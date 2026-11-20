@@ -25,13 +25,33 @@ function Blog() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(initialVisibleBlogs);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [pagination, setPagination] = useState({ lastPage: 1, total: 0 });
   const [error, setError] = useState("");
   const loadMoreRef = useRef(null);
+  const loadedPagesRef = useRef(new Set());
+  const pagePromisesRef = useRef(new Map());
 
-  useEffect(() => {
-    let ignore = false;
+  const getNextPage = () => {
+    for (let page = 1; page <= pagination.lastPage; page += 1) {
+      if (!loadedPagesRef.current.has(page)) {
+        return page;
+      }
+    }
 
-    fetch(`${API_BASE_URL}/blogs`)
+    return pagination.lastPage + 1;
+  };
+
+  const loadBlogPage = (page) => {
+    if (loadedPagesRef.current.has(page)) {
+      return Promise.resolve();
+    }
+
+    if (pagePromisesRef.current.has(page)) {
+      return pagePromisesRef.current.get(page);
+    }
+
+    const request = fetch(`${API_BASE_URL}/blogs?per_page=${visibleBlogsStep}&page=${page}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Blogs could not be loaded.");
@@ -39,30 +59,53 @@ function Blog() {
 
         return response.json();
       })
-      .then((data) => {
-        if (!ignore) {
-          const sortedBlogs = Array.isArray(data)
-            ? [...data].sort((first, second) => getBlogTimestamp(second) - getBlogTimestamp(first))
-            : [];
+      .then((payload) => {
+        const pageBlogs = Array.isArray(payload) ? payload : payload.data || [];
+        const lastPage = Array.isArray(payload) ? 1 : payload.last_page || 1;
+        const total = Array.isArray(payload) ? pageBlogs.length : payload.total || pageBlogs.length;
 
-          setBlogs(sortedBlogs);
-        }
-      })
-      .catch(() => {
-        if (!ignore) {
-          setError("Blogs load nahi ho pa rahe hain. Please backend API check karein.");
-        }
+        loadedPagesRef.current.add(page);
+        setPagination({ lastPage, total });
+        setBlogs((currentBlogs) => {
+          const mergedBlogs = new Map(currentBlogs.map((blog) => [blog.slug, blog]));
+          pageBlogs.forEach((blog) => mergedBlogs.set(blog.slug, blog));
+
+          return [...mergedBlogs.values()].sort(
+            (first, second) => getBlogTimestamp(second) - getBlogTimestamp(first)
+          );
+        });
       })
       .finally(() => {
-        if (!ignore) {
-          setLoading(false);
-        }
+        pagePromisesRef.current.delete(page);
       });
 
-    return () => {
-      ignore = true;
-    };
+    pagePromisesRef.current.set(page, request);
+    return request;
+  };
+
+  useEffect(() => {
+    loadBlogPage(1)
+      .catch(() => setError("Blogs load nahi ho pa rahe hain. Please backend API check karein."))
+      .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (loading || loadingMore || getNextPage() > pagination.lastPage) {
+      return undefined;
+    }
+
+    const prefetch = () => {
+      loadBlogPage(getNextPage()).catch(() => {});
+    };
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(prefetch, { timeout: 1500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(prefetch, 250);
+    return () => window.clearTimeout(timeoutId);
+  }, [loading, loadingMore, pagination.lastPage, blogs.length]);
 
   const categories = useMemo(() => {
     const blogCategories = blogs
@@ -113,7 +156,30 @@ function Blog() {
 
   const featuredPost = filteredBlogs[slideIndex] || filteredBlogs[0];
   const visibleBlogs = filteredBlogs.slice(0, visibleCount);
-  const hasMoreBlogs = visibleCount < filteredBlogs.length;
+  const hasMorePages = getNextPage() <= pagination.lastPage;
+  const hasMoreBlogs = visibleCount < filteredBlogs.length || hasMorePages;
+
+  const loadMoreBlogs = () => {
+    if (loadingMore) {
+      return;
+    }
+
+    if (visibleCount < filteredBlogs.length) {
+      setVisibleCount((current) => current + visibleBlogsStep);
+      return;
+    }
+
+    const nextPage = getNextPage();
+    if (nextPage > pagination.lastPage) {
+      return;
+    }
+
+    setLoadingMore(true);
+    loadBlogPage(nextPage)
+      .then(() => setVisibleCount((current) => current + visibleBlogsStep))
+      .catch(() => {})
+      .finally(() => setLoadingMore(false));
+  };
 
   useEffect(() => {
     const loadMoreElement = loadMoreRef.current;
@@ -125,9 +191,7 @@ function Blog() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisibleCount((current) =>
-            Math.min(current + visibleBlogsStep, filteredBlogs.length)
-          );
+          loadMoreBlogs();
         }
       },
       {
@@ -138,7 +202,7 @@ function Blog() {
     observer.observe(loadMoreElement);
 
     return () => observer.disconnect();
-  }, [filteredBlogs.length, hasMoreBlogs]);
+  }, [filteredBlogs.length, hasMoreBlogs, loadingMore, pagination.lastPage, visibleCount]);
 
   const goToPreviousSlide = () => {
     if (!filteredBlogs.length) {
@@ -287,8 +351,12 @@ function Blog() {
 
           <div className="blog-heading-side">
             <p>
-              Showing {visibleBlogs.length} of {filteredBlogs.length} database blog
-              {filteredBlogs.length === 1 ? "" : "s"}.
+              Showing {visibleBlogs.length} of {activeCategory === "All Articles" && !searchTerm.trim()
+                ? pagination.total || filteredBlogs.length
+                : filteredBlogs.length} database blog
+              {(activeCategory === "All Articles" && !searchTerm.trim()
+                ? pagination.total
+                : filteredBlogs.length) === 1 ? "" : "s"}.
             </p>
 
             <div className="blog-slider-controls">
@@ -347,7 +415,7 @@ function Blog() {
 
         {hasMoreBlogs && (
           <div className="blog-load-more-sentinel" ref={loadMoreRef}>
-            <span>Loading More blogs...</span>
+            <span>{loadingMore ? "Loading more blogs..." : "Scroll to load more blogs..."}</span>
           </div>
         )}
       </section>

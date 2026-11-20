@@ -31,7 +31,7 @@ function BlogDetail() {
 
     Promise.all([
       fetch(`${API_BASE_URL}/blogs/${slug}`),
-      fetch(`${API_BASE_URL}/blogs`),
+      fetch(`${API_BASE_URL}/blogs?per_page=30`),
     ])
       .then(async ([postResponse, blogsResponse]) => {
         if (!postResponse.ok) {
@@ -40,10 +40,11 @@ function BlogDetail() {
 
         const postData = await postResponse.json();
         const blogsData = blogsResponse.ok ? await blogsResponse.json() : [];
+        const relatedBlogs = Array.isArray(blogsData) ? blogsData : blogsData.data || [];
 
         if (!ignore) {
           setPost(postData);
-          setBlogs(Array.isArray(blogsData) ? blogsData : []);
+          setBlogs(relatedBlogs);
         }
       })
       .catch(() => {

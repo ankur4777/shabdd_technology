@@ -5,18 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
+        $perPage = min(max($request->integer('per_page', 9), 1), 30);
         $blogs = Blog::query()
             ->latest('published_date')
-            ->get()
-            ->map(fn (Blog $blog): array => $this->formatBlog($blog));
+            ->paginate($perPage);
 
-        return response()->json($blogs);
+        return response()->json([
+            'data' => $blogs->getCollection()
+                ->map(fn (Blog $blog): array => $this->formatBlog($blog))
+                ->values(),
+            'current_page' => $blogs->currentPage(),
+            'last_page' => $blogs->lastPage(),
+            'per_page' => $blogs->perPage(),
+            'total' => $blogs->total(),
+        ]);
     }
 
     public function show(string $slug): JsonResponse
