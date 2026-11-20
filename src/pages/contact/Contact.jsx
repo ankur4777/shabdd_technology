@@ -7,7 +7,7 @@ const contactDetails = [
   {
     icon: <FaEnvelope />,
     title: 'Email Address',
-    lines: ['shabddtechnology@gmail.com'],
+    lines: ['info@shabddtechnology.in'],
   },
   {
     icon: <FaPhoneAlt />,

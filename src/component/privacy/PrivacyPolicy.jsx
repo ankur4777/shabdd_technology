@@ -178,9 +178,9 @@ function PrivacyPolicy() {
                   {section.detail && <p>{section.detail}</p>}
                   {section.contact && (
                     <div className="privacy-contact-links">
-                      <a href="mailto:shabddtechnology@gmail.com">
+                      <a href="mailto:info@shabddtechnology.in">
                         <FaEnvelope aria-hidden="true" />
-                        shabddtechnology@gmail.com
+                        info@shabddtechnology.in
                       </a>
                       <a href="tel:+919543305791">
                         <FaPhoneAlt aria-hidden="true" />
